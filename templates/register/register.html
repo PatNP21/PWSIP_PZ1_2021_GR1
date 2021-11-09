@@ -5,7 +5,11 @@
     </head>
     <body>
         Tu bedzie rejestracja
+        <form action = "{% url 'register:registerPage' %}" method = "POST">
+        {% csrf_token %}
         {{form.as_p}}
+        <input type="submit" value = "Zarejestruj" class = 'login-form-field'/>
+        </form>
         <a href = "{% url 'home:homePage' %}">Wróć na stronę startową</a>
     </body>
 </html>
