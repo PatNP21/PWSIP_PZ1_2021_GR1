@@ -7,5 +7,10 @@
         Witam na stronie gównej<br/>
         <a href = "{% url 'register:registerPage' %}">Zarejestruj się!</a><br/>
         <a href = "{% url 'login:loginPage' %}">Zaloguj sie ino roz!</a><br/>
+        {% if register_data %}
+            {% for key, value in register_data.items %}
+                {{key}} : {{value}} 
+            {% endfor %}
+        {% endif %}
     </body>
 </html>

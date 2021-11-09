@@ -22,7 +22,7 @@ class RegisterForm(ModelForm):
             'username' : TextInput(attrs={'class': 'login-form-field'}),
             'password' : PasswordInput(attrs={'class': 'login-form-field'}),
             'email' : EmailInput(attrs={'class': 'login-form-field'}),
-            'DOB' : DateInput(attrs={'class': 'login-form-field'}),
+            'DOB' : DateInput(format=('%d-%m-%Y'), attrs={'class': 'login-form-field', 'type' : 'date'} ),
 
         }
 
