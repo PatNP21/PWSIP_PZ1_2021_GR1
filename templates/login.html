@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action = "" method = "post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class = "login-form-field" value="Zaloguj">
+        </form>
+    </body>
+</html>
