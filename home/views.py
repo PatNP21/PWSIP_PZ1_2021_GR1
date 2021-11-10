@@ -3,9 +3,10 @@ from django.shortcuts import render
 
 
 def homePage(request):
-    register_data = {'user': 'ggg'}
-    if 'temp' in request.session:
-        register_data = {'user': request.session['temp']}
-    return render(request,'home/index.html',{ 'register_data' : register_data
-        
+    user_data = {}
+    if 'loggedin' in request.session:
+        if request.session['loggedin'] == True:
+                user_data = {'user': request.session['loggedas']}
+    return render(request,'home/index.html',{ 
+        'user_data' : user_data
     })

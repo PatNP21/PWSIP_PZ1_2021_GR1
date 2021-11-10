@@ -10,6 +10,7 @@ def registerPage(request):
         
         if form.is_valid():
             request.session['temp'] = form.cleaned_data['username']
+            form.save()
             return redirect('home:homePage')
         else:
             return HttpResponse("UR BAD")
