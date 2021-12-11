@@ -1,0 +1,32 @@
+.App {
+  margin: 0 !important;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#c6dc5d, #e6ce43);
+}
+
+header {
+  width: 100%;
+  height: 13vh;
+}
+
+header > #logo_of_brand {
+  margin-left: 7vw;
+  width: 30vw;
+  height: 100%;
+}
+
+#logo_of_brand > img {
+  width: 100%;
+  height: 90%;
+  margin-top: 1vh;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  height: 6vh;
+  text-align: center;
+  color:blue;
+}

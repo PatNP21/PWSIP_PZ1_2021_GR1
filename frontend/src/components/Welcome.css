@@ -1,0 +1,34 @@
+.plot {
+    width:100%;
+    height:78%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.slogan {
+    width: 100%;
+    height: 40%;
+    line-height:40vh;
+    color: white;
+    text-align: center;
+    font-size: 3em;
+}
+
+.menu_of_buttons {
+    width: 50%;
+    height: 25%;
+    line-height: 20vh;
+    margin: 0 25%;
+}
+
+.menuBtn {
+    width:40%;
+    height:35%;
+    border-radius: 2vh;
+    border: 1px solid lightgray;
+    margin: 1vh 5%;
+    cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
+    background-color: #000080;
+    color: #efefef;
+    font-size: 1.6em;
+}

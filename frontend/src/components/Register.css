@@ -1,0 +1,51 @@
+.registerPanel {
+    width: 50%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.registerPanel > .regInput {
+    width: 60%;
+    height: 8%;
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    border:2px solid lightgray;
+    font-family: 'Titillium Web', sans-serif;
+    background-color: white;
+    font-size: 1.1em;
+}
+
+.regInput > .createPassword {
+    height: 88%;
+    width: 85%;
+    border:none;
+    border-radius: 5px;
+    font-size: 1em;
+    float: left;
+}
+
+.register-icon {
+    font-size: 1.5em;
+    margin-top: 1%;
+    cursor: pointer;
+    float: left;
+}
+
+.registerPanel > .inputRegSub {
+    width: 30%;
+    height: 10%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 3%;
+    border-radius: 2vh;
+    border: 1px solid lightgray;
+    font-family: 'Titillium Web', sans-serif;
+    background-color: #4444d4;
+    color: #efefef;
+    font-size: 1.4em;
+    text-decoration: none !important;
+    cursor: pointer;
+}
