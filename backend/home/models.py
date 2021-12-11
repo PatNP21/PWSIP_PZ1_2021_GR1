@@ -13,6 +13,10 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
+    def changepass(self,password):
+        self.password = password
+
+
 class Session(models.Model):
     sessionid = models.CharField(max_length=30)
     username = models.CharField(max_length=30)

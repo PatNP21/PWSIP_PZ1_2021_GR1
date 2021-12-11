@@ -8,5 +8,8 @@ class LoginSerializer(serializers.ModelSerializer):
             'username',
             'password'
         ]
+
 class IsLoggedInSerializer(serializers.Serializer):
     sessionid = serializers.CharField(max_length = 30)
+
+
