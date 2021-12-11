@@ -23,12 +23,13 @@ def registerPage(request):
                 DOB = serializer.data['DOB'],
                 activated = False
             )
+            code = str(randrange(10000,99999))
             UserActivation.objects.create(
                 username = serializer.data['username'],
-                code = str(randrange(10000,99999))
+                code = code
             )
             subject = "Witaj na drawit"
-            message = "Witaj %s na Draw.it Aby dokonczyc rejestracje zrob to i tamto elo" % serializer.data['username']
+            message = "Witaj %s na Draw.it Kod do rejestracji %s" % (serializer.data['username'],code)
             send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
             print("JA")
             return Response({
