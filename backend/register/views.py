@@ -41,9 +41,24 @@ def changePassword(request):
     if serializer.is_valid():
         sessionid = serializer.data['sessionid']
         oldpass = serializer.data['oldpass']
-
+        newpass = serializer.data['newpass']
         try:
             session = Session.objects.get(sessionid)
-            
+            user = User.objects.get(username__iexact = session.username)
+            if oldpass == user.password:
+                user.changepass(newpass)
+                return Response({
+                    'success': True,
+                    'errors' : "Brak"
+                })
+            else:
+                return Response({
+                    'success': False,
+                    'errors' : "Nieprawidłowe hasło"
+                })
+
         except Session.DoesNotExist:
-            pass
+            return Response({
+                'success': False,
+                'errors' : "Niezalogowany"
+            })

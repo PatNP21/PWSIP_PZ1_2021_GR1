@@ -15,6 +15,24 @@ Zwracam:<br>
 {**errors** : 'Użytkownik istnieje'} - **wiadomo kiedy**<br>
 {**errors** : Nieprawidłowy format} - **kiedy serializer nie przejdzie czyli źle wysłane dane**<br>
 
+## /register/changePassword -- zmiana hasła (POST)
+**(User musi byc zalogowany)** wysyłacie tutaj dane do rejestracji w kolejnosci:
+1. **sessionid**
+2. **starehasło**
+3. **nowehasło**
+
+Zwracam:<br>
+*w przypadku powodzenia*<br>
+**'success'**: True<br>
+**'errors'** : "Brak"<br>
+*w przypadku złego hasła*<br>
+**'success'**: False<br>
+**'errors'** : "Nieprawidłowe hasło"<br>
+*w przypadku niezalogowanego usera*<br>
+**'success'**: False<br>
+**'errors'** : "Niezalogowany"<br>
+
+
 ## /login -- logowanie (POST)
 wysyłacie tutaj dane do logowania w kolejnosci:
 1. username,

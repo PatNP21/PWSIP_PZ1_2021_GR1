@@ -3,6 +3,6 @@ from register.views import registerPage, changePassword
 app_name = 'register'
 urlpatterns = [
     path('', registerPage, name = 'registerPage'),
-    path('/changePassword', changePassword, name = 'changePassword'),
+    path('changePassword/', changePassword, name = 'changePassword'),
 
 ]
