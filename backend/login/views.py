@@ -13,6 +13,11 @@ def loginPage(request):
     if serializer.is_valid():
         try:
             user = User.objects.get(username__iexact = serializer.data['username'], password = serializer.data['password'])
+            if user.activated == False:
+                return Response({
+                'errors': 'Nieaktywowane konto',
+                'login' : False
+                })
             try:
                 session = Session.objects.get(username = user.username)
                 session.delete()

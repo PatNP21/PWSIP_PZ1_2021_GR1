@@ -12,8 +12,11 @@ class RegisterSerializer(serializers.ModelSerializer):
             'lastname',
             'DOB'
         ]
-        
+
 class ChangePasswordSerializer(serializers.Serializer):
     sessionid = serializers.CharField(max_length = 30)
     oldpass = serializers.CharField(max_length = 30)
     newpass = serializers.CharField(max_length = 30)
+
+class ActivateAccSerializer(serializers.Serializer):
+    code = serializers.CharField(max_length = 30)

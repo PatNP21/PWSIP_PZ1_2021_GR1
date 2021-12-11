@@ -33,6 +33,18 @@ Zwracam:<br>
 **'errors'** : "Niezalogowany"<br>
 
 
+## /register/activate -- aktywowanie konta (POST)
+
+ wysyłacie tutaj tylko **kod**
+
+Zwracam:<br>
+*w przypadku powodzenia*<br>
+**'success'**: True<br>
+**'errors'** : "Brak"<br>
+*w przypadku złego kodu*<br>
+**'success'**: False<br>
+**'errors'** : "Podano błędny kod"<br>
+
 ## /login -- logowanie (POST)
 wysyłacie tutaj dane do logowania w kolejnosci:
 1. username,
@@ -47,6 +59,9 @@ Zwracam:<br>
 **sessionid jest do uzycia w kolejnych zapytaniach do API!!!!**<br>
 *W przypadku nieprawidłowych danych*<br>
 **'errors'**: 'Nieprawidłowy login i/lub hasło'<br>
+**'login'** : False<br>
+*W przypadku nieaktywowanego konta*<br>
+**'errors'**: 'Nieaktywowane konto'<br>
 **'login'** : False<br>
 *kiedy serializer nie przejdzie czyli źle wysłane dane*<br>
 **'errors'**: 'Nieprawidłowy format'<br>

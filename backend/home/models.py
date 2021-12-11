@@ -9,13 +9,20 @@ class User(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     DOB = models.DateField()
+    activated = models.BooleanField()
     
     def __str__(self):
         return self.username
 
     def changepass(self,password):
         self.password = password
+    
+    def activateuser(self):
+        self.activated = True
 
+class UserActivation(models.Model):
+    username = models.CharField(max_length=30)
+    code = models.CharField(max_length=30)
 
 class Session(models.Model):
     sessionid = models.CharField(max_length=30)
