@@ -20,3 +20,9 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 class ActivateAccSerializer(serializers.Serializer):
     code = serializers.CharField(max_length = 30)
+
+class PasswordRecoverySerializer(serializers.Serializer):
+    email = serializers.CharField(max_length=100)
+class RecoverSerializer(serializers.Serializer):
+    code = serializers.CharField(max_length = 30)
+    newpass = serializers.CharField(max_length = 30)

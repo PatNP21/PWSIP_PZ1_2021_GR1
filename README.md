@@ -60,6 +60,36 @@ Zwracam:<br>
 **'success'**: False<br>
 **'errors'** : "Podano błędny kod"<br>
 
+## /register/recoverPassword -- odzyskiwanie hasła (etap podania maila konta) (POST)
+
+ wysyłacie tutaj tylko **email**
+
+Zwracam:<br>
+*w przypadku powodzenia*<br>
+**'success'**: True<br>
+**'errors'** : "Brak"<br>
+*w przypadku złego maila*<br>
+**'success'**: False<br>
+**'errors'** : "Podano błędny mail"<br>
+
+**Wysyłam na mail kod**
+
+## /register/recoverPassword/recovery -- odzyskiwania hasła (etap zmiany) (POST)
+
+ wysyłacie tutaj <br>
+ 1. **kod**
+ 2. **newpass**
+
+Zwracam:<br>
+*w przypadku powodzenia*<br>
+**'success'**: True<br>
+**'errors'** : "Brak"<br>
+*w przypadku złego kodu*<br>
+**'success'**: False<br>
+**'errors'** : "Podano błędny kodu"<br>
+
+**Wysyłam na mail kod**
+
 ## /login -- logowanie (POST)
 wysyłacie tutaj dane do logowania w kolejnosci:
 1. username,

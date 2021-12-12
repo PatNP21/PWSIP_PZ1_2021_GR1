@@ -1,6 +1,6 @@
 from random import randrange
 from home.models import User, Session , UserActivation, UserPasswordChange
-from register.serializers import RegisterSerializer, ChangePasswordSerializer, ActivateAccSerializer
+from register.serializers import RegisterSerializer, ChangePasswordSerializer, ActivateAccSerializer, PasswordRecoverySerializer, RecoverSerializer
 from django.core.mail import send_mail
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
@@ -114,6 +114,51 @@ def confirmChange(request):
                 'errors' : "Brak"
             })
         except UserActivation.DoesNotExist:
+            return Response({
+                'success': False,
+                'errors' : "Podano błędny kod"
+            })
+
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def recoverPassword(request):
+    serializer = PasswordRecoverySerializer(data = request.data)
+    if serializer.is_valid():
+        try:
+            email = serializer.data['email']
+            user = User.objects.get(email = email)
+            code = str(randrange(10000,99999))
+            UserPasswordChange.objects.create(username = user.username, newpass = "-1",code = code)
+            subject = "Odzyskiwanie hasła"
+            message = "Kod do odzyskania hasła %s" % code
+            send_mail(subject= subject, message= message, recipient_list= [email], from_email= None),
+            return Response({
+                'success': True,
+                'errors' : "Brak"
+            })
+        except User.DoesNotExist:
+            return Response({
+                'success': False,
+                'errors' : "Podano błędny mail"
+            })
+
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def recovery(request):
+    serializer = RecoverSerializer(data = request.data)
+    if serializer.is_valid():
+        try:
+            code = serializer.data['code']
+            newpass = serializer.data['newpass']
+            recuser = UserPasswordChange.objects.get(code = code)
+            user = User.objects.get(username = recuser.username)
+            user.changepass(newpass)
+            recuser.delete()
+            return Response({
+                'success': True,
+                'errors' : "Brak"
+            })
+        except UserPasswordChange.DoesNotExist:
             return Response({
                 'success': False,
                 'errors' : "Podano błędny kod"
