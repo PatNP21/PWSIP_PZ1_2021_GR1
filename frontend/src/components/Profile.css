@@ -1,0 +1,53 @@
+aside {
+    height:83vh;
+    width: 22%;
+    background: rgba(10, 10, 10, 0.9);
+    margin: 2vh 1vw;
+    opacity:0.6;
+    float: left;
+}
+
+section {
+    float: left;
+    height:83vh;
+    width:60%;
+    border-right: 2px solid black;
+    overflow-y: scroll;
+}
+
+.profileData {
+    width:92%;
+    height:30vh;
+    margin:3%;
+    border:5px solid black;
+    border-radius: 10px;
+    background: rgba(10,10,10, 0.5);
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    border:1px solid black;
+    margin: 2vh auto 1vh auto;
+}
+
+.avatar > img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.username_for_profile {
+    margin: 0 auto;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    width:50%;
+}
+
+.profilePosts {
+    width:92%;
+    margin: 0 auto;
+    min-height: 2vh;
+}

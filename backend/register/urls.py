@@ -7,5 +7,5 @@ urlpatterns = [
     path('activate/', activateAcc, name = 'activateAcc'),
     path('confirmChange/', confirmChange, name = 'confirmChange'),
     path('recoverPassword/', recoverPassword, name = "recoverPassword"),
-    path('recoverPassword/recovery/', recovery)
+    path('recoverPassword/recovery/', recovery , name = "recovery")
 ]

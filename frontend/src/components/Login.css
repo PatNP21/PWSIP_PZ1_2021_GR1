@@ -1,14 +1,22 @@
+.plot {
+    width:50%;
+    height: 70%;
+    padding-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .loginPanel {
-    width: 50%;
-    height: 60%;
-    margin-top: 5vh;
+    width: 100%;
+    height: 100%;
+    padding-top: 5vh;
     margin-left: auto;
     margin-right: auto;
 }
 
 .loginPanel > .inputLog {
     width: 60%;
-    height: 15%;
+    height: 10%;
     margin-top: 7%;
     margin-left: 20%;
     margin-right: 20%;
@@ -33,23 +41,17 @@
     float: left;
 }
 
-.fa-eye {
-    font-size: 2em;
-    margin-top: 2%;
-    cursor: pointer;
-    float: left;
-}
 
 .loginPanel > .inputLogSub {
     width: 30%;
-    height: 15%;
+    height: 10%;
     margin-left: 35%;
     margin-right: 35%;
     margin-top: 3%;
     border-radius: 2vh;
     border: 1px solid lightgray;
     font-family: 'Titillium Web', sans-serif;
-    background-color: #4444d4;
+    background-color: #3a3a58;
     color: #efefef;
     font-size: 1.6em;
     text-decoration: none !important;
@@ -63,6 +65,17 @@
 
 p {
     text-align: center;
+    min-height: 4vh;
+    margin-left: auto; 
+    margin-right: auto;
+    color:white;
+}
+
+.forgottenPasswordLink {
+    text-align: center;
+    min-height: 4vh;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
 }
 

@@ -31,7 +31,6 @@ def registerPage(request):
             subject = "Witaj na drawit"
             message = "Witaj %s na Draw.it Kod do rejestracji %s" % (serializer.data['username'],code)
             send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
-            print("JA")
             return Response({
                 'errors': "Brak"
             })
@@ -141,6 +140,8 @@ def recoverPassword(request):
                 'success': False,
                 'errors' : "Podano błędny mail"
             })
+    else:
+        return Response({"XD":'XD'})
 
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])

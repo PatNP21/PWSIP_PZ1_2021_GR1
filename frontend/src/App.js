@@ -1,6 +1,4 @@
 import './App.css';
-import Draw_it from './Draw_it.png'
-
 import {BrowserRouter as Router, 
         Routes, 
         Link,
@@ -9,24 +7,23 @@ import Welcome from './components/Welcome';
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
+import Profile from './components/Profile'
 import RetrievePassword from './components/RetrievePassword';
+import Main from  './components/Main.js/Main'
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header>
-          <div id="logo_of_brand">
-            <img src={Draw_it}/>
-          </div>
-        </header>
-
+        
         <Routes>
           <Route path="/" element={<Welcome/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/retrievePassword" element={<RetrievePassword/>}/>
+          <Route path="mainContent" element={<Main/>}/>
           <Route path="/home" element={<Home/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
 
         <footer>

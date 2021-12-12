@@ -1,0 +1,25 @@
+.header_btn {
+    right: 20vw;
+    padding:0 1vh;
+    position: fixed;
+    line-height: 4vh;
+    height: 4vh;
+    margin-top:2.5vh;
+    font-family: 'Titillium Web', sans-serif;
+    border-radius: 5px;
+    background-color: #3a3a58;
+    color:white;
+    border:1px solid #efefef;
+}
+
+a {
+    right:10vw;
+    position: fixed;
+    line-height: 9vh;
+    color:white;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+a:visited {
+    color:white;
+}
