@@ -1,7 +1,7 @@
 # PARE INFORMACJI
 Wygląda na to że mam monopol na gałąź main(lol). Prosiłbym aby na gałąź main wrzucał tylko ja (chyba że ktoś ogarnia gita na poziomie ze ogarnia co to jest merge albo pull(ja nie ogarniam xD)). Także proponuje coś takiego zmiany przechodzą do mnie ja to łączę i utrzymuje na main najnowszą wersję. 
 # INSTALACJA
-Backend to backend a front to front xD. Z backendem często potrzebujemy migracje robić. W backend/home prawdopodobnie nie ma folderu migrations(efekty .gitignore ;D) Jak nie ma stwórzcie go. W tym folderze musi się też znajdować plik \_\_init.py__ , on jest pusty ale musi być. Patryk jak bedziesz mógł dodaj jak odpalic front. 
+Backend to backend a front to front xD. Z backendem często potrzebujemy migracje robić. W backend/home prawdopodobnie nie ma folderu migrations(efekty .gitignore ;D) Jak nie ma stwórzcie go. W tym folderze musi się też znajdować plik \_\_init__.py , on jest pusty ale musi być. To samo z każdym folderem w backendzie. **Każdy folder musi mieć \_\_init__.py**(folder migrations niekoniecznie chyba ze mamy tam jakies modele póki co wszystkie modele mamy w backend/home). Jak nie ma to po prostu wrzuccie ten plik do kazdego folderu w backendzie bo wam tego nie odczyta. Pytania PW. Patryk jak bedziesz mógł dodaj jak odpalic front. 
 # TUTAJ WPISUJCIE JAKIE API WAM JEST POTRZEBNE!!
 
 # API DO UŻYCIA DO AXIOSA!!!!
