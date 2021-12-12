@@ -86,9 +86,8 @@ Zwracam:<br>
 **'errors'** : "Brak"<br>
 *w przypadku złego kodu*<br>
 **'success'**: False<br>
-**'errors'** : "Podano błędny kodu"<br>
+**'errors'** : "Podano błędny kod"<br>
 
-**Wysyłam na mail kod**
 
 ## /login -- logowanie (POST)
 wysyłacie tutaj dane do logowania w kolejnosci:
