@@ -1,14 +1,15 @@
 # TUTAJ WPISUJCIE JAKIE API WAM JEST POTRZEBNE!!
 
 # API DO UŻYCIA DO AXIOSA!!!!
-## /register -- rejestracja (POST)
+## WAŻNE JAK CHUJ!!! TO CO WYSYŁACIE DO BACKENDU MA MIEC TAKIE NAZWY ZMIENNYCH JAK PODAŁEM(duże i małe litery MAJĄ! znaczenie) I KOLEJNOŚĆ TAKĄ JAKĄ PODAJE. NIE POMAGAM WIECEJ Z BŁĘDAMI 500 ZE STRONY SERWERA. NAZWY MUSZĄ SIĘ ZGADZAĆ Z POLAMI SERIALIZERA W RAZIE WĄTPLIWOŚĆI PROSZĘ SOBIE SPRAWDZIĆ DLA SEKCJI LOGIN backend/login/serializers.py DLA SEKCJI REGISTER backend/register/serializers.py DLA SEKCJI PROFILES backend/profiles/serializers.py. KURWA W JEGO MAĆ SZLAG JASNY TRAFI KREW NAGŁA ZALEJE GDZIE PINIĄDZE SĄ ZA LAS ... A SORKI NIE TU. TO MA CELOWO BYĆ JAK NAJDŁUŻSZE ABY KAŻDY TO PRZECZYTAŁ BO WAŻNE JAK CHUJ!!!
+## /register/ -- rejestracja (POST)
 wysyłacie tutaj dane do rejestracji w kolejnosci:
-1. username,
-2. password,
-3. email,
-4. firstname,
-5. lastname,
-6. DOB
+1. **username**,
+2. **password**,
+3. **email**,
+4. **firstname**,
+5. **lastname**,
+6. **DOB**
 
 Zwracam:<br> 
 {**errors** : 'Brak'} - **jesli powiodło się<br>**
@@ -17,11 +18,11 @@ Zwracam:<br>
 
 **Wysyłam kod do potwierdzenia na maila!**
 
-## /register/changePassword -- zmiana hasła (POST)
+## /register/changePassword/ -- zmiana hasła (POST)
 **(User musi byc zalogowany)** wysyłacie tutaj dane do rejestracji w kolejnosci:
-1. **sessionid**
-2. **starehasło**
-3. **nowehasło**
+1. **sessionid** - id sesji
+2. **oldpass** - stare hasło
+3. **newpass** - nowe hasło
 
 Zwracam:<br>
 *w przypadku powodzenia*<br>
@@ -36,21 +37,9 @@ Zwracam:<br>
 
 **Wysyłam kod do potwierdzenia na maila!**
 
-## /register/activate -- aktywowanie konta (POST)
+## /register/activate/ -- aktywowanie konta (POST)
 
- wysyłacie tutaj tylko **kod**
-
-Zwracam:<br>
-*w przypadku powodzenia*<br>
-**'success'**: True<br>
-**'errors'** : "Brak"<br>
-*w przypadku złego kodu*<br>
-**'success'**: False<br>
-**'errors'** : "Podano błędny kod"<br>
-
-## /register/confirmChange -- potwierdzenie zmiany hasła (POST)
-
- wysyłacie tutaj tylko **kod**
+ wysyłacie tutaj tylko **code**
 
 Zwracam:<br>
 *w przypadku powodzenia*<br>
@@ -60,7 +49,19 @@ Zwracam:<br>
 **'success'**: False<br>
 **'errors'** : "Podano błędny kod"<br>
 
-## /register/recoverPassword -- odzyskiwanie hasła (etap podania maila konta) (POST)
+## /register/confirmChange/ -- potwierdzenie zmiany hasła (POST)
+
+ wysyłacie tutaj tylko **code**
+
+Zwracam:<br>
+*w przypadku powodzenia*<br>
+**'success'**: True<br>
+**'errors'** : "Brak"<br>
+*w przypadku złego kodu*<br>
+**'success'**: False<br>
+**'errors'** : "Podano błędny kod"<br>
+
+## /register/recoverPassword/ -- odzyskiwanie hasła (etap podania maila konta) (POST)
 
  wysyłacie tutaj tylko **email**
 
@@ -74,10 +75,10 @@ Zwracam:<br>
 
 **Wysyłam na mail kod**
 
-## /register/recoverPassword/recovery -- odzyskiwania hasła (etap zmiany) (POST)
+## /register/recoverPassword/recovery/ -- odzyskiwania hasła (etap zmiany) (POST)
 
  wysyłacie tutaj <br>
- 1. **kod**
+ 1. **code**
  2. **newpass**
 
 Zwracam:<br>
@@ -86,14 +87,13 @@ Zwracam:<br>
 **'errors'** : "Brak"<br>
 *w przypadku złego kodu*<br>
 **'success'**: False<br>
-**'errors'** : "Podano błędny kodu"<br>
+**'errors'** : "Podano błędny kod"<br>
 
-**Wysyłam na mail kod**
 
-## /login -- logowanie (POST)
+## /login/ -- logowanie (POST)
 wysyłacie tutaj dane do logowania w kolejnosci:
-1. username,
-2. password,
+1. **username**,
+2. **password**
 
 Zwracam:<br>
 *W przypadku prawidłowego logowania<br>*
@@ -112,16 +112,16 @@ Zwracam:<br>
 **'errors'**: 'Nieprawidłowy format'<br>
 **'login'** : False<br>
 
-## /login/islogged -- stan zalogowania użytkownika (POST)
+## /login/islogged/ -- stan zalogowania użytkownika (POST)
 **Używajcie tego zawsze kiedy użytkownik musi być zalogowany do jakiej czynnosci!!**<br>
 wysylacie tylko **sessionid** (jak nie ma ciasteczka to wyslijcie w tym miejscu -1)<br>
 Zwracam: {**'loggedin'**: True/False} - wiadomo kiedy<br>
 **Zalogowanemy userowi wydłużcie ciastko do 10 min**<br>
 **Wywalać usera do logowania albo do glownej jak nie jest zalogowany i wyjebac istniejące ciasteczko**
-## /login/logout -- wylogowanie (POST)
+## /login/logout/ -- wylogowanie (POST)
 **(User musi byc zalogowany)** Wysyłacie **sessionid**<br>
 Zwracam: {**'loggedout'**: True}
-## /profile/myprofile -- moj profil (POST)
+## /profile/myprofile/ -- moj profil (POST)
 **(User musi byc zalogowany)** Wysyłacie **sessionid**<br>
 Zwracam:
 1. username,
@@ -129,7 +129,7 @@ Zwracam:
 3. firstname,
 4. lastname,
 5. DOB
-## /profile/<nazwa użytkownika> -- profil użytkownika (GET)
+## /profile/<nazwa użytkownika>/ -- profil użytkownika (GET)
 wysylacie mi **username**<br>
 Zwracam:
 1. username,
