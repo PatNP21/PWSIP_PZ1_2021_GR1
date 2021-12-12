@@ -1,7 +1,11 @@
+# PARE INFORMACJI
+Wygląda na to że mam monopol na gałąź main(lol). Prosiłbym aby na gałąź main wrzucał tylko ja (chyba że ktoś ogarnia gita na poziomie ze ogarnia co to jest merge albo pull(ja nie ogarniam xD)). Także proponuje coś takiego zmiany przechodzą do mnie ja to łączę i utrzymuje na main najnowszą wersję. 
+# INSTALACJA
+Backend to backend a front to front xD. Z backendem często potrzebujemy migracje robić. W backend/home prawdopodobnie nie ma folderu migrations(efekty .gitignore ;D) Jak nie ma stwórzcie go. W tym folderze musi się też znajdować plik \_\_init.py__ , on jest pusty ale musi być. Patryk jak bedziesz mógł dodaj jak odpalic front. 
 # TUTAJ WPISUJCIE JAKIE API WAM JEST POTRZEBNE!!
 
 # API DO UŻYCIA DO AXIOSA!!!!
-## WAŻNE JAK CHUJ!!! TO CO WYSYŁACIE DO BACKENDU MA MIEC TAKIE NAZWY ZMIENNYCH JAK PODAŁEM(duże i małe litery MAJĄ! znaczenie) I KOLEJNOŚĆ TAKĄ JAKĄ PODAJE. NIE POMAGAM WIECEJ Z BŁĘDAMI 500 ZE STRONY SERWERA. NAZWY MUSZĄ SIĘ ZGADZAĆ Z POLAMI SERIALIZERA W RAZIE WĄTPLIWOŚĆI PROSZĘ SOBIE SPRAWDZIĆ DLA SEKCJI LOGIN backend/login/serializers.py DLA SEKCJI REGISTER backend/register/serializers.py DLA SEKCJI PROFILES backend/profiles/serializers.py. KURWA W JEGO MAĆ SZLAG JASNY TRAFI KREW NAGŁA ZALEJE GDZIE PINIĄDZE SĄ ZA LAS ... A SORKI NIE TU. TO MA CELOWO BYĆ JAK NAJDŁUŻSZE ABY KAŻDY TO PRZECZYTAŁ BO WAŻNE JAK CHUJ!!!
+## WAŻNE JAK CHUJ!!! TO CO WYSYŁACIE DO BACKENDU MA MIEC TAKIE NAZWY ZMIENNYCH JAK PODAŁEM(duże i małe litery MAJĄ! znaczenie) I KOLEJNOŚĆ TAKĄ JAKĄ PODAJE.RÓWNIEŻ ADRESY API MUSZĄ KOŃCZYĆ SIĘ / BO WYJEBIE WAM CORS. NIE POMAGAM WIECEJ Z BŁĘDAMI 500 ZE STRONY SERWERA. NAZWY MUSZĄ SIĘ ZGADZAĆ Z POLAMI SERIALIZERA W RAZIE WĄTPLIWOŚĆI PROSZĘ SOBIE SPRAWDZIĆ DLA SEKCJI LOGIN backend/login/serializers.py DLA SEKCJI REGISTER backend/register/serializers.py DLA SEKCJI PROFILES backend/profiles/serializers.py. KURWA W JEGO MAĆ SZLAG JASNY TRAFI KREW NAGŁA ZALEJE GDZIE PINIĄDZE SĄ ZA LAS ... A SORKI NIE TU. TO MA CELOWO BYĆ JAK NAJDŁUŻSZE ABY KAŻDY TO PRZECZYTAŁ BO WAŻNE JAK CHUJ!!!
 ## /register/ -- rejestracja (POST)
 wysyłacie tutaj dane do rejestracji w kolejnosci:
 1. **username**,
