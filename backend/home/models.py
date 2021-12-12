@@ -40,3 +40,8 @@ class Session(models.Model):
             return False
     def extend(self):
         self.expires = datetime.now()+timedelta(minutes=10)
+
+class UserPasswordChange(models.Model):
+    username = models.CharField(max_length=30)
+    newpass = models.CharField(max_length=30)
+    code = models.CharField(max_length=30)

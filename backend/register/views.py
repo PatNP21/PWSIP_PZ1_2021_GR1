@@ -1,5 +1,5 @@
 from random import randrange
-from home.models import User, Session , UserActivation
+from home.models import User, Session , UserActivation, UserPasswordChange
 from register.serializers import RegisterSerializer, ChangePasswordSerializer, ActivateAccSerializer
 from django.core.mail import send_mail
 from rest_framework.response import Response
@@ -56,7 +56,11 @@ def changePassword(request):
             session = Session.objects.get(sessionid)
             user = User.objects.get(username__iexact = session.username)
             if oldpass == user.password:
-                user.changepass(newpass)
+                code = str(randrange(10000,99999))
+                UserPasswordChange.objects.create(username = user.username, code = code, newpass = newpass)
+                subject = "Zmiana hasłą"
+                message = "Kod do zmiany hasła %s" % code
+                send_mail(subject= subject, message= message, recipient_list= [user.email], from_email= None), 
                 return Response({
                     'success': True,
                     'errors' : "Brak"
@@ -72,6 +76,7 @@ def changePassword(request):
                 'success': False,
                 'errors' : "Niezalogowany"
             })
+
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def activateAcc(request):
@@ -93,3 +98,23 @@ def activateAcc(request):
                 'errors' : "Podano błędny kod"
             })
 
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def confirmChange(request):
+    serializer = ActivateAccSerializer(data = request.data)
+    if serializer.is_valid():
+        code = serializer.data['code']
+        try:
+            actuser = UserPasswordChange.objects.get(code = code)
+            user = User.objects.get(username = actuser.username)
+            user.changepass(actuser.newpass)
+            actuser.delete()
+            return Response({
+                'success': True,
+                'errors' : "Brak"
+            })
+        except UserActivation.DoesNotExist:
+            return Response({
+                'success': False,
+                'errors' : "Podano błędny kod"
+            })

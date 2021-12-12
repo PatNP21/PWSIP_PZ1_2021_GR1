@@ -15,6 +15,8 @@ Zwracam:<br>
 {**errors** : 'Użytkownik istnieje'} - **wiadomo kiedy**<br>
 {**errors** : Nieprawidłowy format} - **kiedy serializer nie przejdzie czyli źle wysłane dane**<br>
 
+**Wysyłam kod do potwierdzenia na maila!**
+
 ## /register/changePassword -- zmiana hasła (POST)
 **(User musi byc zalogowany)** wysyłacie tutaj dane do rejestracji w kolejnosci:
 1. **sessionid**
@@ -32,8 +34,21 @@ Zwracam:<br>
 **'success'**: False<br>
 **'errors'** : "Niezalogowany"<br>
 
+**Wysyłam kod do potwierdzenia na maila!**
 
 ## /register/activate -- aktywowanie konta (POST)
+
+ wysyłacie tutaj tylko **kod**
+
+Zwracam:<br>
+*w przypadku powodzenia*<br>
+**'success'**: True<br>
+**'errors'** : "Brak"<br>
+*w przypadku złego kodu*<br>
+**'success'**: False<br>
+**'errors'** : "Podano błędny kod"<br>
+
+## /register/confirmChange -- potwierdzenie zmiany hasła (POST)
 
  wysyłacie tutaj tylko **kod**
 
