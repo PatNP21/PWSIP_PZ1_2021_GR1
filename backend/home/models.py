@@ -20,6 +20,18 @@ class User(models.Model):
     def activateuser(self):
         self.activated = True
 
+    def changeemail(self,email):
+        self.email = email
+    
+    def changefirstname(self,firstname):
+        self.firstname = firstname
+
+    def changelastname(self,lastname):
+        self.lastname = lastname
+
+    def changedob(self,dob):
+        self.DOB = dob
+
 class UserActivation(models.Model):
     username = models.CharField(max_length=30)
     code = models.CharField(max_length=30)
