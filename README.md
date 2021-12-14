@@ -141,4 +141,4 @@ Zwracam:
 3. lastname,
 ## /home/userscount/ -- licznik zarejestrowanych użytkowników (GET)
 Zwracam:
-1.**count**
+1. **count**
