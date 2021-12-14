@@ -75,6 +75,11 @@ def changePassword(request):
                 'success': False,
                 'errors' : "Niezalogowany"
             })
+    else:
+        return Response({
+            'success': False,
+            'errors' : "Nieprawidłowy format"
+        })
 
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
@@ -117,7 +122,7 @@ def confirmChange(request):
                 'success': False,
                 'errors' : "Podano błędny kod"
             })
-
+#Komentxd
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def recoverPassword(request):
