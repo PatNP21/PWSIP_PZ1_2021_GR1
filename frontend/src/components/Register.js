@@ -40,21 +40,10 @@ function Register() {
         }
 
         if (checkValidation) {
-            return Axios.post('http://127.0.0.1:8000/register/', {
-                username: username,
-                password: password,
-                email: email,
-                firstname: firstName,
-                lastname: lastName,
-                DOB: DOB,
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(res => 
-                console.log('New user has just been registered!')
-            ).then(() => 
-                navigate('/home')
-            ).catch(err => console.log(err))
+            return Axios.get('http://127.0.0.1:8000/home/userscount/'
+            ).then(res => 
+                console.log(res.count)
+            )
         }
 
     }

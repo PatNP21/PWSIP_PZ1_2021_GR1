@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.db.models.query import QuerySet
+from home.models import User
+from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
+from rest_framework.decorators import api_view, renderer_classes
 # Create your views here.
 
-def homePage(request):
-    user_data = {}
-    if 'loggedin' in request.session:
-        if request.session['loggedin'] == True:
-                user_data = {'user': request.session['loggedas']}
-    return render(request,'home/index.html',{ 
-        'user_data' : user_data
+@api_view(['GET'])
+@renderer_classes([JSONRenderer])
+def RegisteredUserCount(request):
+    users = User.objects.all().count()
+    print(users)
+    return Response({
+        "count": users
     })
+    
+
+    
