@@ -1,7 +1,8 @@
 from home.models import User, Session
 from random import randrange
-from datetime import datetime, timedelta
+from datetime import timedelta
 from login.serializers import LoginSerializer, IsLoggedInSerializer
+from django.utils import timezone
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes
@@ -24,7 +25,7 @@ def loginPage(request):
             except Session.DoesNotExist:
                 pass
             sessionid = str(randrange(2000))
-            expires = datetime.now()+ timedelta(minutes=10)
+            expires = timezone.now()+ timedelta(minutes=10)
             Session.objects.create(sessionid = sessionid, username = user.username, expires = expires)
             return Response({
                 'errors' : "Brak",
@@ -67,6 +68,7 @@ def isloggedin(request):
         return Response({
             "errors" : "DAAA"
         })
+
 @api_view(["POST"])
 @renderer_classes([JSONRenderer])
 def logout(request):

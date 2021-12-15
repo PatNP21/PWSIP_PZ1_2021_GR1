@@ -20,7 +20,7 @@ def registerPage(request):
                 email = serializer.data['email'],
                 firstname = serializer.data['firstname'],
                 lastname = serializer.data['lastname'],
-                DOB = serializer.data['DOB'],
+                dateofbirth = serializer.data['dateofbirth'],
                 activated = False
             )
             code = str(randrange(10000,99999))
@@ -30,7 +30,7 @@ def registerPage(request):
             )
             subject = "Witaj na drawit"
             message = "Witaj %s na Draw.it Kod do rejestracji %s" % (serializer.data['username'],code)
-            send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
+            #send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
             return Response({
                 'errors': "Brak"
             })
@@ -52,14 +52,14 @@ def changePassword(request):
         oldpass = serializer.data['oldpass']
         newpass = serializer.data['newpass']
         try:
-            session = Session.objects.get(sessionid)
+            session = Session.objects.get(sessionid = sessionid)
             user = User.objects.get(username__iexact = session.username)
             if oldpass == user.password:
                 code = str(randrange(10000,99999))
                 UserPasswordChange.objects.create(username = user.username, code = code, newpass = newpass)
                 subject = "Zmiana hasłą"
                 message = "Kod do zmiany hasła %s" % code
-                send_mail(subject= subject, message= message, recipient_list= [user.email], from_email= None), 
+                #send_mail(subject= subject, message= message, recipient_list= [user.email], from_email= None), 
                 return Response({
                     'success': True,
                     'errors' : "Brak"
@@ -122,7 +122,7 @@ def confirmChange(request):
                 'success': False,
                 'errors' : "Podano błędny kod"
             })
-#Komentxd
+
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def recoverPassword(request):
@@ -135,7 +135,7 @@ def recoverPassword(request):
             UserPasswordChange.objects.create(username = user.username, newpass = "-1",code = code)
             subject = "Odzyskiwanie hasła"
             message = "Kod do odzyskania hasła %s" % code
-            send_mail(subject= subject, message= message, recipient_list= [email], from_email= None),
+            #send_mail(subject= subject, message= message, recipient_list= [email], from_email= None),
             return Response({
                 'success': True,
                 'errors' : "Brak"

@@ -13,13 +13,17 @@ def myprofile(request):
     if serializer.is_valid():
         try:
             session = Session.objects.get(sessionid = serializer.data["sessionid"])
+            if session.isexpired():
+                return Response({
+                'loggedin': False
+                })
             user = User.objects.get(username__iexact = session.username)
             return Response({
                 'username' : user.username,
                 'email' : user.email,
                 'firstname' : user.firstname,
                 'lastname' : user.lastname,
-                'DOB' : user.DOB 
+                'DOB' : user.dateofbirth 
             })
         except Session.DoesNotExist:
             return Response({
@@ -29,6 +33,7 @@ def myprofile(request):
         return Response({
             "errors" : "Internal error"
         })
+
 @api_view(["GET"])
 @renderer_classes([JSONRenderer])
 def profile(request,username):
@@ -52,17 +57,16 @@ def changeprofile(request):
         try:
             sessionid =  serializer.data["sessionid"]
             session = Session.objects.get(sessionid=sessionid)
+            if session.isexpired():
+                return Response({
+                'loggedin': False
+                })
             user = User.objects.get(username__iexact = session.username)
             email = serializer.data["email"]
             firstname = serializer.data["firstname"]
             lastname = serializer.data["lastname"]
-            DOB = serializer.data["DOB"]
-            if email!='':
-                user.changeemail(email)
-            if firstname!='':
-                user.changefirstname(firstname)
-            if lastname!='':
-                user.changelastname(lastname)
+            dateofbirth = serializer.data["DOB"]
+            user.changeprofiledata(email,firstname,lastname,dateofbirth)
             ## OUT OF DATE OF BIRTH YET
             return Response({
                 'errors':"Zmiana pomyślna"
@@ -77,3 +81,5 @@ def changeprofile(request):
         return Response({
             "errors":"Nieprawidlowy format danych"
         })
+
+

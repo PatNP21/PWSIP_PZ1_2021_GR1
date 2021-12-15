@@ -10,7 +10,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             'email',
             'firstname',
             'lastname',
-            'DOB'
+            'dateofbirth'
         ]
 
 class ChangePasswordSerializer(serializers.Serializer):
