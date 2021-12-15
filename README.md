@@ -13,7 +13,7 @@ wysyłacie tutaj dane do rejestracji w kolejnosci:
 3. **email**,
 4. **firstname**,
 5. **lastname**,
-6. **DOB**
+6. **dateofbirth**
 
 Zwracam:<br> 
 {**errors** : 'Brak'} - **jesli powiodło się<br>**
@@ -128,27 +128,30 @@ Zwracam: {**'loggedout'**: True}
 ## /profile/myprofile/ -- moj profil (POST)
 **(User musi byc zalogowany)** Wysyłacie **sessionid**<br>
 Zwracam:
-1. username
-2. email
-3. firstname
-4. lastname
-5. DOB
-## /profile/<nazwa użytkownika>/ -- profil użytkownika (GET)
+1. **username**
+2. **email**
+3. **firstname**
+4. **lastname**
+5. **dateofbirth**
+
+## /profile/get/<nazwa użytkownika>/ -- profil użytkownika (GET)
 wysylacie mi **username**<br>
 Zwracam:
-1. username
-2. firstname
-3. lastname
+1. **username**
+2. **firstname**
+3. **lastname**
+
 ## /home/userscount/ -- licznik zarejestrowanych użytkowników (GET)
 Zwracam:
 1. **count**
-## /profile/changeprofile/ -- zmiana danych uzytkownika (POST)
-Pobieram: 
-1. sessionid
-2. email
-3. firstname
-4. lastname
-5. DOB
 
-Zwracam:
+## /profile/changeprofile/ -- zmiana danych uzytkownika (POST)
+(**User musi być zalogowany!!**)Pobieram: 
+1. **sessionid**
+2. **email**
+3. **firstname**
+4. **lastname**
+5. **dateofbirth**
+
+Zwracam:<br>
 Poklepanie po pleckach, ze wszystko ok, lub kopnę w jajo, ze nie 

@@ -1,7 +1,6 @@
-from rest_framework import serializers
 from profiles.serializers import DataChangeSerializer
 from home.models import User, Session
-from login.serializers import LoginSerializer, IsLoggedInSerializer
+from login.serializers import IsLoggedInSerializer
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes
