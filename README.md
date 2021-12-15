@@ -152,6 +152,6 @@ Zwracam:
 3. **firstname**
 4. **lastname**
 5. **dateofbirth**
-
+**sessionid** wymagane, 2,3,4 mogą być pustymi stringami jak nie chcemy zmieniać, 5 jesli nie chcemy zmieniac wysylac null
 Zwracam:<br>
 Poklepanie po pleckach, ze wszystko ok, lub kopnę w jajo, ze nie 
