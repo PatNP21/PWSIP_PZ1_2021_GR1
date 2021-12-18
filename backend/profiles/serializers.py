@@ -5,5 +5,5 @@ class DataChangeSerializer(serializers.Serializer):
     email = serializers.CharField(max_length=100,allow_blank = True)
     firstname = serializers.CharField(max_length=30, allow_blank = True)
     lastname = serializers.CharField(max_length=30, allow_blank = True)
-    DOB = serializers.DateField(allow_null = True)
+    dateofbirth = serializers.DateField(allow_null = True)
 

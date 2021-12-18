@@ -22,7 +22,7 @@ def myprofile(request):
                 'email' : user.email,
                 'firstname' : user.firstname,
                 'lastname' : user.lastname,
-                'DOB' : user.dateofbirth 
+                'dateofbirth' : user.dateofbirth 
             })
         except Session.DoesNotExist:
             return Response({

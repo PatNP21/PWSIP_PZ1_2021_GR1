@@ -55,6 +55,9 @@ class User(models.Model):
 class UserActivation(models.Model):
     username = models.CharField(max_length=30)
     code = models.CharField(max_length=30)
+     
+    def __str__(self):
+        return self.username
 
 class Session(models.Model):
     sessionid = models.CharField(max_length=30)
@@ -78,3 +81,6 @@ class UserPasswordChange(models.Model):
     username = models.CharField(max_length=30)
     newpass = models.CharField(max_length=30)
     code = models.CharField(max_length=30)
+     
+    def __str__(self):
+        return self.username
