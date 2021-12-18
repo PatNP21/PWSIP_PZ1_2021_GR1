@@ -24,5 +24,5 @@ urlpatterns = [
     path('login/',include('login.urls', namespace = 'login')),
     path('profile/' ,include("profiles.urls", namespace= 'profiles')),
     path('home/', include("home.urls", namespace='home')),
-    path('postss/',include ("posts.urls", namespace='posts')),
+    path('posts/',include ("posts.urls", namespace='posts')),
 ]
