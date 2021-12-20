@@ -9,6 +9,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes
 
 # Create your views here.
+@api_view(["POST"])
+@renderer_classes([JSONRenderer])
 def createpost(request):
     serializer = CreatePostSerializer(data = request.data)
     if serializer.is_valid():
