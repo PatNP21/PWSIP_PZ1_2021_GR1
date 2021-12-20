@@ -9,7 +9,11 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes
 
 # Create your views here.
+<<<<<<< HEAD
 @api_view(["POST"])
+=======
+@api_view(['POST'])
+>>>>>>> b264bb6fdb764e79eaded9e1490ff9458446b7f1
 @renderer_classes([JSONRenderer])
 def createpost(request):
     serializer = CreatePostSerializer(data = request.data)
@@ -40,3 +44,17 @@ def createpost(request):
             return Response({
                 "errors":"User isn't logged in"
             })
+
+@api_view(['GET'])
+@renderer_classes([JSONRenderer])
+def getpost(request,idpost):
+    try:
+        post = Post.objects.get(id = idpost)
+        return Response({
+            ##'post':'post',
+            'content': post.content
+        })
+    except Post.DoesNotExist:
+        return Response({
+            "errors":"Post doesn't exist"
+        })

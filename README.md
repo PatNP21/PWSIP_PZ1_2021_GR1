@@ -155,3 +155,16 @@ Zwracam:
 **sessionid** wymagane, 2,3,4 mogą być pustymi stringami jak nie chcemy zmieniać, 5 jesli nie chcemy zmieniac wysylac null<br>
 Zwracam:<br>
 Poklepanie po pleckach, ze wszystko ok, lub kopnę w jajo, ze nie 
+
+##/posts/createpost/ -- tworzenie posta (POST)
+(**User zalogowany!**)
+Pobieram:
+1. **sessionid**
+2. **title**
+3. **content**
+Zwracam:
+1. **errors** = Brak / User isn't logged in
+
+##/posts/get/[idposta] -- pobieranie posta (GET) [NIESKONCZONE]
+Zwracam:
+1. **Posta** smaczna i prosta
