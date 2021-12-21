@@ -6,13 +6,25 @@ export default class LoginHandler{
     constructor(){}
 
 
-    login(user) {
+    login(username,password) {
         const url = `${API_URL}/login/`;
-        return axios.post(url,user);
+        return axios.post(url,{
+            "username" : username,
+            "password" : password
+        });
     }
-    checkLoginStatus()
+    checkLoginStatus(sessionid)
     {
         const url = `${API_URL}/login/islogged/`;
-        return axios.get(url);
+        return axios.post(url,{
+            "sessionid " : sessionid
+        });
+    }
+    logout(sessionid)
+    {
+        const url = `${API_URL}/login/logout/`;
+        return axios.post(url,{
+            "sessionid " : sessionid
+        });
     }
  }

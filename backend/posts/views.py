@@ -1,4 +1,3 @@
-
 from rest_framework import serializers
 from posts.serializers import CreatePostSerializer
 from home.models import User, Session
@@ -9,11 +8,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes
 
 # Create your views here.
-<<<<<<< HEAD
-@api_view(["POST"])
-=======
 @api_view(['POST'])
->>>>>>> b264bb6fdb764e79eaded9e1490ff9458446b7f1
 @renderer_classes([JSONRenderer])
 def createpost(request):
     serializer = CreatePostSerializer(data = request.data)
