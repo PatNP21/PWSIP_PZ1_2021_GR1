@@ -168,3 +168,14 @@ Zwracam:
 ##/posts/get/[idposta] -- pobieranie posta (GET) [NIESKONCZONE]
 Zwracam:
 1. **Posta** smaczna i prosta
+
+
+
+
+
+
+##FRONTEND
+
+Żeby odpalić frontend na komputerze musicie wejść w folder 'frontend' !!! UWAGA WAŻNE
+Nastęnie używacie komendy "npm start"
+Żeby wyłączyć tryb uzywacie Ctrl+C (skrót klawiszowy)
