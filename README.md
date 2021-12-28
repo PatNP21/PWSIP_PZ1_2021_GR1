@@ -174,7 +174,7 @@ Zwracam:
 
 
 
-##FRONTEND
+<h1>FRONTEND</h1>
 
 Żeby odpalić frontend na komputerze musicie wejść w folder 'frontend' !!! UWAGA WAŻNE
 Nastęnie używacie komendy "npm start"
