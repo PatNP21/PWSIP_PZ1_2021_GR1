@@ -176,6 +176,16 @@ Zwracam:
 
 <h1>FRONTEND</h1>
 
-Żeby odpalić frontend na komputerze musicie wejść w folder 'frontend' !!! UWAGA WAŻNE
-Nastęnie używacie komendy "npm start"
-Żeby wyłączyć tryb uzywacie Ctrl+C (skrót klawiszowy)
+Żeby odpalić frontend na komputerze musicie wejść w folder <b>'frontend'<b> !!! UWAGA WAŻNE<br/>
+Nastęnie używacie komendy "npm start"<br/>
+Żeby wyłączyć tryb uzywacie Ctrl+C (skrót klawiszowy)<br/>
+
+<h3>Podstrony</h3>
+ <ul>
+  <li>Domyślna: home ('/')</li>
+  <li>login ('/login')</li>
+  <li>register ('/register')</li>
+  <li>profile ('/profile')</li>
+  <li>recoverPassword ('/recoverPassword')</li>
+  <li>newPassword ('/newPassword')</li>
+ </ul>
