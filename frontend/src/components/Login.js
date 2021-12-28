@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import './Login.css'
 import LoginHandler from './LoginHandler'
-import Draw_it from './../Draw_it.png'
 
 const loginHandler = new LoginHandler();
 export default class Login extends Component
@@ -21,18 +20,7 @@ export default class Login extends Component
     }
     componentDidMount()
     {
-        /*loginHandler.checkLoginStatus().then((result) =>{
-            console.log(result.data)
-            if (result.data.loggedin == true)
-            {
-                return (<Navigate to =  '/home'/>)
-            }
-            else
-            {
-                console.log("nom")
-            }
-            
-        })*/
+        
     }
     setUsedLogin(param) 
     {
@@ -53,6 +41,19 @@ export default class Login extends Component
                 username: this.state.usedLogin,
                 password: this.state.usedPassword
             })
+            loginHandler.checkLoginStatus().then((result) =>{
+                console.log(result.data)
+                if (result.data.loggedin == true)
+                {
+                    console.log('OK!')
+                    //return (<Navigate to =  '/home'/>)
+                }
+                else
+                {
+                    console.log("nom")
+                }
+                
+            })
             console.log(`ok! ${this.state.usedLogin} ${this.state.usedPassword}`)
             return (<Navigate to="/home"/>)
         } catch(err) {
@@ -68,10 +69,10 @@ export default class Login extends Component
                 <div className="loginPanel">
                     <input className="inputLog login" type="text" placeholder="Login" onChange={(e) => this.setUsedLogin(e.target.value)}/><br/>
                     <input className="inputLog password" type={this.state.type} placeholder="Hasło" onChange={(e) => this.setUsedPassword(e.target.value)}/><br/>
-                    <Link to = "/retrievePassword"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>
+                    <Link to = "/retrievePassword" className="forgottenPasswordLink"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>
                     <button className="inputLogSub" onClick = {this.handleLogin.bind(this)}>Zaloguj się</button><br/>
                     <p>lub</p>
-                    <p>Załóż nowe konto</p>
+                    <Link to="/register"><p>Załóż nowe konto</p></Link>
                 </div>
             </div>
         )

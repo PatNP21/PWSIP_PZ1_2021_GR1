@@ -12,7 +12,7 @@
     border:1px solid #efefef;
 }
 
-a {
+.homeRegLink {
     right:10vw;
     position: fixed;
     line-height: 9vh;

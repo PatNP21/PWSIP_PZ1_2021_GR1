@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import SimpleReactValidator from 'simple-react-validator'
 import Axios from 'axios'
 import './Register.css'
+import RegisterHandler from './RegisterHandler'
+
+const registerHandler = new RegisterHandler()
 
 function Register() {
 
@@ -40,6 +43,7 @@ function Register() {
         }
 
         if (checkValidation) {
+            registerHandler.register(username, password, email, firstName, lastName, DOB)
             return Axios.get('http://127.0.0.1:8000/home/userscount/'
             ).then(res => 
                 console.log(res.count)
