@@ -15,7 +15,7 @@ export default class LoginHandler{
     }
     checkLoginStatus(sessionid)
     {
-        const url = `${API_URL}/login/islogged/`;
+        const url = `${API_URL}/login/loggedin/`;
         return axios.post(url,{
             "sessionid " : sessionid
         });
