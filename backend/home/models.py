@@ -51,7 +51,6 @@ class User(models.Model):
             self.changedob(dateofbirth)
         self.save()
 
-
 class UserActivation(models.Model):
     username = models.CharField(max_length=30)
     code = models.CharField(max_length=30)

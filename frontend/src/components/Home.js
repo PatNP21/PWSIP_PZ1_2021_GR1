@@ -17,6 +17,7 @@ function Home() {
             <header>
                 <Link to="/login"><div class="header_btn">Zaloguj się</div></Link>
                 <Link to="/register" className="homeRegLink"><a>Załóż konto</a></Link>
+                <Link to ="/logout"><a>Wyloguj</a></Link>
             </header>
             <aside>
                 <div id="logo_of_brand">

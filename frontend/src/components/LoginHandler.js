@@ -17,14 +17,14 @@ export default class LoginHandler{
     {
         const url = `${API_URL}/login/loggedin/`;
         return axios.post(url,{
-            "sessionid " : sessionid
+            "sessionid" : sessionid
         });
     }
     logout(sessionid)
     {
         const url = `${API_URL}/login/logout/`;
         return axios.post(url,{
-            "sessionid " : sessionid
+            "sessionid" : sessionid
         });
     }
  }

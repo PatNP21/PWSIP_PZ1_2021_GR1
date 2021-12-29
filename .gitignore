@@ -3,3 +3,4 @@ __pycache__/
 migrations/
 package-lock.json
 package.json
+yarn.lock

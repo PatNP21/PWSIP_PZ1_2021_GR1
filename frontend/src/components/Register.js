@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import SimpleReactValidator from 'simple-react-validator'
 import Axios from 'axios'
 import './Register.css'
+import Cookies from 'universal-cookie'
 import RegisterHandler from './RegisterHandler'
+import LoginHandler from './LoginHandler'
 
+const loginHandler = new LoginHandler()
 const registerHandler = new RegisterHandler()
 
 function Register() {
 
+    const cookies = new Cookies()
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [DOB, setDOB] = useState('')
@@ -19,17 +23,21 @@ function Register() {
 
     const validator = new SimpleReactValidator()
 
-
-    const componentDidMount = () => {
-        Axios.request('/path', {
-            headers: {
-              'Content-Type': null
-            }
-          });
-    }
-
     const navigate = useNavigate()
 
+    const c = cookies.get("sessionId")
+
+    useEffect(() => {
+        if(c)
+        {
+            loginHandler.checkLoginStatus(c.toString()).then((res) =>{
+                if(res.data.loggedin)
+                    navigate('/home')
+                else
+                    cookies.remove("sessionId")
+            })
+        }
+    })
     const registerToSystem = () => {
         const checkValidation = () => {
             if(validator.allValid()) {
@@ -43,11 +51,18 @@ function Register() {
         }
 
         if (checkValidation) {
-            registerHandler.register(username, password, email, firstName, lastName, DOB)
-            return Axios.get('http://127.0.0.1:8000/home/userscount/'
-            ).then(res => 
-                console.log(res.count)
-            )
+            registerHandler.register(username, password, email, firstName, lastName, DOB).then((res) =>
+            {
+                let errors = res.data.errors
+                if (errors == "Brak")
+                {
+                    navigate("/home")
+                }
+                else
+                {
+                    console.log(errors)
+                }
+            })
         }
 
     }
@@ -62,7 +77,7 @@ function Register() {
 
     return (
         <div className="allPage">
-            <div className="plot" onLoad={componentDidMount}>
+            <div className="plot">
                 <div className="registerPanel">
                     <div className="regFormGroup">
                         <input className="regInput" type="text" placeholder="First name" onChange={(e) => setFirstName(e.target.value)}/><br/>

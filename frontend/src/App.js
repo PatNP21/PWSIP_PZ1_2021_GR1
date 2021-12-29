@@ -10,6 +10,7 @@ import Profile from './components/Profile'
 import RetrievePassword from './components/RetrievePassword';
 import Main from  './components/Main.js/Main'
 import NewPassword from './components/NewPassword'
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/home" element={<Home/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/newPassword" element={<NewPassword/>}/>
+          <Route path="/logout" element={<Logout/>}/>
         </Routes>
 
         <footer>
