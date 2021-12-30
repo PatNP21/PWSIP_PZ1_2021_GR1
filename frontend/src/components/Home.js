@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Draw_it from './../Draw_it.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Cookies from 'universal-cookie'
 import countUsers from './HomeHandler'
 import './Home.css'
 
@@ -10,14 +11,22 @@ const getUsersCount = () => {
 
 function Home() {
 
-    getUsersCount()
+    const cookies = new Cookies()
+    const navigate = useNavigate()
+    const c = cookies.get("sessionId")
+    //getUsersCount()
+
+    const logout = () => {
+        navigate('/login')
+        cookies.remove('sessionId')
+    }
 
     return (
         <div>
             <header>
                 <Link to="/login"><div class="header_btn">Zaloguj się</div></Link>
                 <Link to="/register" className="homeRegLink"><a>Załóż konto</a></Link>
-                <Link to ="/logout"><a>Wyloguj</a></Link>
+                <a onClick={logout}>Wyloguj</a>
             </header>
             <aside>
                 <div id="logo_of_brand">
