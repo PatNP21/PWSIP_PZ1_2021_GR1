@@ -4,3 +4,4 @@ migrations/
 package-lock.json
 package.json
 yarn.lock
+settings.py

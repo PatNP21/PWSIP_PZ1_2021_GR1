@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'register',
     'profiles',
     'posts',
+    'friends'
 ]
 
 MIDDLEWARE = [
