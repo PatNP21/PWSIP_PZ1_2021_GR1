@@ -50,7 +50,6 @@ const Login = () => {
                     
                 }
             ).catch(err => console.log(`ERROR: ${err}`))
-            console.log(`ok! ${usedLogin} ${usedPassword}`)
             
         } catch(err) {
             console.log(`Error: ${err}`)

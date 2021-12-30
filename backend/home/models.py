@@ -80,6 +80,14 @@ class UserPasswordChange(models.Model):
     username = models.CharField(max_length=30)
     newpass = models.CharField(max_length=30)
     code = models.CharField(max_length=30)
+    expires = models.DateTimeField()
      
     def __str__(self):
         return self.username
+    
+    def expired(self):
+        if self.expires < timezone.now():
+            self.delete()
+            return True
+        else:
+            return False

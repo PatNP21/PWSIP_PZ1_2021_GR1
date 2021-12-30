@@ -11,7 +11,8 @@ import RetrievePassword from './components/RetrievePassword';
 import Main from  './components/Main.js/Main'
 import NewPassword from './components/NewPassword'
 import Logout from './components/Logout';
-
+import RecoverPassword from './components/RecoverPassword';
+import ActivateAccount from './components/ActivateAccount';
 function App() {
   return (
     <Router>
@@ -27,6 +28,8 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/newPassword" element={<NewPassword/>}/>
           <Route path="/logout" element={<Logout/>}/>
+          <Route path="/recoverPassword/:code" element ={<RecoverPassword/>}></Route>
+          <Route path="/activate/:code" element ={<ActivateAccount/>}></Route>
         </Routes>
 
         <footer>
