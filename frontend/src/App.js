@@ -13,6 +13,7 @@ import NewPassword from './components/NewPassword'
 import Logout from './components/Logout';
 import RecoverPassword from './components/RecoverPassword';
 import ActivateAccount from './components/ActivateAccount';
+import ChangeData from './components/ChangeData';
 function App() {
   return (
     <Router>
@@ -32,6 +33,7 @@ function App() {
           <Route path="/logout" element={<Logout/>}/>
           <Route path="/recoverPassword/:code" element ={<RecoverPassword/>}></Route>
           <Route path="/activate/:code" element ={<ActivateAccount/>}></Route>
+          <Route path="changeData" element={<ChangeData/>}/>
         </Routes>
 
         <footer>

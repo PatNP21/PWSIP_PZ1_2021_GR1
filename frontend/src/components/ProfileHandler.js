@@ -60,16 +60,23 @@ export default class ProfileHandler{
     }
     blockUser(sessionid,username)
     {
-        const url = `${API_URL}/friends/block/${username}/`;
+        const url = `${API_URL}/friends/block/${username}/`
         return axios.post(url,{
             "sessionid" : sessionid,
-        });
+        })
     }
     unblockUser(sessionid,username)
     {
-        const url = `${API_URL}/friends/unblock/${username}/`;
+        const url = `${API_URL}/friends/unblock/${username}/`
         return axios.post(url,{
             "sessionid" : sessionid,
-        });
+        })
     }
+
+    list_of_friends(sessionid) {
+        const URL = `${API_URL}/friends/list/`
+        return axios.post(URL, {
+            "sessionid" : sessionid
+        })
+    } 
  }

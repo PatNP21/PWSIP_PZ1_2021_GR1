@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import './Profile.css'
+import './ChangeData.css'
 import avatar from './../avatar.png'
 import Cookies from 'universal-cookie'
 import Draw_it from './../Draw_it.png'
@@ -10,7 +10,7 @@ import ProfileHandler from './ProfileHandler'
 const loginHandler = new LoginHandler()
 const profileHandler = new ProfileHandler()
 
-function Profile() {
+function ChangeData() {
     const cookies = new Cookies()
     const c = cookies.get("sessionId")
 
@@ -81,20 +81,15 @@ function Profile() {
                 </div>
             </aside>
             <section>
-                <div className="profileData">
-                    <div className="avatar">
-                        <img src={avatar} />
-                    </div>
-                    <div className="username_for_profile">
-                        <h4>{username}</h4>
-                    </div>
-                    <button>Edytuj profil</button>
+                <div className="edit-profile">
+                    <input type="text" placeholder=""/>
+                    <input type="text" placeholder="change first name"/>
+                    <input type="date" placeholder="change first name"/>
                 </div>
-                <div className="profilePosts"></div>
             </section>
             
         </div>
     )
 }
 
-export default Profile
+export default ChangeData

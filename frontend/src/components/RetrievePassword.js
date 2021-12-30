@@ -8,6 +8,7 @@ const registerHandler = new RegisterHandler()
 function RetrievePassword() {
 
     const [usedEmail, setUsedEmail] = useState()
+    const [slogan, setSlogan] = useState(" ")
 
     const resetPasswordOperation = () => {
         try {
@@ -15,7 +16,9 @@ function RetrievePassword() {
                 let status = res.data.success
                 if (status)
                 {
-                    console.log("Daj info na ekranie o tym ze masz link na mailu")
+                    //console.log("Daj info na ekranie o tym ze masz link na mailu")
+                    setSlogan("Sprawdź pocztę e-mail, wysłaliśmy Ci wiadomość z linkiem za pomocą którego odzyskasz hasło!")
+                    
                 }
                 else
                 {
@@ -34,6 +37,7 @@ function RetrievePassword() {
             <h3 className="sentenceRetrieve">Podaj adres e-mail, aby zresetować hasło</h3>
            <input className="retInput" type="text" placeholder="Enter E-mail address" onChange={e => setUsedEmail(e.target.value)}/><br/>
            <button className="inputRetSub" onClick={resetPasswordOperation}>Odzyskaj hasło</button>
+           <h2>{slogan}</h2>
         </div>
     )
 }

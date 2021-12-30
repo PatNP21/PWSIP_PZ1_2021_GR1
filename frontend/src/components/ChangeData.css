@@ -1,0 +1,16 @@
+section {
+    float: left;
+    height:83vh;
+    width:60%;
+    border-right: 2px solid black;
+    overflow-y: scroll;
+}
+
+.edit-profile {
+    width:92%;
+    height:77vh;
+    margin:3%;
+    border:5px solid black;
+    border-radius: 10px;
+    background: rgba(10,10,10, 0.5);
+}
