@@ -30,9 +30,10 @@ def loginPage(request):
             return Response({
                 'errors' : "Brak",
                 'login' : True,
-                'sessionid' : sessionid ,
+                'sessionid' : sessionid,
                 'firstname' : user.firstname,
-                'lastname' : user.lastname
+                'lastname' : user.lastname,
+                'username' : user.username
             })
         except User.DoesNotExist:
             print("Avutalllsa")
