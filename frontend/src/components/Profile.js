@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import './Profile.css'
 import avatar from './../avatar.png'
 import Cookies from 'universal-cookie'
@@ -55,6 +55,7 @@ function Profile() {
         <div className="allPage">
             <header>
                 <div id="logo_of_brand">
+                    <Link to="/home">Wróc do strony głównej</Link>
                 </div>
             </header>
             <aside>
@@ -62,7 +63,9 @@ function Profile() {
                     <img src={Draw_it}/>
                 </div>
                 <div className="values">
-                    Lista statystyk
+                    <ul>
+
+                    </ul>
                 </div>
             </aside>
             <section>
