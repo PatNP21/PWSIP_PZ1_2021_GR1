@@ -28,4 +28,48 @@ export default class ProfileHandler{
             "dateofbirth" : dateofbirth
         });
     }
+
+    // sekcja obslugi przyjacioł
+    requestFriend(sessionid,username)
+    {
+        const url = `${API_URL}/friends/request/${username}/`;
+        return axios.post(url,{
+            "sessionid" : sessionid,
+        });
+    }
+    acceptFriend(sessionid,username)
+    {
+        const url = `${API_URL}/friends/accept/${username}/`;
+        return axios.post(url,{
+            "sessionid" : sessionid,
+        });
+    }
+    denyFriend(sessionid,username)
+    {
+        const url = `${API_URL}/friends/deny/${username}/`;
+        return axios.post(url,{
+            "sessionid" : sessionid,
+        });
+    }
+    removeFriend(sessionid,username)
+    {
+        const url = `${API_URL}/friends/remove/${username}/`;
+        return axios.post(url,{
+            "sessionid" : sessionid,
+        });
+    }
+    blockUser(sessionid,username)
+    {
+        const url = `${API_URL}/friends/block/${username}/`;
+        return axios.post(url,{
+            "sessionid" : sessionid,
+        });
+    }
+    unblockUser(sessionid,username)
+    {
+        const url = `${API_URL}/friends/unblock/${username}/`;
+        return axios.post(url,{
+            "sessionid" : sessionid,
+        });
+    }
  }

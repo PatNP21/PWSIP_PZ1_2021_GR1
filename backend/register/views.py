@@ -3,6 +3,7 @@ from random import randrange
 
 from rest_framework.fields import CreateOnlyDefault
 from home.models import User, Session , UserActivation, UserPasswordChange
+from friends.models import UserFriend
 from register.serializers import RegisterSerializer, ChangePasswordSerializer, ActivateAccSerializer, PasswordRecoverySerializer, RecoverSerializer
 from django.core.mail import send_mail
 from django.utils import timezone
@@ -28,6 +29,11 @@ def registerPage(request):
                 dateofbirth = serializer.data['dateofbirth'],
                 activated = False
             )
+            UserFriend.objects.create(
+                username = serializer.data['username'],
+                friendlist = '',
+                blocklist = ''
+                )
             code = str(randrange(10000,99999))
             domain = "%sactivate/%s" % (front,code)
             UserActivation.objects.create(

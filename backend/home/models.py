@@ -71,8 +71,10 @@ class Session(models.Model):
             self.delete()
             return True
         else:
+            self.extend()
             return False
     def extend(self):
+        print("Session %s extended" % self.sessionid)
         self.expires = timezone.now()+timedelta(minutes=10)
         self.save()
 
