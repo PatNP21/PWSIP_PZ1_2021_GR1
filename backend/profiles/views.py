@@ -36,6 +36,7 @@ def myprofile(request):
 @api_view(["GET"])
 @renderer_classes([JSONRenderer])
 def profile(request,username):
+    print(username)
     try:
         user = User.objects.get(username__iexact = username)
         return Response({

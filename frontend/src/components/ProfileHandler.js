@@ -9,7 +9,7 @@ export default class ProfileHandler{
     myprofile(sessionid) {
         const url = `${API_URL}/profile/myprofile/`;
         return axios.post(url,{
-            "sessionid " : sessionid
+            "sessionid" : sessionid
         });
     }
     getprofilebyusername(username)
@@ -21,7 +21,7 @@ export default class ProfileHandler{
     {
         const url = `${API_URL}/profile/changeprofile/`;
         return axios.post(url,{
-            "sessionid " : sessionid,
+            "sessionid" : sessionid,
             "email" : email,
             "firstname" : firstname,
             "lastname" : lastname,

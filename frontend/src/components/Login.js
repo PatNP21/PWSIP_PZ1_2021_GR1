@@ -36,6 +36,7 @@ const Login = () => {
             loginHandler.login(usedLogin, usedPassword).then(
                 (res) => {
                     let status = res.data.login
+                    console.log(res.data)
                     if (status)
                     {
                         cookies.set('sessionId', res.data.sessionid, { path: '/' })

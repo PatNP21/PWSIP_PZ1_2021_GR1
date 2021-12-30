@@ -25,7 +25,9 @@ function App() {
           <Route path="/retrievePassword" element={<RetrievePassword/>}/>
           <Route path="mainContent" element={<Main/>}/>
           <Route path="/home" element={<Home/>}/>
-          <Route path="/profile:id" element={<Profile/>}/>
+          <Route path="/profile" element={<Profile/>}>
+            <Route path=":userek" element={<Profile/>}/>
+          </Route>
           <Route path="/newPassword" element={<NewPassword/>}/>
           <Route path="/logout" element={<Logout/>}/>
           <Route path="/recoverPassword/:code" element ={<RecoverPassword/>}></Route>
