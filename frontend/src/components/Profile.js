@@ -55,7 +55,7 @@ function Profile() {
         <div className="allPage">
             <header>
                 <div id="logo_of_brand">
-                    <Link to="/home">Wróc do strony głównej</Link>
+                    <Link to="/home" className="preturn">Wróc do strony głównej</Link>
                 </div>
             </header>
             <aside>
