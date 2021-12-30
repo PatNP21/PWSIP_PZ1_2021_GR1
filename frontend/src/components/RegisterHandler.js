@@ -28,6 +28,11 @@ export default class RegisterHandler{
             "newpass": newpass
         })
     }
+    recoveryLink(code)
+    {
+        const url = `${API_URL}/register/recoverPassword/recovery/${code}/`;
+        return axios.post(url)
+    }
     activateAccount(code) {
         const url = `${API_URL}/register/activate/`;
         return axios.post(url,{

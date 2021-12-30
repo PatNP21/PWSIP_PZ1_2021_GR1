@@ -1,17 +1,27 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import RegisterHandler from './RegisterHandler'
 import './RetrievePassword.css'
 
+const registerHandler = new RegisterHandler()
 function RetrievePassword() {
 
     const [usedEmail, setUsedEmail] = useState()
 
     const resetPasswordOperation = () => {
         try {
-            return axios.post('http://localhost:8000/register/recoverPassword/', {
-                email: usedEmail
-            }).then(() => console.log('Passowrd to reset'))
+            registerHandler.passwordRecoverySend(usedEmail).then((res) => {
+                let status = res.data.success
+                if (status)
+                {
+                    console.log("Daj info na ekranie o tym ze masz link na mailu")
+                }
+                else
+                {
+                    console.log(res.data.errors)
+                }
+            })
             .catch(err => console.log(`Error: ${err}`))
         } catch(err) {
             console.log(err)
