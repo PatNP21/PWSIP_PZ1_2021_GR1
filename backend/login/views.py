@@ -60,7 +60,8 @@ def isloggedin(request):
             else:
                 session.extend()
                 return Response({
-                    'loggedin': True
+                    'loggedin': True,
+                    'loggedas' : session.username
                 })
 
         except Session.DoesNotExist:

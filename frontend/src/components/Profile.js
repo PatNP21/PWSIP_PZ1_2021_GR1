@@ -20,29 +20,36 @@ function Profile() {
     const user = useParams()
 
     useEffect((data) => {
+        let loggedas = null;
         loginHandler.checkLoginStatus(String(c)).then(
             (res) => {
                 console.log(res)
-                if (res.data.loggedin && !user.userek) {
-                    profileHandler.myprofile(String(c)).then(
-                        res => {
-                            console.log(res)
-                            setUsername(res.data.username)
-                            user.userek = username
-                        }
-                    )
-                } else if (user.userek) {
-                    setUsername(user.userek)
-                    profileHandler.getprofilebyusername(username).then(
-                        res => {
-                            console.log(res)
-                        }
-                    )
+                if (res.data.loggedin)
+                {
+                    loggedas = res.data.loggedas
                 }
-               
+                    
             }
-        )
-    }, [])
+        ).then(()=>{
+            if(loggedas == null && user.userek == undefined)
+            {
+                console.log('niezalogowany')
+            }
+            else if (loggedas == user.userek || user.userek == undefined)
+            {
+                profileHandler.myprofile(c).then(res => {
+                    console.log(res.data)
+                    setUsername(res.data.username)
+                })
+            }
+            else
+            {
+                profileHandler.getprofilebyusername(user.userek).then(res => {
+                    console.log(res.data)
+                    setUsername(res.data.username)
+                })
+            }
+    })}, [])
 
     return (
         <div className="allPage">
