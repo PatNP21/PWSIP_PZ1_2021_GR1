@@ -7,7 +7,7 @@ export default class ProfileHandler{
 
 
     myprofile(sessionid) {
-        const url = `${API_URL}/login/`;
+        const url = `${API_URL}/profile/myprofile/`;
         return axios.post(url,{
             "sessionid " : sessionid
         });
