@@ -3,6 +3,8 @@ import Draw_it from './../Draw_it.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 import countUsers from './HomeHandler'
+import LoggedHeader from './Headers/LoggedHeader'
+import DefaultHeader from './Headers/DefaultHeader'
 import './Home.css'
 
 const getUsersCount = () => {
@@ -16,18 +18,10 @@ function Home() {
     const c = cookies.get("sessionId")
     //getUsersCount()
 
-    const logout = () => {
-        navigate('/login')
-        cookies.remove('sessionId')
-        console.log('Wylogowano')
-    }
-
     return (
         <div>
             <header>
-                <Link to="/login"><div class="header_btn">Zaloguj się</div></Link>
-                <Link to="/register" className="homeRegLink"><a>Załóż konto</a></Link>
-                <a onClick={logout}>Wyloguj</a>
+                {c ? <LoggedHeader/> : <DefaultHeader/>}
             </header>
             <aside>
                 <div id="logo_of_brand">
