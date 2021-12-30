@@ -19,6 +19,7 @@ function Home() {
     const logout = () => {
         navigate('/login')
         cookies.remove('sessionId')
+        console.log('Wylogowano')
     }
 
     return (

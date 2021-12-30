@@ -25,7 +25,7 @@ function App() {
           <Route path="/retrievePassword" element={<RetrievePassword/>}/>
           <Route path="mainContent" element={<Main/>}/>
           <Route path="/home" element={<Home/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/profile:id" element={<Profile/>}/>
           <Route path="/newPassword" element={<NewPassword/>}/>
           <Route path="/logout" element={<Logout/>}/>
           <Route path="/recoverPassword/:code" element ={<RecoverPassword/>}></Route>
@@ -33,7 +33,7 @@ function App() {
         </Routes>
 
         <footer>
-          <h3>2021 Draw.it All lefts reversed xD</h3>
+          <h3>2022 Draw.it All lefts reversed xD</h3>
         </footer>
       </div>
     </Router>

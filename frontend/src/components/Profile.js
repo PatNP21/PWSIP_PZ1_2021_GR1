@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import './Profile.css'
 import avatar from './../avatar.png'
+import Cookies from 'universal-cookie'
 import Draw_it from './../Draw_it.png'
 
 function Profile() {
 
     const [username, setUsername] = useState()
+    const [usedFirstName, setUsedFirstName] = useState()
+    const [usedLastName, setUsedLastName] = useState()
+    const {  } = useParams()
 
     useEffect(() => {
         setUsername('Leśny dziadek')
