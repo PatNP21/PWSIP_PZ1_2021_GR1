@@ -46,6 +46,11 @@ class UserFriend(models.Model):
         blocklist.pop(blocklist.index(username))
         self.blocklist = '/'.join(blocklist)
         self.save()
+
+    def list(self):
+        return self.friendlist.split('/')
+
+    
     
 
 class FriendRequest(models.Model):

@@ -88,13 +88,13 @@ DATABASES = {
 
         'NAME': 'drawit_server',
 
-        'USER': 'postgres',
+        'USER': 'admin',
 
-        'PASSWORD': '7312',
+        'PASSWORD': 'admin',
 
         'HOST': '127.0.0.1',
 
-        'PORT': '2000',
+        'PORT': '5432',
     }
 }
 

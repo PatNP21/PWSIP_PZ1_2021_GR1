@@ -277,3 +277,34 @@ def unblockUser(request,username):
             'success' : False,
             "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
         })
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def getFriends(request):
+    serializer = FriendRequestSerializer(data = request.data)
+    if serializer.is_valid():
+        try:
+            sessionid = serializer.data['sessionid']
+            session = Session.objects.get(sessionid = sessionid)
+            if session.isexpired():
+                return Response({
+                    'success' : False,
+                    'errors' : 'Niezalogowany'
+                }) 
+            username = session.username
+            friendlist1 = UserFriend.objects.get(username__iexact = username)
+            friendlist = friendlist1.list()
+            return Response({
+                'success' : True,
+                'friends' : friendlist
+            })
+        except Session.DoesNotExist:
+            return Response({
+                    'success' : False,
+                    'errors' : 'Niezalogowany'
+                })
+    else:
+        return Response({
+            'success' : False,
+            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+        })
+
