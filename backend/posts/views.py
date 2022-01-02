@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.fields import empty
 from posts.serializers import CreatePostSerializer
 from login.serializers import IsLoggedInSerializer
 from home.models import User, Session
@@ -31,7 +32,10 @@ def createpost(request):
                 content = content,
                 images = '',
                 publicationdate = publicationdate,
-                visibility = True
+                visibility = True,
+                likeList = '',
+                likeCounter = 0,
+                
             )
             return Response({
                 'errors':'Brak'
@@ -52,7 +56,8 @@ def getpost(request,idpost):
             'author' : post.author,
             'title' : post.title,
             'content': post.content,
-            'publicationdate' : post.publicationdate
+            'publicationdate' : post.publicationdate,
+            'likecounter': post.likeCounter
         })
     except Post.DoesNotExist:
         return Response({
@@ -137,4 +142,36 @@ def deletePost(request,idpost):
                 return Response({
                     "errors":"User isn't logged in"
                 })
+
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def likePost(request,idpost):
+    serializer = IsLoggedInSerializer(data = request.data)
+    if serializer.is_valid():
+        sessionid = serializer.data["sessionid"]
+        try:
+            session = Session.objects.get(sessionid=sessionid)
+            if session.isexpired():
+                return Response({
+                    'loggedin':False
+                })
+            
+            post = Post.objects.get(id = idpost)
+            username = session.username
+            if(post.isLiked(username)):
+                post.removeLike(username)
+            
+            else:            
+                post.addLike(username)
+            
+            return Response({
+                "success": True
+            })
+
+        except Session.DoesNotExist:
+                return Response({
+                    "errors":"User isn't logged in"
+                })
+
+
         
