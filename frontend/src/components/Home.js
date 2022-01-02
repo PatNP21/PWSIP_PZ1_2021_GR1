@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import Draw_it from './../Draw_it.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
@@ -9,6 +10,16 @@ import './Home.css'
 
 const getUsersCount = () => {
     //console.log(countUsers())
+}
+
+
+
+const Post = () => {
+    return (
+        <div className="post">
+            <h1>TU będzie kurrrwa post!</h1>
+        </div>
+    )
 }
 
 function Home() {
@@ -32,6 +43,19 @@ function Home() {
                     Lista statystyk
                 </div>
             </aside>
+            <main className="mainHome">
+                <div className="createAPost">
+                    <input type="text" placeholder="Write a post"/>
+                    <button>Dodaj</button>
+                </div>
+                <div className="profilePosts">
+                    <Post/>
+                    <Post/>
+                    <Post/>
+                    <Post/>
+                </div>
+            </main>
+            
         </div>
     )
 }
