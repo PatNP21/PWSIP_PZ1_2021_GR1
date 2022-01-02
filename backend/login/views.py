@@ -1,4 +1,5 @@
 from home.models import User, Session
+from scripts.generateRandomString import generateRandomString
 from random import randrange
 from datetime import timedelta
 from login.serializers import LoginSerializer, IsLoggedInSerializer
@@ -24,7 +25,7 @@ def loginPage(request):
                 session.delete()
             except Session.DoesNotExist:
                 pass
-            sessionid = str(randrange(2000))
+            sessionid = generateRandomString()
             expires = timezone.now()+ timedelta(minutes=10)
             Session.objects.create(sessionid = sessionid, username = user.username, expires = expires)
             return Response({

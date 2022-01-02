@@ -25,5 +25,6 @@ urlpatterns = [
     path('profile/' ,include("profiles.urls", namespace= 'profiles')),
     path('home/', include("home.urls", namespace='home')),
     path('posts/',include("posts.urls", namespace='posts')),
-    path('friends/',include('friends.urls',namespace='friends'))
+    path('friends/',include('friends.urls',namespace='friends')),
+    path('comments/',include('comments.urls',namespace='comments')),
 ]
