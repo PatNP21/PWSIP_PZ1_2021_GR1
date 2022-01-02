@@ -6,5 +6,7 @@ class CreatePostSerializer(serializers.Serializer):
     sessionid = serializers.CharField(max_length=30)
     title = serializers.CharField(max_length=100)
     content = serializers.CharField(max_length=500)
+
+
     
 
