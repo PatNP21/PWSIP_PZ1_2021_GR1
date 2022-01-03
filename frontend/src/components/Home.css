@@ -80,8 +80,15 @@ aside {
 .post {
     width:50vw;
     height: 20vh;
-    border:1px solid black;
+    background-color: #5c5c7a;
     border-radius: 10px;
     margin-left:5vw;
     margin-top:2vh;
+}
+
+.post h1 {
+    color:white;
+    background-color: #5c5c7a;
+    text-align: center;
+    font-size: 18px;
 }
