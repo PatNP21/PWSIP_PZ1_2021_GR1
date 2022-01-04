@@ -14,6 +14,7 @@ import Logout from './components/Logout';
 import RecoverPassword from './components/RecoverPassword';
 import ActivateAccount from './components/ActivateAccount';
 import ChangeData from './components/ChangeData';
+import Window from './components/Window';
 function App() {
   return (
     <Router>
@@ -34,6 +35,7 @@ function App() {
           <Route path="/recoverPassword/:code" element ={<RecoverPassword/>}></Route>
           <Route path="/activate/:code" element ={<ActivateAccount/>}></Route>
           <Route path="changeData" element={<ChangeData/>}/>
+          <Route path="/window" element={<Window text='haha' width='50' height='200'/>}/>
         </Routes>
 
         <footer>
