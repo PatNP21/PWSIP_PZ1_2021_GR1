@@ -1,4 +1,7 @@
 import classes from "./PostItem.module.css";
+import PostHandler from "./../PostHandler";
+
+const postHandler = new PostHandler()
 
 function PostItem(props) {
   return (
@@ -12,7 +15,9 @@ function PostItem(props) {
         <p>{props.descryption}</p>
       </div>
       <div className={classes.actions}>
-        <button>To Favourites</button>
+        <button onClick={postHandler.getselfPosts.then(data => {
+          console.log(data)
+        })}>To Favourites</button>
       </div>
     </li>
   );
