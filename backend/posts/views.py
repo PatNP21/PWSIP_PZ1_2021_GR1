@@ -46,6 +46,10 @@ def createpost(request):
             return Response({
                 "errors":"User isn't logged in"
             })
+    else:
+        return Response({
+                "errors":"Zjebałeś wysłanie popraw sie kmiotku"
+            })
 
 @api_view(['GET'])
 @renderer_classes([JSONRenderer])

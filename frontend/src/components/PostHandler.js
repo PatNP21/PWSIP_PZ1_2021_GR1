@@ -5,10 +5,12 @@ export default class PostHandler{
 
     constructor(){}
 
-    createPost(sessionid){
+    createPost(sessionid,content){
         const url = `${API_URL}/posts/createpost/`;
         return axios.post(url,{
-            "sessionid": sessionid
+            "sessionid": sessionid,
+            "content" : content,
+            "title" : 'Tutuy'
         })
     }
     getPostbyId(idpost){
