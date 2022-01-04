@@ -7,12 +7,11 @@ import countUsers from './HomeHandler'
 import LoggedHeader from './Headers/LoggedHeader'
 import DefaultHeader from './Headers/DefaultHeader'
 import './Home.css'
-
-const getUsersCount = () => {
-    //console.log(countUsers())
-}
+import Postlist from './PostList/PostList'
+import PostHandler from './PostHandler'
 
 
+const postHandler = new PostHandler()
 
 const Post = () => {
     return (
@@ -28,6 +27,12 @@ function Home() {
     const navigate = useNavigate()
     const c = cookies.get("sessionId")
     //getUsersCount()
+
+    const createAPost = () => {
+        postHandler.createPost(c).then(res => {
+            console.log(res)
+        })
+    }
 
     return (
         <div>
@@ -46,13 +51,10 @@ function Home() {
             <main className="mainHome">
                 <div className="createAPost">
                     <input type="text" placeholder="Write a post"/>
-                    <button>Dodaj</button>
+                    <button onClick={createAPost}>Dodaj</button>
                 </div>
                 <div className="profilePosts">
-                    <Post/>
-                    <Post/>
-                    <Post/>
-                    <Post/>
+                    
                 </div>
             </main>
             
