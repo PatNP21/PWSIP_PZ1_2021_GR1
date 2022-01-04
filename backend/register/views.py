@@ -1,6 +1,6 @@
 from datetime import timedelta
 from random import randrange
-
+from scripts.generateRandomString import generateRandomString
 from rest_framework.fields import CreateOnlyDefault
 from home.models import User, Session , UserActivation, UserPasswordChange
 from friends.models import UserFriend
@@ -34,7 +34,7 @@ def registerPage(request):
                 friendlist = '',
                 blocklist = ''
                 )
-            code = str(randrange(10000,99999))
+            code = generateRandomString()
             domain = "%sactivate/%s" % (front,code)
             UserActivation.objects.create(
                 username = serializer.data['username'],
@@ -68,7 +68,7 @@ def changePassword(request):
             session = Session.objects.get(sessionid = sessionid)
             user = User.objects.get(username__iexact = session.username)
             if oldpass == user.password:
-                code = str(randrange(10000,99999))
+                code = generateRandomString()
                 UserPasswordChange.objects.create(username = user.username, code = code, newpass = newpass)
                 subject = "Zmiana hasłą"
                 message = "Kod do zmiany hasła %s" % code

@@ -23,3 +23,72 @@
 a:visited {
     color:white;
 }
+
+aside {
+    float: left;
+}
+
+.mainHome {
+    float: left;
+    margin-top: 2vh;
+}
+
+.createAPost {
+    background-color: #3a3a58;
+    border-radius: 10px;
+    height: 20vh;
+    width:66vw;
+    opacity: 0.9;
+}
+
+.createAPost > input {
+    height: 7vh;
+    width: 40vw;
+    margin: 2vh 12vw 3vh 12vw;
+    border-radius: 10px;
+}
+
+.createAPost > button {
+    height:5vh;
+    width: 7vw;
+    border-radius: 10px;
+    margin-left: 56vw;
+    background-color: #5c5c7a;
+    color:#efefef;
+    opacity: 1;
+    cursor: pointer;
+    transition: background-color 1.5s;
+}
+
+.createAPost > button:hover {
+    background-color: #2222a2;
+}
+
+.profilePosts {
+    overflow-y: scroll;
+    height: 62vh;
+}
+
+
+
+
+
+
+
+
+
+.post {
+    width:50vw;
+    height: 20vh;
+    background-color: #5c5c7a;
+    border-radius: 10px;
+    margin-left:5vw;
+    margin-top:2vh;
+}
+
+.post h1 {
+    color:white;
+    background-color: #5c5c7a;
+    text-align: center;
+    font-size: 18px;
+}
