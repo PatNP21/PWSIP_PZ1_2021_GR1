@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import classes from "./PostItem.module.css";
-import PostHandler from "./../PostHandler";
 
-const postHandler = new PostHandler()
 
 function PostItem(props) {
   return (
@@ -20,7 +18,7 @@ function PostItem(props) {
       </div>
     </div>
 
-  );
+  )
 }
 
-export default PostItem;
+export default PostItem

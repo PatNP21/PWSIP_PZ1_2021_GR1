@@ -24,9 +24,10 @@ export default class PostHandler{
             "author": author
         })
     }
-    getselfPosts(sessionid){
-        const url = `${API_URL}/posts/get/myposts/`;
-        return axios.get(url,{
+    getselfPosts(sessionid)
+    {
+        const url = `${API_URL}/posts/get/myposts/`
+        return axios.post(url, {
             "sessionid": sessionid
         })
     }

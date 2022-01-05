@@ -85,7 +85,7 @@ def getUserPosts(request,author):
         'posts' : posts
     })
 
-@api_view(['GET'])
+@api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def getSelfPosts(request):
     serializer = IsLoggedInSerializer(data = request.data)

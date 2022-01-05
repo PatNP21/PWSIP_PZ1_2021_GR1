@@ -33,13 +33,6 @@ function Home() {
     //getUsersCount()
 
     useEffect(() => {
-        console.log(c)
-        postHandler.getselfPosts(c).then(
-        data => {
-            console.log(data)
-            console.log(data.posts)
-            //setPostArray(data.posts)
-        })
         let loggedas = null
         loginHandler.checkLoginStatus(String(c)).then(
             (res) => {
