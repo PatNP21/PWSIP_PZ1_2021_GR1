@@ -11,17 +11,10 @@ import Postlist from './PostList/PostList'
 import LoginHandler from './LoginHandler'
 import PostHandler from './PostHandler'
 import Card from './UI/Card'
+import PostItem from './PostList/PostItem'
 
 const postHandler = new PostHandler()
 const loginHandler = new LoginHandler()
-
-const Post = () => {
-    return (
-        <div className="post">
-            <h1>TU będzie kurrrwa post!</h1>
-        </div>
-    )
-}
 
 function Home() {
 
@@ -29,10 +22,20 @@ function Home() {
     const navigate = useNavigate()
     const c = cookies.get("sessionId")
     const [content, setContent] = useState('')
+    let postArray = []
     const user = useParams()
     //getUsersCount()
 
     useEffect(() => {
+        postHandler.getselfPosts(c).then(
+            (data) => {
+                console.log(data.data.posts)
+                for (let i=0; i<data.data.posts.length; i++) {
+                    postArray.push(data.data.posts[i])
+                }
+                
+            }
+        )
         let loggedas = null
         loginHandler.checkLoginStatus(String(c)).then(
             (res) => {
@@ -51,13 +54,14 @@ function Home() {
             }
             
         })
-        
+        console.log(postArray)
       }, [])
 
     const createAPost = () => {
         postHandler.createPost(c, content).then(res => {
             console.log(res)
-        })
+            
+        }).catch(() => console.log(postArray))
     }
 
     return (
@@ -86,7 +90,8 @@ function Home() {
                 </Card>
                 
                 <div className="profilePosts">
-                    <Postlist/>
+                    <Postlist data={postArray}/>
+                    
                 </div>
             </main>
             

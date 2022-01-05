@@ -23,6 +23,7 @@ function Profile() {
 
     const [username, setUsername] = useState()
     const [friendsArray, setFriendsArray] = useState([])
+    let postArray = []
     const [editing, setEditing] = useState(false)
     const user = useParams()
 
@@ -63,10 +64,16 @@ function Profile() {
                             console.log(friendsArray)
                         }
                     )
+                    postHandler.getselfPosts(c).then(
+                        res => {
+                            console.log(res)
+                            for(const el in res.data.posts) {
+                                postArray.push(res.data.posts[el])
+                            }
+                            console.log(postArray)
+                        }
+                    )
                 }
-                )
-                postHandler.getselfPosts(c).then(
-                    (data) => console.log(data)
                 )
             }
             else
@@ -87,16 +94,22 @@ function Profile() {
                 </div>
             </header>
             <aside>
-                <div id="logo_of_brand">
-                    <img src={Draw_it}/>
-                </div>
-                <div className="values">
-                    <ul className="list_of_friends">
-                        {friendsArray.map((item) => 
-                            <li>{item}</li>
-                        )}
-                    </ul>
-                </div>
+                <Card>
+                    <div id="logo_of_brand">
+                        <img src={Draw_it}/>
+                    </div>  
+                </Card>
+                
+                <Card>
+                    <div className="values">
+                        <ul className="list_of_friends">
+                            {friendsArray.map((item) => 
+                                <li>{item}</li>
+                            )}
+                        </ul>
+                    </div>
+                </Card>
+                
             </aside>
             <section>
                 <Card>
@@ -104,7 +117,7 @@ function Profile() {
                 </Card>
                 
                 <div className="profilePosts">
-                    <Postlist/>
+                    <Postlist data={postArray}/>
                 </div>
             </section>
             

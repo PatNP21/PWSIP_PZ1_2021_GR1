@@ -1,9 +1,12 @@
 aside {
     height:83vh;
-    width: 22%;
+    width: 22vw;
     margin: 2vh 1vw;
-    opacity:0.6;
     float: left;
+}
+
+.values {
+    width:20vw;
 }
 
 section {
