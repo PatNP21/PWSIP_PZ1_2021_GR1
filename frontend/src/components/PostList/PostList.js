@@ -17,16 +17,14 @@ function Postlist(props) {
     postHandler.getselfPosts(c).then(
       data => {
         console.log(data)
-        setPostArray(data.posts)
+        //setPostArray(data.posts)
       }
     )
   })
 
   return (
     <ul className={classes.list}>
-      {postArray.map(item => {
-        <li>item</li>
-      })}
+      
     </ul>
   );
 }

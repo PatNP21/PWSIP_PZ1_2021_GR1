@@ -108,14 +108,18 @@ def getSelfPosts(request):
                 'publicationdate' : post.publicationdate
                 }
                 posts.append(p)
-                return Response({
-                    'author' : author,
-                    'posts' : posts
-                })
+            return Response({
+                'author' : author,
+                'posts' : posts
+            })
         except Session.DoesNotExist:
                 return Response({
                     "errors":"User isn't logged in"
                 })
+    else:
+        return Response({
+            'error': 'KURWA, to nie działa'
+        })
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def deletePost(request,idpost):

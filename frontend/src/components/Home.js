@@ -47,9 +47,6 @@ function Home() {
             if (loggedas == user.userek || user.userek == undefined)
             {
                 console.log(user.userek)
-                postHandler.getselfPosts(user.user).then(
-                    data => console.log(data)
-                )
             }
             
         })
