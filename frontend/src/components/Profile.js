@@ -8,6 +8,7 @@ import LoginHandler from './LoginHandler'
 import ProfileHandler from './ProfileHandler'
 import ProfileData from './Elements/ProfileData'
 import ChangeData from './ChangeData'
+import Card from './UI/Card'
 
 const loginHandler = new LoginHandler()
 const profileHandler = new ProfileHandler()
@@ -19,7 +20,16 @@ function Profile() {
 
     const [username, setUsername] = useState()
     const [friendsArray, setFriendsArray] = useState([])
+    const [editing, setEditing] = useState(false)
     const user = useParams()
+
+    const edit = () => {
+        setEditing(true)
+    }
+
+    const saveChanges = () => {
+        setEditing(false)
+    }
 
     useEffect((data) => {
         let loggedas = null;
@@ -84,7 +94,10 @@ function Profile() {
                 </div>
             </aside>
             <section>
-                <ProfileData avatar={avatar} username={username} click={<ChangeData/>}/>
+                <Card>
+                    {editing ? <ChangeData click={saveChanges}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
+                </Card>
+                
                 <div className="profilePosts"></div>
             </section>
             

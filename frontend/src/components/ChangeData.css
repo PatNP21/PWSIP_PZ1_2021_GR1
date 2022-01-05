@@ -6,11 +6,13 @@ section {
     overflow-y: scroll;
 }
 
-.edit-profile {
-    width:92%;
-    height:77vh;
-    margin:3%;
-    border:5px solid black;
-    border-radius: 10px;
-    background: rgba(10,10,10, 0.5);
+.edit_profile {
+    width:50vw;
+    height:30vh;
+}
+
+.edit_profile > input {
+    width:50%;
+    margin-top: 1vh;
+    margin-left: 3vw;
 }

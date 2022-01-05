@@ -34,11 +34,9 @@ aside {
 }
 
 .createAPost {
-    background-color: #3a3a58;
     border-radius: 10px;
     height: 20vh;
     width:66vw;
-    opacity: 0.9;
 }
 
 .createAPost > input {
@@ -91,4 +89,9 @@ aside {
     background-color: #5c5c7a;
     text-align: center;
     font-size: 18px;
+}
+
+.values {
+    height:33vh;
+    width: 22%;
 }
