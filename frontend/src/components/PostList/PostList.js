@@ -31,11 +31,15 @@ function Postlist(props) {
         //console.log(postArray)
       }
     )
+<<<<<<< HEAD
   }, [])
 
   const laduj = () => {
     console.log(postArray)
   }
+=======
+  },[])
+>>>>>>> 4050e00a76af63896bb61a0512c731d126373d63
 
   return (
     <ul className={classes.list} onLoad={laduj}>
