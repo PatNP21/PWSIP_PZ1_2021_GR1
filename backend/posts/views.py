@@ -6,12 +6,16 @@ from home.models import User, Session
 from posts.models import Post
 from django.utils import timezone
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser
 from rest_framework.renderers import JSONRenderer
-from rest_framework.decorators import api_view, renderer_classes
-
+from rest_framework.decorators import api_view, renderer_classes, parser_classes
+from drawit.settings import BASE_DIR
+from scripts.saveFile import saveFile
+api_url = 'localhost:8000/media/'
 # Create your views here.
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
+@parser_classes([MultiPartParser])
 def createpost(request):
     serializer = CreatePostSerializer(data = request.data)
     if serializer.is_valid():
@@ -26,11 +30,18 @@ def createpost(request):
             title = serializer.data["title"]
             content = serializer.data["content"]
             publicationdate = timezone.now()
+            images = ''
+            if 'image' in request.FILES:
+                print("SENT")
+                images = api_url+saveFile(request.FILES['image'])
+            else:
+                print("NOT SENT")
+
             Post.objects.create(
                 author = author,
                 title = title,
                 content = content,
-                images = '',
+                images = images,
                 publicationdate = publicationdate,
                 visibility = True,
                 likeList = '',
@@ -60,6 +71,7 @@ def getpost(request,idpost):
             'author' : post.author,
             'title' : post.title,
             'content': post.content,
+            'image' : post.images,
             'publicationdate' : post.publicationdate,
             'likecounter': post.likeCounter
         })
@@ -77,7 +89,9 @@ def getUserPosts(request,author):
         'author' : post.author,
         'title' : post.title,
         'content': post.content,
-        'publicationdate' : post.publicationdate
+        'image' : post.images,
+        'publicationdate' : post.publicationdate,
+        'likecounter': post.likeCounter
         }
         posts.append(p)
     return Response({
@@ -85,7 +99,7 @@ def getUserPosts(request,author):
         'posts' : posts
     })
 
-@api_view(['GET'])
+@api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def getSelfPosts(request):
     serializer = IsLoggedInSerializer(data = request.data)
@@ -105,7 +119,9 @@ def getSelfPosts(request):
                 'author' : post.author,
                 'title' : post.title,
                 'content': post.content,
-                'publicationdate' : post.publicationdate
+                'image' : post.images,
+                'publicationdate' : post.publicationdate,
+                'likecounter': post.likeCounter
                 }
                 posts.append(p)
             return Response({
@@ -116,10 +132,6 @@ def getSelfPosts(request):
                 return Response({
                     "errors":"User isn't logged in"
                 })
-    else:
-        return Response({
-            'error': 'KURWA, to nie działa'
-        })
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
 def deletePost(request,idpost):

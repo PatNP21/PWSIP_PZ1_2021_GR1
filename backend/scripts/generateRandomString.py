@@ -1,6 +1,3 @@
-
-import random
-
 from random import randrange
 def generateRandomString():
     validchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"

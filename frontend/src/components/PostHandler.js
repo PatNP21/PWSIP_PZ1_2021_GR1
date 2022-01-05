@@ -20,14 +20,12 @@ export default class PostHandler{
     getuserPosts(author)
     {
         const url = `${API_URL}/posts/get/userposts/${author}/`;
-        return axios.get(url,{
-            "author": author
-        })
+        return axios.get(url)
     }
     getselfPosts(sessionid){
         const url = `${API_URL}/posts/get/myposts/`;
-        return axios.get(url,{
-            "sessionid": sessionid
+        return axios.post(url,{
+            "sessionid" : sessionid
         })
     }
     deletePost(sessionid,idpost)

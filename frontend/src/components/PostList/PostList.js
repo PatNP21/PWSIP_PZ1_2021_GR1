@@ -14,13 +14,14 @@ function Postlist(props) {
   const c = cookies.get("sessionId")
 
   useEffect(() => {
+    console.log(c)
     postHandler.getselfPosts(c).then(
       data => {
         console.log(data)
         //setPostArray(data.posts)
       }
     )
-  })
+  },[])
 
   return (
     <ul className={classes.list}>

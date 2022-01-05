@@ -29,7 +29,7 @@ class Post(models.Model):
         likeList = self.likeList.split('/')
         try:
             likeList.index(username)
-            return True;
+            return True
         except ValueError:
-            return False;
+            return False
 
