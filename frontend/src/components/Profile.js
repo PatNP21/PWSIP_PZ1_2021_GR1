@@ -9,9 +9,12 @@ import ProfileHandler from './ProfileHandler'
 import ProfileData from './Elements/ProfileData'
 import ChangeData from './ChangeData'
 import Card from './UI/Card'
+import PostHandler from './PostHandler'
+import Postlist from './PostList/PostList'
 
 const loginHandler = new LoginHandler()
 const profileHandler = new ProfileHandler()
+const postHandler = new PostHandler()
 
 function Profile() {
     const navigate = useNavigate()
@@ -61,7 +64,9 @@ function Profile() {
                         }
                     )
                 }
-
+                )
+                postHandler.getselfPosts(c).then(
+                    (data) => console.log(data)
                 )
             }
             else
@@ -98,7 +103,9 @@ function Profile() {
                     {editing ? <ChangeData click={saveChanges}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
                 </Card>
                 
-                <div className="profilePosts"></div>
+                <div className="profilePosts">
+                    <Postlist/>
+                </div>
             </section>
             
         </div>

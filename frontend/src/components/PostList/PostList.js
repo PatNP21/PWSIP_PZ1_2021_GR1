@@ -18,6 +18,7 @@ function Postlist(props) {
     postHandler.getselfPosts(c).then(
       data => {
         console.log(data)
+        console.log(data.posts)
         //setPostArray(data.posts)
       }
     )

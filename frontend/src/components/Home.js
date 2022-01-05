@@ -33,6 +33,13 @@ function Home() {
     //getUsersCount()
 
     useEffect(() => {
+        console.log(c)
+        postHandler.getselfPosts(c).then(
+        data => {
+            console.log(data)
+            console.log(data.posts)
+            //setPostArray(data.posts)
+        })
         let loggedas = null
         loginHandler.checkLoginStatus(String(c)).then(
             (res) => {
@@ -47,6 +54,7 @@ function Home() {
             if (loggedas == user.userek || user.userek == undefined)
             {
                 console.log(user.userek)
+                
             }
             
         })
@@ -85,7 +93,7 @@ function Home() {
                 </Card>
                 
                 <div className="profilePosts">
-                    <Postlist />
+                    <Postlist/>
                 </div>
             </main>
             

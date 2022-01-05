@@ -12,7 +12,9 @@ section {
 }
 
 .edit_profile > input {
-    width:50%;
+    width:70%;
+    height:4vh;
+    border-radius:5px;
     margin-top: 1vh;
     margin-left: 3vw;
 }
