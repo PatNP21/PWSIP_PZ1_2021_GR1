@@ -11,6 +11,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes, parser_classes
 from drawit.settings import BASE_DIR
 from scripts.saveFile import saveFile
+from scripts.serializePosts import serializePosts
 api_url = 'localhost:8000/media/'
 # Create your views here.
 @api_view(['POST'])
@@ -116,6 +117,7 @@ def getSelfPosts(request):
             posts = []
             for post in queryposts:
                 p = {
+                'id' : post.id,
                 'author' : post.author,
                 'title' : post.title,
                 'content': post.content,
@@ -192,6 +194,26 @@ def likePost(request,idpost):
                 return Response({
                     "errors":"User isn't logged in"
                 })
-
-
+per_page = 5
+@api_view(['GET'])
+@renderer_classes([JSONRenderer])
+def getPosts(request,page):
+    if(page < 1):
+        return Response({
+              "errors":"Ty sie dobrze czujesz?"
+            })
+    records =  page * per_page
+    posts = Post.objects.filter(visibility = True).order_by('-publicationdate')
+    if posts.count()-(records - 5) <= 0:
+         return Response({
+              "errors":"Posty sie skonczyly typie"
+            })
+    if posts.count() > records:
+        posts = posts[records-5:records]
+    else:
+        posts = posts[records-5:]
+    return Response({
+            'count' : posts.count(),
+            'posts' : serializePosts(posts) 
+        })
         
