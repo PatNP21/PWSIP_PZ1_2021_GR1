@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 class Post(models.Model):
@@ -5,7 +6,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=500)
     images = models.TextField(max_length=500, default='')
-    publicationdate = models.DateField()
+    publicationdate = models.DateTimeField(default= datetime(2000,1,1,1,1,1,1))
     likeList = models.TextField(max_length=10000, default='')
     likeCounter = models.IntegerField(default=0)
     visibility = models.BooleanField(default=True)

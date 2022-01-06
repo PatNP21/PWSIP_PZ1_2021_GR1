@@ -17,6 +17,10 @@ export default class PostHandler{
         const url = `${API_URL}/posts/get/idpost/${idpost}/`;
         return axios.get(url)
     }
+    getPosts(page){
+        const url = `${API_URL}/posts/get/page/${page}/`;
+        return axios.get(url)
+    }
     getuserPosts(author)
     {
         const url = `${API_URL}/posts/get/userposts/${author}/`;
