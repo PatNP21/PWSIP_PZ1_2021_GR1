@@ -7,6 +7,7 @@ aside {
 
 .values {
     width:20vw;
+    min-height: 33vh;
 }
 
 section {
@@ -53,4 +54,12 @@ section {
 .preturn {
     color:white;
     margin-top: 0 !important;
+}
+
+ul .list-of-friends {
+    list-style-type: none;
+}
+
+li {
+    display: block;
 }

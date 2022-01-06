@@ -11,6 +11,7 @@ import ChangeData from './ChangeData'
 import Card from './UI/Card'
 import PostHandler from './PostHandler'
 import Postlist from './PostList/PostList'
+import FriendName from './UI/FriendName'
 
 const loginHandler = new LoginHandler()
 const profileHandler = new ProfileHandler()
@@ -24,6 +25,7 @@ function Profile() {
     const [username, setUsername] = useState()
     const [friendsArray, setFriendsArray] = useState([])
     let postArray = []
+    let IDs = [] //friends' IDs
     const [editing, setEditing] = useState(false)
     const user = useParams()
 
@@ -86,6 +88,12 @@ function Profile() {
         })
     }, [])
 
+    const addFriend = () => {
+        profileHandler.requestFriend(c, user.userek).then(
+            console.log('OK my friend')
+        ).catch(() => console.log('coś się zjebało'))
+    }
+
     return (
         <div className="allPage">
             <header>
@@ -104,11 +112,12 @@ function Profile() {
                     <div className="values">
                         <ul className="list_of_friends">
                             {friendsArray.map((item) => 
-                                <li>{item}</li>
+                                <li className="listFriendsElement"><FriendName>{item}</FriendName></li>
                             )}
                         </ul>
                     </div>
                 </Card>
+
                 
             </aside>
             <section>

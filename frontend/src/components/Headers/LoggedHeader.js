@@ -9,8 +9,8 @@ function LoggedHeader() {
     const c = cookies.get("sessionId")
 
     const logout = () => {
-        navigate('/login')
         cookies.remove('sessionId')
+        navigate('/login')
         console.log('Wylogowano')
     }
 
