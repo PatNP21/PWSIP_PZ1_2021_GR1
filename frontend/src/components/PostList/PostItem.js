@@ -8,7 +8,7 @@ function PostItem(props) {
   })
 
   return (
-      <div> 
+      <div className={classes.onePostCard}> 
         <div className={classes.image}>
           <img src={props.image} alt={props.title} />
         </div>

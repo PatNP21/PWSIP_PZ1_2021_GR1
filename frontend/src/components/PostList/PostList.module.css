@@ -1,5 +1,7 @@
 .list {
     list-style: none;
+    width:50vw;
+    float: left;
     margin: 0;
     padding: 0;
   }

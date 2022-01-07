@@ -22,17 +22,17 @@ function Home() {
 
     const cookies = new Cookies()
     const navigate = useNavigate()
+    let postArray = []
     const c = cookies.get("sessionId")
     const [content, setContent] = useState('')
     const [image, setImage] = useState(null)
-    let postArray = []
     const user = useParams()
     //getUsersCount()
 
     useEffect(() => {
-        postHandler.getselfPosts(c).then(
+        postHandler.getPosts(1).then(
             (data) => {
-                console.log(data.data.posts)
+                console.log(data)
                 for (let i=0; i<data.data.posts.length; i++) {
                     postArray.push(data.data.posts[i])
                 }
@@ -57,14 +57,19 @@ function Home() {
             }
             
         })
-        console.log(postArray)
-      }, [])
+        
+      }, postArray)
+
+    const posts = () => {
+        
+       
+    }
 
     const createAPost = () => {
         postHandler.createPost(c, content, image).then(res => {
             console.log(res)
             
-        }).catch(() => console.log(postArray))
+        })
     }
 
     return (
@@ -89,18 +94,17 @@ function Home() {
                     <div className="createAPost">
                         <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
                         <div className="createPostBtn" onChange={e => setImage(URL.createObjectURL(e.target.files))}>
-                            <label for="filetopost">
+                            <label for="filetopost" title="Dodaj zdjęcie">
                                 <BsFillPlusCircleFill/>
                             </label>
                         </div>
-                        <input type="file" id="filetopost"/>
+                        <input type="file" id="filetopost" accept="image/jpg, image/png"/>
                         <button onClick={createAPost}>Dodaj</button>
                     </div>
                 </Card>
                 
                 <div className="profilePosts">
                     <Postlist data={postArray}/>
-                    
                 </div>
             </main>
             

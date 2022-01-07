@@ -25,7 +25,7 @@ export default class PostHandler{
         return axios.get(url)
     }
     getPosts(page){
-        const url = `${API_URL}/posts/get/page/${page}/`;
+        const url = `${API_URL}/posts/get/page/${page}/`
         return axios.get(url)
     }
     getuserPosts(author)
