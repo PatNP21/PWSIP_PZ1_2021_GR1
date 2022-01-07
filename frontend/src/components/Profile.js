@@ -94,6 +94,10 @@ function Profile() {
         ).catch(() => console.log('coś się zjebało'))
     }
 
+    /*const acceptFriend = () => {
+        profileHandler.acceptFriend(c,)
+    }*/
+
     return (
         <div className="allPage">
             <header>

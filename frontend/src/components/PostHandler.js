@@ -10,7 +10,10 @@ export default class PostHandler{
         return axios.post(url,{
             "sessionid": sessionid,
             "content" : content,
-            "title" : 'Tutuy'
+            "title" : 'Tutuy',
+            "headers": {
+                "Content-Type": 'multipart/form-data'
+            }
         })
     }
     getPostbyId(idpost){
