@@ -12,7 +12,7 @@ from rest_framework.decorators import api_view, renderer_classes, parser_classes
 from drawit.settings import BASE_DIR
 from scripts.saveFile import saveFile
 from scripts.serializePosts import serializePosts
-api_url = 'localhost:8000/media/'
+api_url = 'http://localhost:8000/media/'
 # Create your views here.
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
