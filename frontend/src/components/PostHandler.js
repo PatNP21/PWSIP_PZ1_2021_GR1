@@ -1,18 +1,22 @@
 import axios from 'axios';
+import FormData from 'form-data'
+
 const API_URL = 'http://localhost:8000';
 
 export default class PostHandler{
 
     constructor(){}
 
-    createPost(sessionid,content){
+    createPost(sessionid,content,image){
         const url = `${API_URL}/posts/createpost/`;
-        return axios.post(url,{
-            "sessionid": sessionid,
-            "content" : content,
-            "title" : 'Tutuy',
+        let data = new FormData()
+        data.append('sessionid', sessionid)
+        data.append('content', content)
+        data.append('title', 'Tutuy')
+        data.append('image', image)
+        return axios.post(url, data, {
             "headers": {
-                "Content-Type": 'multipart/form-data'
+                "Content-Type": `multipart/form-data; boundary=${data._boundary}`
             }
         })
     }

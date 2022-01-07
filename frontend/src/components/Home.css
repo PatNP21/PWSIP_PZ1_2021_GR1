@@ -46,14 +46,26 @@ aside {
     border-radius: 10px;
 }
 
+.createAPost > .createPostBtn {
+    color: white;
+    font-size: 2em;
+    float: left;
+    margin-left: 2vw;
+}
+
+#filetopost {
+    display: none;
+}
+
 .createAPost > button {
     height:5vh;
     width: 7vw;
     border-radius: 10px;
-    margin-left: 56vw;
+    margin-left: 46vw;
     background-color: #5c5c7a;
     color:#efefef;
     opacity: 1;
+    float: left;
     cursor: pointer;
     transition: background-color 1.5s;
 }

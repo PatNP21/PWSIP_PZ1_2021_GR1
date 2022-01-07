@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import Draw_it from './../Draw_it.png'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { BsFillPlusCircleFill } from 'react-icons/bs'
 import Cookies from 'universal-cookie'
 import countUsers from './HomeHandler'
 import LoggedHeader from './Headers/LoggedHeader'
@@ -16,12 +17,14 @@ import PostItem from './PostList/PostItem'
 const postHandler = new PostHandler()
 const loginHandler = new LoginHandler()
 
+
 function Home() {
 
     const cookies = new Cookies()
     const navigate = useNavigate()
     const c = cookies.get("sessionId")
     const [content, setContent] = useState('')
+    const [image, setImage] = useState(null)
     let postArray = []
     const user = useParams()
     //getUsersCount()
@@ -58,7 +61,7 @@ function Home() {
       }, [])
 
     const createAPost = () => {
-        postHandler.createPost(c, content).then(res => {
+        postHandler.createPost(c, content, image).then(res => {
             console.log(res)
             
         }).catch(() => console.log(postArray))
@@ -85,6 +88,12 @@ function Home() {
                 <Card>
                     <div className="createAPost">
                         <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
+                        <div className="createPostBtn" onChange={e => setImage(URL.createObjectURL(e.target.files))}>
+                            <label for="filetopost">
+                                <BsFillPlusCircleFill/>
+                            </label>
+                        </div>
+                        <input type="file" id="filetopost"/>
                         <button onClick={createAPost}>Dodaj</button>
                     </div>
                 </Card>
