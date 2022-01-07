@@ -22,10 +22,11 @@ function Home() {
 
     const cookies = new Cookies()
     const navigate = useNavigate()
-    let postArray = []
+    //let postArray = []
     const c = cookies.get("sessionId")
     const [content, setContent] = useState('')
     const [image, setImage] = useState(null)
+    const [postArray, setPostArray] = useState([])
     const user = useParams()
     //getUsersCount()
 
@@ -33,9 +34,10 @@ function Home() {
         postHandler.getPosts(1).then(
             (data) => {
                 console.log(data)
-                for (let i=0; i<data.data.posts.length; i++) {
+                /*for (let i=0; i<data.data.posts.length; i++) {
                     postArray.push(data.data.posts[i])
-                }
+                }/*/
+                setPostArray(data.data.posts)
                 
             }
         )
@@ -58,18 +60,23 @@ function Home() {
             
         })
         
-      }, postArray)
+      }, [postArray])
 
-    const posts = () => {
-        
-       
-    }
 
     const createAPost = () => {
         postHandler.createPost(c, content, image).then(res => {
             console.log(res)
             
         })
+        postHandler.getPosts(1).then(
+            (data) => {
+                console.log(data)
+                for (let i=0; i<data.data.posts.length; i++) {
+                    postArray.push(data.data.posts[i])
+                }
+                
+            }
+        )
     }
 
     return (
@@ -94,7 +101,7 @@ function Home() {
                     <div className="createAPost">
                         <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
                         <div className="createPostBtn" onChange={e => setImage(URL.createObjectURL(e.target.files))}>
-                            <label for="filetopost" title="Dodaj zdjęcie">
+                            <label htmlFor="filetopost" title="Dodaj zdjęcie">
                                 <BsFillPlusCircleFill/>
                             </label>
                         </div>

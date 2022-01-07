@@ -15,7 +15,7 @@ function Postlist(props) {
     <ul className={classes.list}>
       {props.data.map(item => {
         return (
-            <li key={Math.floor(Math.random()*2000)}>
+            <li>
               <Card>
                 <PostItem image={Draw_it} title={item.title} address={item.author} description={item.content}/>
               </Card>
