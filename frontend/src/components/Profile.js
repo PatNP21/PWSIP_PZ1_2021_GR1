@@ -23,6 +23,7 @@ function Profile() {
     const c = cookies.get("sessionId")
 
     const [username, setUsername] = useState()
+    const [email, setEmail] = useState()
     const [friendsArray, setFriendsArray] = useState([])
     const [posts, setPosts] = useState([])
     //let postArray = []
@@ -34,9 +35,6 @@ function Profile() {
         setEditing(true)
     }
 
-    const saveChanges = () => {
-        setEditing(false)
-    }
 
     useEffect((data) => {
         let loggedas = null;
@@ -59,6 +57,7 @@ function Profile() {
                 profileHandler.myprofile(c).then(res => {
                     console.log(res.data)
                     setUsername(res.data.username)
+                    setEmail(res.data.email)
                 }).then(() => {
                     profileHandler.list_of_friends(c).then(
                         res => {
@@ -128,7 +127,7 @@ function Profile() {
             </aside>
             <section>
                 <Card>
-                    {editing ? <ChangeData click={saveChanges}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
+                    {editing ? <ChangeData email={email}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
                 </Card>
                 
                 <div className="profilePosts">

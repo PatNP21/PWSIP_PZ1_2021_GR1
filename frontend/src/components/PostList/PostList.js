@@ -15,9 +15,9 @@ function Postlist(props) {
     <ul className={classes.list}>
       {props.data.map(item => {
         return (
-            <li>
+            <li key={item.id}>
               <Card>
-                <PostItem image={Draw_it} title={item.title} address={item.author} description={item.content}/>
+                <PostItem image={item.image} title={item.title} address={item.author} description={item.content}/>
               </Card>
             </li>)
       })}
