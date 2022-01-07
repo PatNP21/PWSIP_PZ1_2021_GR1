@@ -24,7 +24,8 @@ function Profile() {
 
     const [username, setUsername] = useState()
     const [friendsArray, setFriendsArray] = useState([])
-    let postArray = []
+    const [posts, setPosts] = useState([])
+    //let postArray = []
     let IDs = [] //friends' IDs
     const [editing, setEditing] = useState(false)
     const user = useParams()
@@ -69,10 +70,11 @@ function Profile() {
                     postHandler.getselfPosts(c).then(
                         res => {
                             console.log(res)
-                            for(const el in res.data.posts) {
+                            /*for(const el in res.data.posts) {
                                 postArray.push(res.data.posts[el])
                             }
-                            console.log(postArray)
+                            console.log(postArray)*/
+                            setPosts(res.data.posts)
                         }
                     )
                 }
@@ -130,7 +132,7 @@ function Profile() {
                 </Card>
                 
                 <div className="profilePosts">
-                    <Postlist data={postArray}/>
+                    <Postlist data={posts}/>
                 </div>
             </section>
             

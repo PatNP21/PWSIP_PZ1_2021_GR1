@@ -60,7 +60,7 @@ function Home() {
             
         })
         
-      }, [postArray])
+      }, [])
 
 
     const createAPost = () => {
@@ -100,12 +100,12 @@ function Home() {
                 <Card>
                     <div className="createAPost">
                         <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
-                        <div className="createPostBtn" onChange={e => setImage(URL.createObjectURL(e.target.files))}>
+                        <div className="createPostBtn">
                             <label htmlFor="filetopost" title="Dodaj zdjęcie">
                                 <BsFillPlusCircleFill/>
                             </label>
                         </div>
-                        <input type="file" id="filetopost" accept="image/jpg, image/png"/>
+                        <input type="file" id="filetopost" accept="image/jpg, image/png" onChange={e => setImage(e.target.files[0])}/>
                         <button onClick={createAPost}>Dodaj</button>
                     </div>
                 </Card>
