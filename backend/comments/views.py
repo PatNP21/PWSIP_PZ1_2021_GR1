@@ -44,3 +44,41 @@ def createComment(request,idpost):
             'success': False,
             'errors' : 'Zjebałeś wysyłkę znowu'
         })
+
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def deleteComment(request, idcomment):
+    serializer = IsLoggedInSerializer(data = request.data)
+    if serializer.is_valid():
+        sessionid = serializer.data["sessionid"]
+        session = Session.objects.get(sessionid=sessionid)
+        if session.isexpired():
+            return Response({
+                'success' : False,
+                'errors' : 'Not logged in'
+            })
+        try:
+            comment = Comment.objects.get(id = idcomment)
+            user = session.username
+            if(user == comment.author):
+                comment.delete()
+                return Response({
+                    "success":True
+                })
+            else:
+                return Response({
+                    "success":False,
+                    "errors":"Nie Twoj komentarz kmiotku"
+                })
+        except Comment.DoesNotExist:
+            return Response({
+                'success' : False,
+                'errors' : 'Comment does not exist'
+            })       
+
+    else:
+        return Response({
+            'success': False,
+            'errors' : 'Zjebałeś wysyłkę znowu'
+        })
+

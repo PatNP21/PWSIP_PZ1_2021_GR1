@@ -11,5 +11,4 @@ urlpatterns = [
     path("delete/<str:idpost>/", deletePost, name = 'deletePost'),
     path("like/<str:idpost>/", likePost, name = "likePost"),
     
-
 ]
