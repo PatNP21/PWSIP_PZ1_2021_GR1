@@ -5,6 +5,10 @@ aside {
     float: left;
 }
 
+.logo_of_brand {
+    margin: 1vh 0;
+}
+
 .values {
     width:20vw;
     min-height: 33vh;

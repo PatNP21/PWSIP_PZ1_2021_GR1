@@ -17,7 +17,7 @@ function Postlist(props) {
         return (
             <li key={item.id}>
               <Card>
-                <PostItem image={item.image} title={item.title} address={item.author} description={item.content}/>
+                <PostItem image={item.image} title={item.title} address={item.author} description={item.content} id={item.id}/>
               </Card>
             </li>)
       })}

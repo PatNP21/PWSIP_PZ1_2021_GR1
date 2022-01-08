@@ -51,3 +51,34 @@
 .actions button:active {
   background-color: #ffe2ed;
 }
+
+.likeIt {
+  color: white;
+  font-size: 1.5em;
+  float: left;
+  margin-left: 2vw;
+}
+
+.likeIt i {
+  cursor: pointer;
+  float: left;
+}
+
+.likeIt i:link {
+  color: white;
+}
+
+.likeIt i:focus {
+  color:blue;
+}
+
+.likeIt p {
+  font-size: 0.5em;
+  float: left;
+  margin-left: 1vw;
+}
+
+.likesCount {
+  float: left;
+  
+}
