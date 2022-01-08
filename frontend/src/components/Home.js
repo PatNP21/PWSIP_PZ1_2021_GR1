@@ -27,20 +27,22 @@ function Home() {
     const [content, setContent] = useState('')
     const [image, setImage] = useState(null)
     const [postArray, setPostArray] = useState([])
+    const [init,setInit] = useState(false)
     const user = useParams()
     //getUsersCount()
 
     useEffect(() => {
-        postHandler.getPosts(1).then(
-            (data) => {
-                console.log(data)
-                /*for (let i=0; i<data.data.posts.length; i++) {
-                    postArray.push(data.data.posts[i])
-                }/*/
-                setPostArray(data.data.posts)
-                
-            }
-        )
+        if(!init)
+        {
+            postHandler.getPosts(1).then(
+                (data) => {
+                    console.log(data)
+                    setInit(true)
+                    setPostArray(data.data.posts)
+                    
+                }
+            )
+        }
         let loggedas = null
         loginHandler.checkLoginStatus(String(c)).then(
             (res) => {
@@ -59,8 +61,8 @@ function Home() {
             }
             
         })
-        
-      }, [])
+        console.log(image)
+      },[image])
 
 
     const createAPost = () => {
