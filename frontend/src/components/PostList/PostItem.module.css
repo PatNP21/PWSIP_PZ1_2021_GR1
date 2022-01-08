@@ -9,8 +9,9 @@
 }
 
 .image {
-  width: 10%;
-  height: 10vh;
+  width: 50%;
+  height: 40%;
+  margin: 4vh auto;
   overflow: hidden;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
