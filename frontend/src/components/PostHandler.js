@@ -57,20 +57,16 @@ export default class PostHandler{
 
     createComment(sessionid, idpost, content)
     {
-        const url = `${API_URL}/comments/create/${idpost}`
-        let data = new FormData()
-        data.append('sessionid', sessionid)
-        data.append('content', content)
+        const url = `${API_URL}/comments/create/${idpost}/`
         return axios.post(url, {
-            "headers": {
-                "Content-Type": `multipart/form-data; boundary=${data._boundary}`
-            }
+            "sessionid": sessionid,
+            'content' : content
         })
     }
 
     deleteComment(sessionid, idcomment)
     {
-        const url = `${API_URL}/comments/delete/${idcomment}`
+        const url = `${API_URL}/comments/delete/${idcomment}/`
         return axios.post(url, {
             'sessionid': sessionid
         })
