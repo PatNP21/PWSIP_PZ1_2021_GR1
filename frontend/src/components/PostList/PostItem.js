@@ -3,6 +3,7 @@ import { AiFillLike } from 'react-icons/ai'
 import classes from "./PostItem.module.css";
 import PostHandler from './../PostHandler'
 import Cookies from 'universal-cookie'
+import Card from './../UI/Card'
 
 const postHandler = new PostHandler()
 
@@ -40,7 +41,16 @@ function PostItem(props) {
             <button onClick={createComment}>Submit</button>
           </div>
           <div className={classes.comments}>
-            <ul></ul>
+            <ul>
+              {props.comments.map(item => {
+                return <li>
+                        <Card>
+                          <h4>{item.author}</h4>
+                          <p>{item.content}</p>
+                        </Card>
+                      </li>
+              })}
+            </ul>
           </div>
         </div>
         <div className={classes.actions}>

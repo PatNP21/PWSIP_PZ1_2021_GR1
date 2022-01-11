@@ -27,6 +27,7 @@ function Home() {
     const [content, setContent] = useState('')
     const [image, setImage] = useState(null)
     const [postArray, setPostArray] = useState([])
+    const [comments, setComments] = useState([])
     const [init,setInit] = useState(false)
     const user = useParams()
     //getUsersCount()
@@ -75,7 +76,10 @@ function Home() {
                 console.log(data)
                 for (let i=0; i<data.data.posts.length; i++) {
                     postArray.push(data.data.posts[i])
+                    console.log(postArray.comments[0])
+                    setComments(postArray.comments)
                 }
+                console.log(comments)
                 
             }
         )

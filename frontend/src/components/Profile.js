@@ -26,6 +26,7 @@ function Profile() {
     const [email, setEmail] = useState()
     const [friendsArray, setFriendsArray] = useState([])
     const [posts, setPosts] = useState([])
+    const [comments, setComments] = useState([])
     //let postArray = []
     let IDs = [] //friends' IDs
     const [editing, setEditing] = useState(false)
@@ -74,6 +75,10 @@ function Profile() {
                             }
                             console.log(postArray)*/
                             setPosts(res.data.posts)
+                            for (let i=0; i<res.data.posts.length; i++) {
+                                posts.push(res.data.posts)
+                                setComments(posts[i].comments)
+                            }
                         }
                     )
                 }
