@@ -111,20 +111,23 @@ function Profile() {
     }, [])
 
     const addFriend = () => {
-        profileHandler.requestFriend(c, user.userek).then(
+        profileHandler.requestFriend(c, user.userek).then(res => {
             console.log('OK my friend')
+            console.log(res.data)
+        }
+            
         ).catch(() => console.log('coś się popsuło'))
         
     }
 
-    const acceptFriend = (c, potentialFriend) => {
+    const acceptFriend = () => {
         profileHandler.acceptFriend(c, potentialFriend).then(res => {
             console.log(res)
             console.log('Zaproszenie przyjęte')
         })
     }
 
-    const denyFriend = (c, potentialFriend) => {
+    const denyFriend = () => {
         profileHandler.denyFriend(c, potentialFriend).then(res => {
             console.log(res)
             console.log('Zaproszenie odrzucone')
