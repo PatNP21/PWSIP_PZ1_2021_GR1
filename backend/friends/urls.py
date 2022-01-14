@@ -1,5 +1,5 @@
 from django.urls import path
-from friends.views import createFriendRequest, acceptFriendRequest,denyFriendRequest,removeFriend, blockUser, unblockUser, getFriends
+from friends.views import createFriendRequest, acceptFriendRequest,denyFriendRequest,removeFriend, blockUser, unblockUser, getFriends, getpendingReq 
 app_name = 'friends'
 urlpatterns = [
     path('request/<str:tousername>/', createFriendRequest, name = 'friendreq'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('block/<str:username>/', blockUser, name = 'friendblk'),
     path('unblock/<str:username>/', unblockUser, name = 'friendublk'),
     path('list/', getFriends, name = 'friends'),
+    path('pendingrequests/', getpendingReq, name= 'penreq')
 ]

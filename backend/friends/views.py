@@ -10,7 +10,7 @@ from django.utils import timezone
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.decorators import api_view, renderer_classes
-
+from scripts.serializeFriendRequests import serializeFriendRequest
 # Create your views here.
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
@@ -308,3 +308,27 @@ def getFriends(request):
             "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
         })
 
+@api_view(['POST'])
+@renderer_classes([JSONRenderer])
+def getpendingReq(request):
+    serializer = FriendRequestSerializer(data = request.data)
+    if serializer.is_valid():
+        try:
+            sessionid = serializer.data['sessionid']
+            session = Session.objects.get(sessionid = sessionid)
+            if session.isexpired():
+                return Response({
+                    'success' : False,
+                    'errors' : 'Niezalogowany'
+                }) 
+            username = session.username
+            requests = FriendRequest.objects.filter(tousername = username)
+            return Response({
+                "success" : True,
+                "requests" : serializeFriendRequest(requests)
+            })
+        except Session.DoesNotExist:
+            return Response({
+                    'success' : False,
+                    'errors' : 'Niezalogowany'
+                })
