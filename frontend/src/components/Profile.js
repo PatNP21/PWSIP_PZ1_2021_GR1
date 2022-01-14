@@ -111,8 +111,11 @@ function Profile() {
     }, [])
 
     const addFriend = () => {
-        profileHandler.requestFriend(c, user.userek).then(
+        profileHandler.requestFriend(c, user.userek).then(res => {
             console.log('OK my friend')
+            console.log(res.data)
+        }
+            
         ).catch(() => console.log('coś się popsuło'))
         
     }
