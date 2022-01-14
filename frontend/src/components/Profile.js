@@ -36,6 +36,10 @@ function Profile() {
         setEditing(true)
     }
 
+    const finishEditing = () => {
+        setEditing(false)
+    }
+
 
     useEffect((data) => {
         let loggedas = null;
@@ -97,7 +101,7 @@ function Profile() {
     const addFriend = () => {
         profileHandler.requestFriend(c, user.userek).then(
             console.log('OK my friend')
-        ).catch(() => console.log('coś się zjebało'))
+        ).catch(() => console.log('coś się popsuło'))
     }
 
     /*const acceptFriend = () => {
@@ -132,7 +136,7 @@ function Profile() {
             </aside>
             <section>
                 <Card>
-                    {editing ? <ChangeData email={email}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
+                    {editing ? <ChangeData email={email} finishEditing={finishEditing}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
                 </Card>
                 
                 <div className="profilePosts">
