@@ -121,17 +121,15 @@ function Profile() {
     }
 
     const acceptFriend = () => {
-        profileHandler.acceptFriend(c, potentialFriend).then(res => {
-            console.log(res)
+        profileHandler.acceptFriend(c, potentialFriend).then(() => {
             console.log('Zaproszenie przyjęte')
-        })
+        }).catch(err => console.log(err))
     }
 
     const denyFriend = () => {
-        profileHandler.denyFriend(c, potentialFriend).then(res => {
-            console.log(res)
+        profileHandler.denyFriend(c, potentialFriend).then(() => {
             console.log('Zaproszenie odrzucone')
-        })
+        }).catch(err => console.log(err))
     }
 
     return (
