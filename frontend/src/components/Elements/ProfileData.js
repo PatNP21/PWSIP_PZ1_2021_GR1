@@ -10,7 +10,9 @@ function ProfileData(props) {
             <div className="username_for_profile">
                 <h4>{props.username}</h4>
             </div>
-            <button onClick={props.click}>Edytuj profil</button>
+            {props.myAccount 
+                ? <button onClick={props.click}>Edytuj profil</button> 
+                : <button onClick={props.addFriend}>Dodaj do znajomych</button>}
         </div>
     )
 }

@@ -79,4 +79,11 @@ export default class ProfileHandler{
             "sessionid" : sessionid
         })
     } 
+
+    get_requests_for_you(sessionid) {
+        const URL = `${API_URL}/friends/pendingrequests/`
+        return axios.post(URL, {
+            "sessionid" : sessionid
+        })
+    }
  }

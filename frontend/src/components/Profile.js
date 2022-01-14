@@ -24,6 +24,9 @@ function Profile() {
 
     const [username, setUsername] = useState()
     const [email, setEmail] = useState()
+    const [myAccount, setMyAccount] = useState(false)
+    const [invited, setInvited] = useState(false)
+    const [potentialFriend, setPotentialFriend] = useState()
     const [friendsArray, setFriendsArray] = useState([])
     const [posts, setPosts] = useState([])
     const [comments, setComments] = useState([])
@@ -62,6 +65,7 @@ function Profile() {
                 profileHandler.myprofile(c).then(res => {
                     console.log(res.data)
                     setUsername(res.data.username)
+                    setMyAccount(true)
                     setEmail(res.data.email)
                 }).then(() => {
                     profileHandler.list_of_friends(c).then(
@@ -71,6 +75,14 @@ function Profile() {
                             console.log(friendsArray)
                         }
                     )
+                    profileHandler.get_requests_for_you(c).then(res => {
+                        console.log(res)
+                        if (res.data.requests.length > 0) {
+                            setInvited(true)
+                            setPotentialFriend(res.data.requests[0].toString())
+                            console.log(potentialFriend)
+                        }
+                    })
                     postHandler.getselfPosts(c).then(
                         res => {
                             console.log(res)
@@ -102,11 +114,22 @@ function Profile() {
         profileHandler.requestFriend(c, user.userek).then(
             console.log('OK my friend')
         ).catch(() => console.log('coś się popsuło'))
+        
     }
 
-    /*const acceptFriend = () => {
-        profileHandler.acceptFriend(c,)
-    }*/
+    const acceptFriend = (c, potentialFriend) => {
+        profileHandler.acceptFriend(c, potentialFriend).then(res => {
+            console.log(res)
+            console.log('Zaproszenie przyjęte')
+        })
+    }
+
+    const denyFriend = (c, potentialFriend) => {
+        profileHandler.denyFriend(c, potentialFriend).then(res => {
+            console.log(res)
+            console.log('Zaproszenie odrzucone')
+        })
+    }
 
     return (
         <div className="allPage">
@@ -132,11 +155,20 @@ function Profile() {
                     </div>
                 </Card>
 
-                
+                {invited 
+                    ? <Card>
+                        <p>{potentialFriend} zaprosił/a cię do znajomych</p>
+                        <button onClick={acceptFriend}>Akceptuj zaproszenie</button>
+                        <button onClick={denyFriend}>Odrzuć zaproszenie</button>
+                    </Card>: null
+                }
             </aside>
             <section>
                 <Card>
-                    {editing ? <ChangeData email={email} finishEditing={finishEditing}/> : <ProfileData avatar={avatar} username={username} click={edit}/>}
+                    {editing 
+                        ? <ChangeData email={email} finishEditing={finishEditing}/>
+                        : <ProfileData avatar={avatar} username={username} click={edit} myAccount={myAccount} addFriend={addFriend}/>
+                    }
                 </Card>
                 
                 <div className="profilePosts">
