@@ -75,10 +75,10 @@ function Profile() {
                             }
                             console.log(postArray)*/
                             setPosts(res.data.posts)
-                            for (let i=0; i<res.data.posts.length; i++) {
+                            /*for (let i=0; i<res.data.posts.length; i++) {
                                 posts.push(res.data.posts)
                                 setComments(posts[i].comments)
-                            }
+                            }*/
                         }
                     )
                 }
@@ -136,7 +136,7 @@ function Profile() {
                 </Card>
                 
                 <div className="profilePosts">
-                    <Postlist data={posts}/>
+                    
                 </div>
             </section>
             
