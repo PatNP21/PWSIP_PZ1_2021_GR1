@@ -65,7 +65,7 @@ def changeprofile(request):
             email = serializer.data["email"]
             firstname = serializer.data["firstname"]
             lastname = serializer.data["lastname"]
-            dateofbirth = serializer.data["DOB"]
+            dateofbirth = serializer.data["dateofbirth"]
             user.changeprofiledata(email,firstname,lastname,dateofbirth)
             ## OUT OF DATE OF BIRTH YET
             return Response({

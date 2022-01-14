@@ -60,7 +60,7 @@ export default class PostHandler{
         const url = `${API_URL}/comments/create/${idpost}/`
         return axios.post(url, {
             "sessionid": sessionid,
-            'content' : content
+            "content" : content
         })
     }
 
