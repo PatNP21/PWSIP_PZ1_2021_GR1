@@ -45,7 +45,8 @@ function Register() {
                 return true
             }
             else {
-                console.log(validator.showMessages())
+                validator.showMessages()
+                validator.forceUpdate()
                 return false
             }
         }

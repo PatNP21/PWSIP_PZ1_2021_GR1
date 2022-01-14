@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import { Link, useNavigate} from 'react-router-dom'
 import Cookies from 'universal-cookie'
+import SimpleReactValidator from 'simple-react-validator'
 import './Login.css'
 import LoginHandler from './LoginHandler'
 
@@ -18,6 +19,9 @@ const Login = () => {
     //const [sessionId, setSessionId] = useState()
     const navigate = useNavigate()
     const c = cookies.get("sessionId")
+
+    const validator = new SimpleReactValidator()
+
     useEffect(() => {
         if(c)
         {
@@ -70,8 +74,15 @@ const Login = () => {
         
         <div className="plot">
             <div className="loginPanel">
-                <input className="inputLog login" type="text" placeholder="Login" onChange={(e) => setUsedLogin(e.target.value)}/><br/>
-                <input className="inputLog password" type={type} placeholder="Hasło" onChange={(e) => setUsedPassword(e.target.value)}/><br/>
+                <div className="logFormGroup">
+                    <input className="inputLog login" type="text" placeholder="Login" onChange={(e) => setUsedLogin(e.target.value)}/><br/>
+                    {validator.message('login', usedLogin, 'required')}
+                </div>
+                <div className="logFormGroup">
+                    <input className="inputLog password" type={type} placeholder="Hasło" onChange={(e) => setUsedPassword(e.target.value)}/>
+                    {validator.message('password', usedPassword, 'required')}
+                </div>
+                
                 <Link to = "/retrievePassword" className="forgottenPasswordLink"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>
                 <button className="inputLogSub" onClick = {handleLogin}>Zaloguj się</button><br/>
                 <p>lub</p>
