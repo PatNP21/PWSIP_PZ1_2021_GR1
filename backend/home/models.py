@@ -11,7 +11,7 @@ class User(models.Model):
     lastname = models.CharField(max_length=100)
     dateofbirth = models.DateField()
     activated = models.BooleanField()
-    
+    privileges = models.CharField(default= "Basic",max_length=30)
     def __str__(self):
         return self.username
 

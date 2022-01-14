@@ -48,7 +48,14 @@ def createFriendRequest(request,tousername):
                 })
             except FriendRequest.DoesNotExist:
                 pass
-            
+            try:
+                obj = FriendRequest.objects.get(tousername = fromusername, fromusername = tousername)
+                return Response({
+                    'success' : False,
+                    'errors' : 'That user sent you friend request'
+                })
+            except FriendRequest.DoesNotExist:
+                pass
             if touserFriends.isFriend(fromusername):
                 return Response({
                     'success' : False,
