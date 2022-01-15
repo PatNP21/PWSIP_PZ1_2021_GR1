@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import RegisterHandler from './RegisterHandler'
+import validator from 'validator'
+import Input from 'react-validation/build/input';
 import './RetrievePassword.css'
 
 const registerHandler = new RegisterHandler()
@@ -32,10 +34,23 @@ function RetrievePassword() {
         
     }
 
+    const required = (value) => {
+        if (!value.toString().trim().length) {
+          // We can return string or jsx as the 'error' prop for the validated Component
+          return 'require';
+        }
+    };
+
+    const email = (value) => {
+        if (!validator.isEmail(value)) {
+          return `${value} is not a valid email.`
+        }
+    };
+
     return (
         <div className="retrievePlot">
             <h3 className="sentenceRetrieve">Podaj adres e-mail, aby zresetować hasło</h3>
-           <input className="retInput" type="text" placeholder="Enter E-mail address" onChange={e => setUsedEmail(e.target.value)}/><br/>
+           <Input className="retInput" type="text" placeholder="Enter E-mail address" onChange={e => setUsedEmail(e.target.value)} validations={[required, email]}/><br/>
            <button className="inputRetSub" onClick={resetPasswordOperation}>Odzyskaj hasło</button>
            <h2>{slogan}</h2>
         </div>

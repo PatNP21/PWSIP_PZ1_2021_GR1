@@ -67,3 +67,7 @@ ul .list-of-friends {
 li {
     display: block;
 }
+
+.listFriendsElement {
+    cursor: pointer;
+}

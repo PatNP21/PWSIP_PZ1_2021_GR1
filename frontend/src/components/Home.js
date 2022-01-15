@@ -99,6 +99,7 @@ function Home() {
                     <div className="values">
                         Lista statystyk
                     </div>
+                    <Link to="/profile">Przejdź do profilu</Link>
                 </Card>
                 
             </aside>

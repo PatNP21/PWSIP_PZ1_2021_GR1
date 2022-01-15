@@ -21,7 +21,7 @@ function LoggedHeader() {
 
     return (
         <div>
-            <a onClick={logout}>Wyloguj</a>
+            <a className="homeRegLink" onClick={logout}>Wyloguj</a>
         </div>
     )
 }

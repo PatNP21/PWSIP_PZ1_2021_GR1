@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate} from 'react-router-dom'
-import SimpleReactValidator from 'simple-react-validator'
+import Input from 'react-validation/build/input';
+import validator from 'validator'
 import './NewPassword.css'
 import RegisterHandler from './RegisterHandler'
 
@@ -8,7 +9,7 @@ const registerHandler = new RegisterHandler()
 
 function RecoverPassword() {
 
-    const validator = new SimpleReactValidator()
+    //const validator = new SimpleReactValidator()
     const navigate = useNavigate()
     const [newpassword, setNewpassword] = useState('')
     const {code} = useParams()
@@ -17,6 +18,7 @@ function RecoverPassword() {
             console.log(res.data.state)
         })
     },[])
+
     const recover = () => {
         // walidacja
         registerHandler.passwordRecoveryChange(code,newpassword).then((res) => {

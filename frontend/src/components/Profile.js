@@ -68,13 +68,6 @@ function Profile() {
                     setMyAccount(true)
                     setEmail(res.data.email)
                 }).then(() => {
-                    profileHandler.list_of_friends(c).then(
-                        res => {
-                            console.log(res)
-                            setFriendsArray(res.data.friends)
-                            console.log(friendsArray)
-                        }
-                    )
                     profileHandler.get_requests_for_you(c).then(res => {
                         console.log(res)
                         if (res.data.requests.length > 0) {
@@ -107,6 +100,13 @@ function Profile() {
                     setUsername(res.data.username)
                 })
             }
+            profileHandler.list_of_friends(c).then(
+                res => {
+                    console.log(res)
+                    setFriendsArray(res.data.friends)
+                    console.log(friendsArray)
+                }
+            )
         })
     }, [])
 
@@ -150,7 +150,12 @@ function Profile() {
                     <div className="values">
                         <ul className="list_of_friends">
                             {friendsArray.map((item) => 
-                                <li className="listFriendsElement"><FriendName>{item}</FriendName></li>
+                                <li className="listFriendsElement" onClick={() => {
+                                    profileHandler.getprofilebyusername(user.userek).then(res => {
+                                        console.log(res.data)
+                                        setUsername(res.data.username)
+                                    })
+                                }}><FriendName>{item}</FriendName></li>
                             )}
                         </ul>
                     </div>
