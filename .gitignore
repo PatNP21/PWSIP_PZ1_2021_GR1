@@ -3,6 +3,5 @@ __pycache__/
 migrations/
 media/
 package-lock.json
-package.json
 yarn.lock
 settings.py
