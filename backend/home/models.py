@@ -1,4 +1,5 @@
 from datetime import timedelta
+from django.db.models.deletion import CASCADE
 from django.utils import timezone
 from django.db import models
 
@@ -93,3 +94,11 @@ class UserPasswordChange(models.Model):
             return True
         else:
             return False
+
+class BlockedUser(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    reason = models.CharField(max_length=200)
+    expires = models.DateTimeField()
+
+    def __str__(self):      
+        return self.user.username

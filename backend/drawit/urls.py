@@ -29,4 +29,5 @@ urlpatterns = [
     path('posts/',include("posts.urls", namespace='posts')),
     path('friends/',include('friends.urls',namespace='friends')),
     path('comments/',include('comments.urls',namespace='comments')),
+    path('adminpanel/',include('adminpanel.urls',namespace='adminpanel')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
