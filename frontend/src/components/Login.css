@@ -14,16 +14,21 @@
     margin-right: auto;
 }
 
-.loginPanel > .inputLog {
-    width: 60%;
-    height: 10%;
+.logFormGroup {
+    width:60%;
+    height:10%;
     margin-top: 7%;
     margin-left: 20%;
     margin-right: 20%;
-    border-radius: 5px;
-    border:2px solid lightgray;
-    font-family: 'Titillium Web', sans-serif;
     background-color: white;
+    border:2px solid lightgray;
+}
+
+.logFormGroup > .inputLog {
+    width: 90%;
+    height: 98%;
+    border-radius: 5px;
+    font-family: 'Titillium Web', sans-serif;
     font-size: 1.1em;
 }
 

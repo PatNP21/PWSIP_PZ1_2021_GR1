@@ -34,23 +34,10 @@ function RetrievePassword() {
         
     }
 
-    const required = (value) => {
-        if (!value.toString().trim().length) {
-          // We can return string or jsx as the 'error' prop for the validated Component
-          return 'require';
-        }
-    };
-
-    const email = (value) => {
-        if (!validator.isEmail(value)) {
-          return `${value} is not a valid email.`
-        }
-    };
-
     return (
         <div className="retrievePlot">
             <h3 className="sentenceRetrieve">Podaj adres e-mail, aby zresetować hasło</h3>
-           <Input className="retInput" type="text" placeholder="Enter E-mail address" onChange={e => setUsedEmail(e.target.value)} validations={[required, email]}/><br/>
+           <input className="retInput" type="text" placeholder="Enter E-mail address" onChange={e => setUsedEmail(e.target.value)}/><br/>
            <button className="inputRetSub" onClick={resetPasswordOperation}>Odzyskaj hasło</button>
            <h2>{slogan}</h2>
         </div>
