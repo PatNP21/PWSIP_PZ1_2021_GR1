@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import './Profile.css'
 import avatar from './../avatar.png'
@@ -28,11 +28,13 @@ function Profile() {
     const [invited, setInvited] = useState(false)
     const [potentialFriend, setPotentialFriend] = useState()
     const [friendsArray, setFriendsArray] = useState([])
+    const [blockedArray, setBlockedArray] = useState([])
     const [posts, setPosts] = useState([])
     const [comments, setComments] = useState([])
-    //let postArray = []
+    let postArray = []
     let IDs = [] //friends' IDs
     const [editing, setEditing] = useState(false)
+    const friendName = useRef('')
     const user = useParams()
 
     const edit = () => {
@@ -79,15 +81,15 @@ function Profile() {
                     postHandler.getselfPosts(c).then(
                         res => {
                             console.log(res)
-                            /*for(const el in res.data.posts) {
+                            for(const el in res.data.posts) {
                                 postArray.push(res.data.posts[el])
                             }
-                            console.log(postArray)*/
+                            console.log(postArray)
                             setPosts(res.data.posts)
-                            /*for (let i=0; i<res.data.posts.length; i++) {
+                            for (let i=0; i<res.data.posts.length; i++) {
                                 posts.push(res.data.posts)
                                 setComments(posts[i].comments)
-                            }*/
+                            }
                         }
                     )
                 }
@@ -132,6 +134,28 @@ function Profile() {
         }).catch(err => console.log(err))
     }
 
+    const removeFriend = () => {
+        profileHandler.removeFriend(c, user.userek).then(() => {
+            console.log('Znajomy usunięty')
+        }).catch(err => console.log(err))
+    }
+
+    const blockUser = () => {
+        profileHandler.blockUser(c, user.userek).then(() => {
+            blockedArray.push(user.userek)
+            console.log('Użytkownik zablokowany')
+            console.log(blockedArray)
+        }).catch(err => console.log(err))
+    }
+
+    const unblockUser = () => {
+        profileHandler.unblockUser(c, user.userek).then(() => {
+            blockedArray.remove(user.userek)
+            console.log('Użytkownik obblokowany')
+            console.log(blockedArray)
+        }).catch(err => console.log(err))
+    }
+
     return (
         <div className="allPage">
             <header>
@@ -150,11 +174,9 @@ function Profile() {
                     <div className="values">
                         <ul className="list_of_friends">
                             {friendsArray.map((item) => 
-                                <li className="listFriendsElement" onClick={() => {
-                                    profileHandler.getprofilebyusername(user.userek).then(res => {
-                                        console.log(res.data)
-                                        setUsername(res.data.username)
-                                    })
+                                <li className="listFriendsElement" key={item.id} ref={friendName} onClick={() => {
+                                    console.log(friendName.current.children.innerText)
+                                    user.userek = friendName.current.children.innerText
                                 }}><FriendName>{item}</FriendName></li>
                             )}
                         </ul>
@@ -173,7 +195,16 @@ function Profile() {
                 <Card>
                     {editing 
                         ? <ChangeData email={email} finishEditing={finishEditing}/>
-                        : <ProfileData avatar={avatar} username={username} click={edit} myAccount={myAccount} addFriend={addFriend}/>
+                        : <ProfileData avatar={avatar} 
+                                    username={username} 
+                                    click={edit} 
+                                    myAccount={myAccount} 
+                                    addFriend={addFriend} 
+                                    removeFriend={removeFriend} 
+                                    blockUser={blockUser}
+                                    unblockUser={unblockUser}
+                                    blockedArray={blockedArray}
+                                    friends={friendsArray}/>
                     }
                 </Card>
                 

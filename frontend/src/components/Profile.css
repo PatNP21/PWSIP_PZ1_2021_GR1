@@ -57,7 +57,11 @@ section {
 
 .preturn {
     color:white;
+    position: fixed;
+    right:10vw;
     margin-top: 0 !important;
+    text-decoration: none;
+    line-height: 10vh;
 }
 
 ul .list-of-friends {

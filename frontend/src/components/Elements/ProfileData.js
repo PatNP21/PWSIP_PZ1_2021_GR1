@@ -12,7 +12,16 @@ function ProfileData(props) {
             </div>
             {props.myAccount 
                 ? <button onClick={props.click}>Edytuj profil</button> 
-                : <button onClick={props.addFriend}>Dodaj do znajomych</button>}
+                : (!props.friends.includes(props.username) ? <div>
+                                                                <button onClick={props.addFriend}>Dodaj do znajomych</button>
+                                                                {!props.blockedArray.includes(props.username) ? <button onClick={props.blockUser}>Blokuj użytkownika</button>
+                                                                                                          : <button onClick={props.unblockUser}>Odblokuj użytkownika</button>}
+                                                            </div>
+                                                           : (<div>
+                                                            <button onClick={props.removeFriend}>Usuń ze znajomych</button>
+                                                            {!props.blockedArray.includes(props.username) ? <button onClick={props.blockUser}>Blokuj użytkownika</button>
+                                                                                                          : <button onClick={props.unblockUser}>Odblokuj użytkownika</button>}
+                                                            </div>))}
         </div>
     )
 }
