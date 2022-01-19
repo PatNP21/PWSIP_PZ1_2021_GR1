@@ -22,7 +22,6 @@ function Home() {
 
     const cookies = new Cookies()
     const navigate = useNavigate()
-    //let postArray = []
     const c = cookies.get("sessionId")
     const [content, setContent] = useState('')
     const [image, setImage] = useState(null)
@@ -74,6 +73,8 @@ function Home() {
         postHandler.getPosts(1).then(
             (data) => {
                 console.log(data)
+                setInit(true)
+                setPostArray(data.data.posts)
                 for (let i=0; i<data.data.posts.length; i++) {
                     postArray.push(data.data.posts[i])
                     console.log(postArray.comments[0])
@@ -112,13 +113,13 @@ function Home() {
                                 <BsFillPlusCircleFill/>
                             </label>
                         </div>
-                        <input type="file" id="filetopost" accept="image/jpg, image/png" onChange={e => setImage(e.target.files[0])}/>
+                        <input type="file" id="filetopost" accept="['image/jpg', 'image/png']" onChange={e => setImage(e.target.files[0])}/>
                         <button onClick={createAPost}>Dodaj</button>
                     </div>
                 </Card>
                 
                 <div className="profilePosts">
-                    
+                    <Postlist data={postArray}/>
                 </div>
             </main>
             
