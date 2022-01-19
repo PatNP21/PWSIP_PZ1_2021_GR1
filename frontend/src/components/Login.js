@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react'
 import { Link, useNavigate} from 'react-router-dom'
+import {FaRegEye} from 'react-icons/fa'
 import Cookies from 'universal-cookie'
 import './Login.css'
 import LoginHandler from './LoginHandler'
@@ -76,6 +77,7 @@ const Login = () => {
                 </div>
                 <div className="logFormGroup">
                     <input className="inputLog password" type={type} placeholder="Hasło" onChange={(e) => setUsedPassword(e.target.value)}/>
+                    <FaRegEye onClick={changeTypeOfInput}/>
                 </div>
                 
                 <Link to = "/retrievePassword" className="forgottenPasswordLink"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>

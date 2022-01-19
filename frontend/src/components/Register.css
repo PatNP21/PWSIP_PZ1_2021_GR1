@@ -1,5 +1,13 @@
+.plot {
+    width:70%;
+    height: 90%;
+    padding-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .registerPanel {
-    width: 50%;
+    width: 70%;
     height: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -7,7 +15,7 @@
 
 .registerPanel > .regFormGroup {
     width: 60%;
-    height: 8%;
+    height: 16%;
     border-radius: 7%;
     margin-left: 20%;
     margin-right: 20%;

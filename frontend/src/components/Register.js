@@ -6,6 +6,7 @@ import './Register.css'
 import Cookies from 'universal-cookie'
 import RegisterHandler from './RegisterHandler'
 import LoginHandler from './LoginHandler'
+import {FaRegEye} from 'react-icons/fa'
 
 const loginHandler = new LoginHandler()
 const registerHandler = new RegisterHandler()
@@ -102,10 +103,12 @@ function Register() {
                     </div>
                     <div className="regFormGroup">
                         <input className="regInput" type={type} placeholder="Create your password" onChange={(e) => setPassword(e.target.value)}/>
+                        <FaRegEye onClick={changeTypeOfInput}/>
                         {validator.message('password', password, 'required|min:6')}
                     </div>
                     <div className="regFormGroup">
                         <input className="regInput" type={type} placeholder="Repeat your password"/>
+                        <FaRegEye onClick={changeTypeOfInput}/>
                     </div>
                     <button className="inputRegSub" onClick={registerToSystem}>Utwórz konto</button>
                 </div>

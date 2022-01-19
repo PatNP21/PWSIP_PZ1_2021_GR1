@@ -118,7 +118,7 @@ function Home() {
                 </Card>
                 
                 <div className="profilePosts">
-                    <Postlist data={postArray}/>
+                    
                 </div>
             </main>
             
