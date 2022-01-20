@@ -86,7 +86,8 @@ def UnblockUser(request,username):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        'success' : False,
+        "errors":" serializer poszedł"
     })
 
         
@@ -130,7 +131,8 @@ def DeletePost(request,idpost):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        'success' : False,
+        "errors":"s e r i a l i z e r"
     })
 
 @api_view(['POST'])
@@ -173,6 +175,7 @@ def DeleteComment(request,idcomment):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        'success' : False,
+        "errors":"SERRRRRRRRRRRRRializer"
     })
 

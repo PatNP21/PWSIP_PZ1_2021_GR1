@@ -17,6 +17,7 @@ def loginPage(request):
             user = User.objects.get(username__iexact = serializer.data['username'], password = serializer.data['password'])
             if user.activated == False:
                 return Response({
+                'success' : False,
                 'errors': 'Nieaktywowane konto',
                 'login' : False
                 })
@@ -29,6 +30,7 @@ def loginPage(request):
             expires = timezone.now()+ timedelta(minutes=10)
             Session.objects.create(sessionid = sessionid, username = user.username, expires = expires)
             return Response({
+                'success' : True,
                 'errors' : "Brak",
                 'login' : True,
                 'sessionid' : sessionid,
@@ -39,11 +41,13 @@ def loginPage(request):
         except User.DoesNotExist:
             print("Avutalllsa")
             return Response({
+                'success' : False,
                 'errors': 'Nieprawidłowy login i/lub hasło',
                 'login' : False
                 })
     else:
         return Response({
+            'success' : False,
             'errors': 'Nieprawidłowy format',
             'login' : False
         })
@@ -85,10 +89,12 @@ def logout(request):
         except Session.DoesNotExist:
             pass
         return Response({
+            'success' : True,
             "loggedout" : True
         })
     else:
         return Response({
+            'success' : False,
             "errors" : "DAAA"
         })
 

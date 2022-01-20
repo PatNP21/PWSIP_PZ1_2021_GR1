@@ -25,6 +25,7 @@ def createpost(request):
             session = Session.objects.get(sessionid=sessionid)
             if session.isexpired():
                 return Response({
+                    'success' : False,
                     'loggedin':False
                 })
             author = session.username    
@@ -50,16 +51,19 @@ def createpost(request):
                 
             )
             return Response({
+                'success' : True,
                 'errors':'Brak'
             })
             
 
         except Session.DoesNotExist:
             return Response({
+                'success' : False,
                 "errors":"User isn't logged in"
             })
     else:
         return Response({
+                'success' : False,
                 "errors":"Zjebałeś wysłanie popraw sie kmiotku"
             })
 
@@ -69,6 +73,7 @@ def getpost(request,idpost):
     try:
         post = Post.objects.get(id = idpost)
         return Response({
+            'success' : True,
             'author' : post.author,
             'title' : post.title,
             'content': post.content,
@@ -78,6 +83,7 @@ def getpost(request,idpost):
         })
     except Post.DoesNotExist:
         return Response({
+            'success' : False,
             "errors":"Post doesn't exist"
         })
 @api_view(['GET'])
@@ -96,6 +102,7 @@ def getUserPosts(request,author):
         }
         posts.append(p)
     return Response({
+        'success' : True,
         'author' : author,
         'posts' : posts
     })
@@ -110,6 +117,7 @@ def getSelfPosts(request):
             session = Session.objects.get(sessionid=sessionid)
             if session.isexpired():
                 return Response({
+                    'success' : False,
                     'loggedin':False
                 })
             author = session.username
@@ -127,11 +135,13 @@ def getSelfPosts(request):
                 }
                 posts.append(p)
             return Response({
+                'success' : True,
                 'author' : author,
                 'posts' : posts
             })
         except Session.DoesNotExist:
                 return Response({
+                    'success' : False,
                     "errors":"User isn't logged in"
                 })
 @api_view(['POST'])
@@ -144,6 +154,7 @@ def deletePost(request,idpost):
             session = Session.objects.get(sessionid=sessionid)
             if session.isexpired():
                 return Response({
+                    'success' : False,
                     'loggedin':False
                 })
             user = session.username
@@ -162,6 +173,7 @@ def deletePost(request,idpost):
 
         except Session.DoesNotExist:
                 return Response({
+                    'success' : False,
                     "errors":"User isn't logged in"
                 })
 
@@ -175,6 +187,7 @@ def likePost(request,idpost):
             session = Session.objects.get(sessionid=sessionid)
             if session.isexpired():
                 return Response({
+                    'success' : False,
                     'loggedin':False
                 })
             
@@ -192,6 +205,7 @@ def likePost(request,idpost):
 
         except Session.DoesNotExist:
                 return Response({
+                    'success' : False,
                     "errors":"User isn't logged in"
                 })
 per_page = 5
@@ -200,19 +214,22 @@ per_page = 5
 def getPosts(request,page):
     if(page < 1):
         return Response({
-              "errors":"Ty sie dobrze czujesz?"
+            'success' : False,
+            "errors":"Ty sie dobrze czujesz?"
             })
     records =  page * per_page
     posts = Post.objects.filter(visibility = True).order_by('-publicationdate')
     if posts.count()-(records - 5) <= 0:
          return Response({
-              "errors":"Posty sie skonczyly typie"
+            'success' : False,
+            "errors":"Posty sie skonczyly typie"
             })
     if posts.count() > records:
         posts = posts[records-5:records]
     else:
         posts = posts[records-5:]
     return Response({
+            'success' : True,
             'count' : posts.count(),
             'posts' : serializePosts(posts) 
         })

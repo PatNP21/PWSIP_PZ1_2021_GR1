@@ -14,10 +14,12 @@ def myprofile(request):
             session = Session.objects.get(sessionid = serializer.data["sessionid"])
             if session.isexpired():
                 return Response({
+                'success' : False,
                 'loggedin': False
                 })
             user = User.objects.get(username__iexact = session.username)
             return Response({
+                'success' : True,
                 'username' : user.username,
                 'email' : user.email,
                 'firstname' : user.firstname,
@@ -26,10 +28,12 @@ def myprofile(request):
             })
         except Session.DoesNotExist:
             return Response({
+                'success' : False,
                 "errors": "Not logged in"
             })
     else: 
         return Response({
+            'success' : False,
             "errors" : "Internal error"
         })
 
@@ -40,12 +44,14 @@ def profile(request,username):
     try:
         user = User.objects.get(username__iexact = username)
         return Response({
+            'success' : True,
             'username' : user.username,
             'firstname' : user.firstname,
             'lastname' : user.lastname
         })
     except User.DoesNotExist:
         return Response({
+            'success' : False,
             "errors" : "User does not exists"
         }) 
 
@@ -59,7 +65,8 @@ def changeprofile(request):
             session = Session.objects.get(sessionid=sessionid)
             if session.isexpired():
                 return Response({
-                'loggedin': False
+                    'success' : False,
+                    'loggedin': False
                 })
             user = User.objects.get(username__iexact = session.username)
             email = serializer.data["email"]
@@ -69,16 +76,18 @@ def changeprofile(request):
             user.changeprofiledata(email,firstname,lastname,dateofbirth)
             ## OUT OF DATE OF BIRTH YET
             return Response({
-                'errors':"Zmiana pomyślna"
+                'success' : True
             })       
             
 
         except Session.DoesNotExist:
             return Response({
+                'success' : False,
                 "errors":"User isn't logged in"
             })
     else:
         return Response({
+            'success' : False,
             "errors":"Nieprawidlowy format danych"
         })
 

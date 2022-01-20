@@ -45,14 +45,16 @@ def registerPage(request):
             print(message)
             #send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
             return Response({
-                'errors': "Brak"
+                'success' : True
             })
         else:
             return Response({
+                'success' : False,
                 'errors': "Użytkownik istnieje"
             })
     else:
         return Response({
+            'success' : False,
             'errors' : 'Nieprawidłowy format'
         }) 
             
