@@ -17,13 +17,15 @@ aside {
 section {
     float: left;
     height:83vh;
-    width:60%;
+    width:75%;
+    right: 0;
+    position: fixed;
     border-right: 2px solid black;
     overflow-y: scroll;
 }
 
 .profileData {
-    width:50vw;
+    width:65vw;
     height:30vh;
 }
 

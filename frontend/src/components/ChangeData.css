@@ -1,11 +1,3 @@
-section {
-    float: left;
-    height:83vh;
-    width:60%;
-    border-right: 2px solid black;
-    overflow-y: scroll;
-}
-
 .edit_profile {
     width:50vw;
     height:30vh;
