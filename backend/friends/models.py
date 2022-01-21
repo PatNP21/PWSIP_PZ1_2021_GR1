@@ -48,6 +48,12 @@ class UserFriend(models.Model):
         self.save()
 
     def list(self):
+        lst = self.friendlist.split('/')
+        try:
+            idx = lst.index("")
+            lst.remove("")
+        except ValueError:
+            pass
         return self.friendlist.split('/').remove("")
 
     
