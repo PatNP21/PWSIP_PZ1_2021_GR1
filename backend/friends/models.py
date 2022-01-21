@@ -48,7 +48,7 @@ class UserFriend(models.Model):
         self.save()
 
     def list(self):
-        return self.friendlist.split('/')
+        return self.friendlist.split('/').remove("")
 
     
     
