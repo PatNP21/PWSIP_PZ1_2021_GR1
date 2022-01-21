@@ -108,7 +108,9 @@ function Profile() {
                     setFriendsArray(res.data.friends)
                     console.log(friendsArray)
                 }
-            )
+            ).catch(err => {
+                console.log(`Error: ${err}`)
+            })
         })
     }, [])
 
