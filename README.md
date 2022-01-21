@@ -19,3 +19,8 @@ Nastęnie używacie komendy "npm start"<br/>
   <li>recoverPassword ('/recoverPassword')</li>
   <li>newPassword ('/newPassword')</li>
  </ul>
+
+# sesja po wygasnieciu na sekcji profile wywala blad
+# przy starcie frontu strona traktuje jako zalogowanego mimo iż taki nie jest
+# potwierdzenie konta FRONTEND
+# min height na elementach

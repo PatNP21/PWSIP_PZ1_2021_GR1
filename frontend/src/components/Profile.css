@@ -68,6 +68,7 @@ section {
 
 ul .list-of-friends {
     list-style-type: none;
+    width: 100%;
 }
 
 li {

@@ -54,7 +54,7 @@ class UserFriend(models.Model):
             lst.remove("")
         except ValueError:
             pass
-        return self.friendlist.split('/').remove("")
+        return lst
 
     
     
