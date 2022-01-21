@@ -15,7 +15,11 @@ code {
 ul {
   list-style-type: none;
   margin-block-start: 2vw;
+<<<<<<< HEAD
   padding-inline-start: 0;
 
+=======
+  padding-inline-start: 5px;
+>>>>>>> 22b89a8afff59a6719dc20fc0dd87361b2bf34ea
 }
 
