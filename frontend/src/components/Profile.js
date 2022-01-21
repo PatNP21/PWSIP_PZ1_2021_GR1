@@ -178,7 +178,7 @@ function Profile() {
                             {friendsArray !== null ? friendsArray.map((item) => 
                                 <li className="listFriendsElement" key={item.id} ref={friendName} onClick={() => {
                                     console.log(friendName.current.children)
-                                    user.userek = friendName.current.children
+                                    user.userek = friendName.current.children.innerHTML
                                 }}><FriendName>{item}</FriendName></li>
                             ) : <p>Brak przyjaciół</p>}
                         </ul>
