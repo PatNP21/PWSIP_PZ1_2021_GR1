@@ -4,7 +4,7 @@ from django.db import models
 class Post(models.Model):
     author = models.CharField(max_length=30)
     title = models.CharField(max_length=100)
-    content = models.TextField(max_length=500)
+    content = models.TextField(max_length=1000)
     images = models.TextField(max_length=500, default='')
     publicationdate = models.DateTimeField(default= datetime(2000,1,1,1,1,1,1))
     likeList = models.TextField(max_length=10000, default='')
