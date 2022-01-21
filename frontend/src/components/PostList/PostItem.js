@@ -50,14 +50,14 @@ function PostItem(props) {
           </div>
           <div className={classes.comments}>
             <ul>
-              {props.comments.map(item => {
+              {props.comments !== null && props.comments !== undefined ? props.comments.map(item => {
                 return <li>
                         <Card>
                           <h4>{item.author}</h4>
                           <p>{item.content}</p>
                         </Card>
                       </li>
-              })}
+              }) : <p>Nie znaleziono komentarzy</p>}
             </ul>
           </div>
         </div>

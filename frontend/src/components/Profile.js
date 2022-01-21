@@ -211,7 +211,7 @@ function Profile() {
                 </Card>
                 
                 <div className="profilePosts">
-                    
+                    <Postlist data={posts}/>
                 </div>
             </section>
             
