@@ -173,12 +173,12 @@ function Profile() {
                 <Card>
                     <div className="values">
                         <ul className="list_of_friends">
-                            {friendsArray.length > 0 ? friendsArray.map((item) => 
+                            {!friendsArray === null ? friendsArray.map((item) => 
                                 <li className="listFriendsElement" key={item.id} ref={friendName} onClick={() => {
                                     console.log(friendName.current.children.innerText)
                                     user.userek = friendName.current.children.innerText
                                 }}><FriendName>{item}</FriendName></li>
-                            ) : null}
+                            ) : <p>Brak przyjaciół</p>}
                         </ul>
                     </div>
                 </Card>

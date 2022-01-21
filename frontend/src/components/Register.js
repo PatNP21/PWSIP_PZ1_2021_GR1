@@ -22,6 +22,8 @@ function Register() {
     const [password, setPassword] = useState('')
     const [type, setType] = useState('password') //setting type for password fields ()
 
+    const [isRegistered, setIsRegistered] = useState(false)
+
     const validator = new SimpleReactValidator()
 
     const navigate = useNavigate()
@@ -58,7 +60,8 @@ function Register() {
                 let errors = res.data.errors
                 if (errors == "Brak")
                 {
-                    navigate("/home")
+                   // navigate("/home")
+                   setIsRegistered(true)
                 }
                 else
                 {
@@ -112,6 +115,7 @@ function Register() {
                     </div>
                     <button className="inputRegSub" onClick={registerToSystem}>Utwórz konto</button>
                 </div>
+                {isRegistered ? <p>OK!</p> : <p>Sth went wrong!</p>}
             </div>
         </div>
         
