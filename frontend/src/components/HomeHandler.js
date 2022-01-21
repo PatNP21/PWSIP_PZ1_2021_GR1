@@ -7,7 +7,7 @@ export default class HomeHandler{
 
     countUsers(){
         const url = `${API_URL}/home/userscount/`;
-        return axios.get(url).then(res => console.log(res))
+        return axios.get(url)
     }
 
  }

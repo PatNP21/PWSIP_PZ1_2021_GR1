@@ -11,12 +11,13 @@ import './Home.css'
 import Postlist from './PostList/PostList'
 import LoginHandler from './LoginHandler'
 import PostHandler from './PostHandler'
+import HomeHandler from './HomeHandler'
 import Card from './UI/Card'
 import PostItem from './PostList/PostItem'
 
 const postHandler = new PostHandler()
 const loginHandler = new LoginHandler()
-
+const homeHandler = new HomeHandler()
 
 function Home() {
 
@@ -27,6 +28,7 @@ function Home() {
     const [image, setImage] = useState(null)
     const [postArray, setPostArray] = useState([])
     const [comments, setComments] = useState([])
+    const [profilesStats, updateProfilesStats] = useState(0)
     const [init,setInit] = useState(false)
     const user = useParams()
     //getUsersCount()
@@ -42,7 +44,12 @@ function Home() {
                     
                 }
             )
+            homeHandler.countUsers().then(data => {
+                updateProfilesStats(data.data.count)
+
+            })
         }
+        
         let loggedas = null
         loginHandler.checkLoginStatus(String(c)).then(
             (res) => {
@@ -98,7 +105,8 @@ function Home() {
                         
                     </div>
                     <div className="values">
-                        Lista statystyk
+                        <p>Użytkowników zarejestrowanych</p>
+                        <h4 className="userscount">{profilesStats}</h4>
                     </div>
                     <Link to="/profile">Przejdź do profilu</Link>
                 </Card>

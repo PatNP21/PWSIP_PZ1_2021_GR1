@@ -77,7 +77,7 @@ const Login = () => {
                 </div>
                 <div className="logFormGroup">
                     <input className="inputLog password" type={type} placeholder="Hasło" onChange={(e) => setUsedPassword(e.target.value)}/>
-                    <FaRegEye onClick={changeTypeOfInput}/>
+                    <FaRegEye onClick={changeTypeOfInput} className="eyeIcon"/>
                 </div>
                 
                 <Link to = "/retrievePassword" className="forgottenPasswordLink"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>

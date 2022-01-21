@@ -17,7 +17,9 @@ function ActivateAccount() {
 
     return (
         <div>
-            <h2>Twoje konto zostało aktywowane, możesz przejść do sekcji logowania</h2>
+            <div className="activateMessage">
+                <h2>Twoje konto zostało aktywowane, możesz przejść do sekcji logowania</h2>
+            </div>
             <Link to="/login"><p>Zaloguj</p></Link>
         </div>
     )

@@ -12,10 +12,18 @@ function PostItem(props) {
   const cookies = new Cookies()
   const c = cookies.get("sessionId")
   const [comment, setComment] = useState('')
+  const [likeControl, setLikeControl] = useState(false)
 
   const createComment = () => {
     postHandler.createComment(c, props.id, comment).then((data) => {
       console.log(data)
+    })
+  }
+
+  const likeIt = () => {
+    postHandler.likePost(c, props.id).then(data => {
+      console.log(data)
+      setLikeControl(true)
     })
   }
 
@@ -31,7 +39,7 @@ function PostItem(props) {
         </div>
         <div className={classes.activityContent}>
           <div className={classes.likeIt}>
-            <i><AiFillLike/></i>
+            <i><AiFillLike  onClick={likeIt}/></i>
             <p>To jest OK!</p>
           </div>
           <div className={classes.likesCount}>
