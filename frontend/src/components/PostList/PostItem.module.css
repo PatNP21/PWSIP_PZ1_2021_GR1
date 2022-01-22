@@ -12,12 +12,22 @@
   float: left;
 }
 .postContent{
-  width:100%;
-  background: rgba(10, 10, 10, 0.5);
+
+  background: rgba(200, 200, 10, 0.5);
 }
 .activityContent{
-  width:100%;
-  background: rgba(10, 10, 10, 0.5);
+
+  
+  background: rgba(10, 255, 10, 0.5);
+}
+.comment{
+
+  background: rgba(10, 10, 255, 0.5);
+}
+.actions {
+  background: rgba(255, 10, 255, 0.5);
+  padding: 1.5rem;
+  text-align: center;
 }
 
 .image {
@@ -44,10 +54,7 @@
   color: #2c292b;
 }
 
-.actions {
-  padding: 1.5rem;
-  text-align: center;
-}
+
 
 .actions button {
   font: inherit;

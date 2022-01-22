@@ -38,13 +38,14 @@ aside {
 .createAPost {
     border-radius: 10px;
     height: 20vh;
-    width:66vw;
+    width:80%;
+    margin: 10px auto;
 }
 
 .createAPost > input {
-    height: 7vh;
-    width: 40vw;
-    margin: 2vh 12vw 3vh 12vw;
+    height: 4vh;
+    width: 70%;
+    margin: 2vh 0 2vh 12vw;
     border-radius: 10px;
 }
 
