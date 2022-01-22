@@ -29,7 +29,7 @@ function PostItem(props) {
   return (
 
     
-      <div className={classes.onePostCard}>
+    <div className={classes.onePostCard}>
       <Card>
         <div className={classes.content}>
           <h3>{props.title}</h3>
