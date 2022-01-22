@@ -16,9 +16,9 @@ function Postlist(props) {
       {props.data !== null ? props.data.map(item => {
         return (
             <li key={item.id}>
-              <Card>
+              
                 <PostItem image={item.image} title={item.title} address={item.author} description={item.content} id={item.id} comments={item.comments}/>
-              </Card>
+              
             </li>)
       }): <p>Nic nie ma</p>}
       
