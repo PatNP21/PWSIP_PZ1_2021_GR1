@@ -84,7 +84,6 @@ function Home() {
                 setPostArray(data.data.posts)
                 for (let i=0; i<data.data.posts.length; i++) {
                     postArray.push(data.data.posts[i])
-                    console.log(postArray.comments[0])
                     setComments(postArray.comments)
                 }
                 console.log(comments)

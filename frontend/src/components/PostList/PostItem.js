@@ -27,8 +27,15 @@ function PostItem(props) {
   };
 
   return (
+<<<<<<< HEAD
     <div className={classes.onePostCard}>
       <div className={classes.postContent}>
+=======
+    
+<<<<<<< HEAD
+    <div className={classes.onePostCard}>
+      <Card>
+>>>>>>> 87e6829bcd552bff83a5128fb3e9eff46889ded8
         <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
@@ -36,6 +43,23 @@ function PostItem(props) {
         </div>
         <div className={classes.image}>
           <img src={props.image} alt={props.title} />
+<<<<<<< HEAD
+=======
+=======
+      <div className={classes.onePostCard}>
+        <div className={classes.postContent}>
+          
+            <div className={classes.content}>
+              <h3>{props.title}</h3>
+              <address>{props.address}</address>
+              <p>{props.description}</p>
+            </div>
+            <div className={classes.image}>
+              <img src={props.image} alt={props.title} />
+            </div>
+          
+>>>>>>> 54a5500d9e3c9784ba75ba62582b426f2ea6edb5
+>>>>>>> 87e6829bcd552bff83a5128fb3e9eff46889ded8
         </div>
       </div>
 

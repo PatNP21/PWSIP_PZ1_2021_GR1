@@ -1,6 +1,12 @@
 .list {
     list-style: none;
+<<<<<<< HEAD
     width:50vw;
     margin: auto;
+=======
+    width:65vw;
+    float: left;
+    margin: 0;
+>>>>>>> 87e6829bcd552bff83a5128fb3e9eff46889ded8
     padding: 0;
   }

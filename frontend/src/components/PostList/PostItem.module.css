@@ -5,6 +5,9 @@
   }
 
 .onePostCard {
+<<<<<<< HEAD
+  width:62vw;
+=======
   width:100%;
   background: rgba(10, 10, 10, 0.5);
   margin: 2vh 1vw;
@@ -16,6 +19,7 @@
   background: rgba(200, 200, 10, 0.5);
 }
 .activityContent{
+<<<<<<< HEAD
 
   
   background: rgba(10, 255, 10, 0.5);
@@ -28,6 +32,11 @@
   background: rgba(255, 10, 255, 0.5);
   padding: 1.5rem;
   text-align: center;
+=======
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
+>>>>>>> 54a5500d9e3c9784ba75ba62582b426f2ea6edb5
+>>>>>>> 87e6829bcd552bff83a5128fb3e9eff46889ded8
 }
 
 .image {
