@@ -5,7 +5,23 @@
   }
 
 .onePostCard {
+<<<<<<< HEAD
   width:62vw;
+=======
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
+  margin: 2vh 1vw;
+  border: 1px solid black;
+  float: left;
+}
+.postContent{
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
+}
+.activityContent{
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
+>>>>>>> 54a5500d9e3c9784ba75ba62582b426f2ea6edb5
 }
 
 .image {
