@@ -5,7 +5,19 @@
   }
 
 .onePostCard {
-  width:50vw;
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
+  margin: 2vh 1vw;
+  border: 1px solid black;
+  float: left;
+}
+.postContent{
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
+}
+.activityContent{
+  width:100%;
+  background: rgba(10, 10, 10, 0.5);
 }
 
 .image {
