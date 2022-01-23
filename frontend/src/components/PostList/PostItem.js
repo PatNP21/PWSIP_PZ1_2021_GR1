@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { RiDeleteBin6Fill } from "react-icons/ri"
 import classes from "./PostItem.module.css";
@@ -13,6 +13,13 @@ function PostItem(props) {
   const c = cookies.get("sessionId");
   const [comment, setComment] = useState("");
   const [likeControl, setLikeControl] = useState(false);
+  const [myPost, setMyPost] = useState(false)
+
+  useEffect(() => {
+    if(props.address === props.user) {
+      setMyPost(true)
+    }
+  }, [])
 
   const createComment = () => {
     postHandler.createComment(c, props.id, comment).then((data) => {
@@ -36,7 +43,9 @@ function PostItem(props) {
   return (
     
     <div className={classes.onePostCard}>
-      <div className={classes.trush} onClick={deletePost}><RiDeleteBin6Fill/></div>   
+      {setMyPost ? <div className={classes.trush} onClick={deletePost}>
+          <RiDeleteBin6Fill/>
+       </div> : null}
       <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
