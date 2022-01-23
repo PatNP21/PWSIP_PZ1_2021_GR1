@@ -29,26 +29,15 @@ function PostItem(props) {
   return (
     
     <div className={classes.onePostCard}>
-      <Card>
         <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
           <p>{props.description}</p>
         </div>
         <div className={classes.image}>
-          <img src={props.image} alt={props.title} />       
+          <img src={props.image} alt={props.title} />
         </div>
-
-        <div className={classes.activityContent}>
-          <div className={classes.likeIt}>
-            <i>
-              <AiFillLike onClick={likeIt} />
-            </i>
-            <p>Like</p>
-          </div>
-          <div className={classes.image}>
-            <img src={props.image} alt={props.title} />
-          </div>
+      
         
           <div className={classes.activityContent}>
           
@@ -68,39 +57,32 @@ function PostItem(props) {
               <button onClick={createComment}>Submit</button>
             </div>
 
-      <div className={classes.comments}>
-        <ul>
-          {props.comments !== null && props.comments !== undefined ? (
-            props.comments.map((item) => {
-              return (
-                <li>
-                  <div className={classes.comment}>
-                    <h4>{item.author}</h4>
-                    <p>{item.content}</p>
-                  </div>
-                </li>
-              );
-            })
-          ) : (
-            <p>Nie znaleziono komentarzy</p>
-          )}
-        </ul>
-      </div>
-      
+            <div className={classes.comments}>
+              <ul>
+                {props.comments !== null && props.comments !== undefined ? (
+                  props.comments.map((item) => {
+                    return (
+                      <li>
+                        <Card>
+                          <h4>{item.author}</h4>
+                          <p>{item.content}</p>
+                        </Card>
+                      </li>
+                    );
+                  })
+                ) : (
+                  <p>Nie znaleziono komentarzy</p>
+                )}
+              </ul>
+            </div>
+          </div>
 
-<<<<<<< HEAD
           <div className={classes.actions}>
             <button>To Favourites</button>
           </div>
         
-    </div>
-    
-=======
-      <div className={classes.actions}>
-        <button>To Favourites</button>
       </div>
-    </div>
->>>>>>> 80e8f0ba22d711b5ce5062b14256d746a162fcb7
+    
   );
 }
 
