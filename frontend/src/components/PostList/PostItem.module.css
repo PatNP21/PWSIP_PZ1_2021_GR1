@@ -89,6 +89,7 @@
   margin-left: 2vw;
   margin-right:1vw;
   font-size:4rem;
+  width: 10%;
 }
 
 .likeIt i {
@@ -113,11 +114,24 @@
 .likesCount {
   float: left;
   font-size: 4rem;
+  color:thistle;
+  min-width:10%;
   
 }
 .writeComment{
   float:left;
+  margin:auto;
+  width:70%;
+}
+.writeComment input{
   font-size:3rem;
+  border-radius:10px;
+  background-color: seashell;
+}
+.writeComment button{
+  font-size: 2rem;
+  border-radius:10px;
+  margin-left:1vw;
 }
 
 .clearBoth{
