@@ -32,7 +32,7 @@ aside {
 .mainHome {
     float: left;
     margin-top: 2vh;
-    width:67vw;
+    width:73vw;
 }
 
 .createAPost {
@@ -78,8 +78,8 @@ aside {
 }
 
 .profilePosts {
+    height: 56vh;
     overflow-y: scroll;
-    height: 62vh;
 }
 
 

@@ -29,8 +29,7 @@ header > #logo_of_brand {
 footer {
   bottom: 0;
   position: fixed;
-  width: 100%;
+  width: 40%;
   height: 6vh;
-  text-align: center;
   color:blue;
 }

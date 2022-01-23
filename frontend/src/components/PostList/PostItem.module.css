@@ -1,49 +1,59 @@
-
-
 .item {
-    margin: 2vh 0;
-  }
+  margin: 2vh 0;
+}
 
 .onePostCard {
-  width:100%;
-  background: rgba(10, 10, 10, 0.5);
-  margin:1vw;
-  border: 1px solid black;
-  float: left;
-  font-family: 'Roboto', sans-serif;
+width:100%;
+background: rgba(10, 10, 10, 0.5);
+margin:1vw;
+border: 1px solid black;
+float: left;
+font-family: 'Roboto', sans-serif;
 }
+
+.trush {
+  color: white;
+  font-size: 1.4em;
+  margin-left: 62vw;
+  cursor: pointer;
+}
+
 .postContent{
 
-  background: rgba(200, 200, 10, 0.5);
+background: rgba(200, 200, 10, 0.5);
 }
 .activityContent{
-  padding:10px;
-  background: rgba(10, 10, 10, 0.5);
-  max-height: 100%;
-  margin-top: auto;
-  margin-bottom:auto;
+padding:10px;
+background: rgba(10, 255, 10, 0.5);
+height: 8vh;
+}
+
+.comment{
+
+background: rgba(10, 10, 255, 0.5);
 }
 .actions {
-  background: rgba(255, 10, 255, 0.5);
-  padding: 1.5rem;
-  text-align: center;
+background: rgba(255, 10, 255, 0.5);
+padding: 1.5rem;
+text-align: center;
 }
 
 .image {
-  width: 50%;
-  height: 40%;
-  margin: 4vh auto;
-  overflow: hidden;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+width: 50%;
+height: 40%;
+margin: 4vh auto;
+overflow: hidden;
+border-top-right-radius: 6px;
+border-top-left-radius: 6px;
 }
 
 .image img {
-  width: 100%;
-  object-fit: cover;
+width: 100%;
+object-fit: cover;
 }
 
 .content {
+<<<<<<< HEAD
   text-align: center;
   padding:1rem;
   font-size: 1.5rem;
@@ -61,26 +71,46 @@
   font-style: italic;
   -webkit-text-stroke: 1px black;
   color:rgba(129,11,219,1);
+=======
+text-align: center;
+padding:1rem;
+font-size: 1rem;
+}
+
+.content h3 {
+font-size: 1rem;
+color: white;
+font-weight: bold;
+line-height: 1vh;
+}
+.content address{
+font-size:1rem;
+font-weight: bold;
+font-style: italic;
+-webkit-text-stroke: 3px black;
+color:rgba(129,11,219,1);
+>>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
 }
 
 
 
 .actions button {
-  font: inherit;
-  cursor: pointer;
-  color: #77002e;
-  border: 1px solid #77002e;
-  background-color: transparent;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
+font: inherit;
+cursor: pointer;
+color: #77002e;
+border: 1px solid #77002e;
+background-color: transparent;
+padding: 0.5rem 1.5rem;
+border-radius: 4px;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #ffe2ed;
+background-color: #ffe2ed;
 }
 
 .likeIt {
+<<<<<<< HEAD
   margin-top:auto;
   margin-bottom:auto;
   color: white;
@@ -89,39 +119,58 @@
   font-size:2rem;
   text-align: center;
   color:thistle;
+=======
+color: white;
+float: left;
+margin-left: 2vw;
+margin-right:1vw;
+font-size:1rem;
+width: 10%;
+>>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
 }
 
 .likeIt i {
-  cursor: pointer;
-  float: left;
+cursor: pointer;
+float: left;
 }
 
 .likeIt i:link {
-  color: white;
+color: white;
 }
 
 .likeIt i:focus {
-  color:blue;
+color:blue;
 }
 
 .likeIt p {
-  font-size: 0.5em;
-  float: left;
-  margin-left: 1vw;
+font-size: 0.5em;
+float: left;
+margin-left: 1vw;
 }
 
 .likesCount {
+<<<<<<< HEAD
   float: left;
   font-size: 2rem;
   color:thistle;
   margin-left:1vw;
   margin-top:auto;
   margin-bottom:auto;
+=======
+float: left;
+font-size: 1rem;
+color:thistle;
+min-width:10%;
+
+>>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
 }
 .writeComment{
-  float:right;
+float:left;
+margin:auto;
+width:70%;
 }
 .writeComment input{
+<<<<<<< HEAD
   width:30vw;
   font-size:1.5rem;
   border-radius:10px;
@@ -157,4 +206,18 @@
 .comment p{
   color:#9e9e98;
   font-size: 1.1rem;
+=======
+font-size:1rem;
+border-radius:10px;
+background-color: seashell;
+}
+.writeComment button{
+font-size: 1rem;
+border-radius:10px;
+margin-left:1vw;
+}
+
+.clearBoth{
+clear:both;
+>>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
 }
