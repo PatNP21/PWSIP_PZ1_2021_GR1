@@ -24,18 +24,25 @@
 
 .content {
   text-align: center;
-  padding: 1rem;
+  padding:1rem;
+  font-size: 2rem;
 }
 
 .content h3 {
-  font-size: 1.25rem;
-  color: #2c292b;
+  font-size: 5rem;
+  color: white;
+  font-weight: bold;
+  line-height: 1vh;
+}
+.content address{
+  font-size:3rem;
+  font-weight: bold;
+  font-style: italic;
+  -webkit-text-stroke: 3px black;
+  color:rgba(129,11,219,1);
 }
 
-.actions {
-  padding: 1.5rem;
-  text-align: center;
-}
+
 
 .actions button {
   font: inherit;
@@ -54,9 +61,11 @@
 
 .likeIt {
   color: white;
-  font-size: 1.5em;
   float: left;
   margin-left: 2vw;
+  margin-right:1vw;
+  font-size:4rem;
+  width: 10%;
 }
 
 .likeIt i {
@@ -80,5 +89,27 @@
 
 .likesCount {
   float: left;
+  font-size: 4rem;
+  color:thistle;
+  min-width:10%;
   
+}
+.writeComment{
+  float:left;
+  margin:auto;
+  width:70%;
+}
+.writeComment input{
+  font-size:3rem;
+  border-radius:10px;
+  background-color: seashell;
+}
+.writeComment button{
+  font-size: 2rem;
+  border-radius:10px;
+  margin-left:1vw;
+}
+
+.clearBoth{
+  clear:both;
 }

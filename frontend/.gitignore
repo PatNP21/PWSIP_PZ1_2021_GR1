@@ -11,6 +11,8 @@
 # production
 /build
 
+/src/components/PostList/PostItem.js
+
 # misc
 .DS_Store
 .env.local
