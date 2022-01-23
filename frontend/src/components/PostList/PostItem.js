@@ -91,14 +91,6 @@ function PostItem(props) {
           )}
         </ul>
       </div>
-<<<<<<< HEAD
-=======
-    
-
-      <div className={classes.actions}>
-        <button>To Favourites</button>
-      </div>
->>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
     </div>
     
   );
