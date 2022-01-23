@@ -74,11 +74,6 @@ function PostItem(props) {
           )}
         </ul>
       </div>
-      
-
-      <div className={classes.actions}>
-        <button>To Favourites</button>
-      </div>
     </div>
   );
 }
