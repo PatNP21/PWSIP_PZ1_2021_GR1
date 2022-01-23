@@ -28,7 +28,6 @@ function PostItem(props) {
 
   return (
     
-<<<<<<< HEAD
     <div className={classes.onePostCard}>
       <Card>
         <div className={classes.content}>
@@ -38,22 +37,8 @@ function PostItem(props) {
         </div>
         <div className={classes.image}>
           <img src={props.image} alt={props.title} />
-=======
-      <div className={classes.onePostCard}>
-        <div className={classes.postContent}>
-          
-            <div className={classes.content}>
-              <h3>{props.title}</h3>
-              <address>{props.address}</address>
-              <p>{props.description}</p>
-            </div>
-            <div className={classes.image}>
-              <img src={props.image} alt={props.title} />
-            </div>
-          
->>>>>>> 54a5500d9e3c9784ba75ba62582b426f2ea6edb5
         </div>
-      
+      </Card>
         
           <div className={classes.activityContent}>
           
@@ -97,7 +82,7 @@ function PostItem(props) {
             <button>To Favourites</button>
           </div>
         
-      </div>
+    </div>
     
   );
 }
