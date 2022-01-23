@@ -43,7 +43,6 @@ function PostItem(props) {
           <i>
             <AiFillLike onClick={likeIt} />
           </i>
-          <p>Like</p>
         </div>
         <div className={classes.likesCount}>10</div>
         <div className={classes.writeComment}>

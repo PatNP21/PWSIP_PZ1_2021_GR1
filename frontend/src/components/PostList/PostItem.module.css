@@ -18,13 +18,10 @@
 }
 .activityContent{
   padding:10px;
-  background: rgba(10, 255, 10, 0.5);
-  height: 8vh;
-}
-
-.comment{
-
-  background: rgba(10, 10, 255, 0.5);
+  background: rgba(10, 10, 10, 0.5);
+  max-height: 100%;
+  margin-top: auto;
+  margin-bottom:auto;
 }
 .actions {
   background: rgba(255, 10, 255, 0.5);
@@ -86,10 +83,10 @@
 .likeIt {
   color: white;
   float: left;
-  margin-left: 2vw;
-  margin-right:1vw;
+  margin-left: 1vw;
   font-size:4rem;
   width: 10%;
+  text-align: center;
 }
 
 .likeIt i {
@@ -119,21 +116,24 @@
   
 }
 .writeComment{
-  float:left;
-  margin:auto;
-  width:70%;
+  float:right;
 }
 .writeComment input{
   font-size:3rem;
   border-radius:10px;
   background-color: seashell;
+  margin-top:1vh;
+  background-color:white;
 }
 .writeComment button{
-  font-size: 2rem;
+  font-size: 3rem;
   border-radius:10px;
   margin-left:1vw;
 }
 
 .clearBoth{
   clear:both;
+}
+.comments{
+  background: rgba(10, 10, 10, 0.5);
 }
