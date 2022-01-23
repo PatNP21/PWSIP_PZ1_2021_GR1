@@ -7,19 +7,21 @@
 .onePostCard {
   width:100%;
   background: rgba(10, 10, 10, 0.5);
-  margin: 2vh 1vw;
+  margin:1vw;
   border: 1px solid black;
   float: left;
+  font-family: 'Roboto', sans-serif;
 }
 .postContent{
 
   background: rgba(200, 200, 10, 0.5);
 }
 .activityContent{
-
-  
+  padding:10px;
   background: rgba(10, 255, 10, 0.5);
+  height: 8vh;
 }
+
 .comment{
 
   background: rgba(10, 10, 255, 0.5);
@@ -46,12 +48,22 @@
 
 .content {
   text-align: center;
-  padding: 1rem;
+  padding:1rem;
+  font-size: 2rem;
 }
 
 .content h3 {
-  font-size: 1.25rem;
-  color: #2c292b;
+  font-size: 5rem;
+  color: white;
+  font-weight: bold;
+  line-height: 1vh;
+}
+.content address{
+  font-size:3rem;
+  font-weight: bold;
+  font-style: italic;
+  -webkit-text-stroke: 3px black;
+  color:rgba(129,11,219,1);
 }
 
 
@@ -73,9 +85,10 @@
 
 .likeIt {
   color: white;
-  font-size: 1.5em;
   float: left;
   margin-left: 2vw;
+  margin-right:1vw;
+  font-size:4rem;
 }
 
 .likeIt i {
@@ -99,5 +112,14 @@
 
 .likesCount {
   float: left;
+  font-size: 4rem;
   
+}
+.writeComment{
+  float:left;
+  font-size:3rem;
+}
+
+.clearBoth{
+  clear:both;
 }

@@ -35,18 +35,7 @@ function PostItem(props) {
           <p>{props.description}</p>
       </div>
       <div className={classes.image}>
-        <img src={props.image} alt={props.title} />
-        <div className={classes.postContent}>         
-          <div className={classes.content}>
-            <h3>{props.title}</h3>
-            <address>{props.address}</address>
-            <p>{props.description}</p>
-          </div>
-          <div className={classes.image}>
-            <img src={props.image} alt={props.title} />
-          </div>
-          
-        </div>
+        <img src={props.image} alt={props.title} />       
       </div>
 
       <div className={classes.activityContent}>
@@ -56,7 +45,7 @@ function PostItem(props) {
           </i>
           <p>Like</p>
         </div>
-        <div className={classes.likesCount}></div>
+        <div className={classes.likesCount}>10</div>
         <div className={classes.writeComment}>
           <input
             type="text"
@@ -65,26 +54,28 @@ function PostItem(props) {
           />
           <button onClick={createComment}>Submit</button>
         </div>
-
-        <div className={classes.comments}>
-          <ul>
-            {props.comments !== null && props.comments !== undefined ? (
-              props.comments.map((item) => {
-                return (
-                  <li>
-                    <div className={classes.comment}>
-                      <h4>{item.author}</h4>
-                      <p>{item.content}</p>
-                    </div>
-                  </li>
-                );
-              })
-            ) : (
-              <p>Nie znaleziono komentarzy</p>
-            )}
-          </ul>
-        </div>
+        <div className={classes.clearBoth}></div>
       </div>
+
+      <div className={classes.comments}>
+        <ul>
+          {props.comments !== null && props.comments !== undefined ? (
+            props.comments.map((item) => {
+              return (
+                <li>
+                  <div className={classes.comment}>
+                    <h4>{item.author}</h4>
+                    <p>{item.content}</p>
+                  </div>
+                </li>
+              );
+            })
+          ) : (
+            <p>Nie znaleziono komentarzy</p>
+          )}
+        </ul>
+      </div>
+      
 
       <div className={classes.actions}>
         <button>To Favourites</button>
