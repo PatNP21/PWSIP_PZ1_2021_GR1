@@ -24,3 +24,5 @@ Nastęnie używacie komendy "npm start"<br/>
 # przy starcie frontu strona traktuje jako zalogowanego mimo iż taki nie jest
 # potwierdzenie konta FRONTEND
 # min height na elementach
+# poprawic komentarze 
+# poprawic wyglad znajomych
