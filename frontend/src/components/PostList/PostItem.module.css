@@ -10,8 +10,6 @@ border: 1px solid black;
 float: left;
 font-family: 'Roboto', sans-serif;
 }
-<<<<<<< HEAD
-=======
 
 .trush {
   color: white;
@@ -26,7 +24,6 @@ font-family: 'Roboto', sans-serif;
   color:white;
 }
 
->>>>>>> fc49f07d4a832b4571137da7f81737f70dee7520
 .postContent{
 
 background: rgba(200, 200, 10, 0.5);
@@ -60,15 +57,10 @@ object-fit: cover;
 
 .content {
 text-align: center;
-<<<<<<< HEAD
-padding:1rem;
-font-size: 1.5rem;
-=======
 padding:1rem 0;
 font-size: 1.5rem;
 width:94%;
 float: left;
->>>>>>> fc49f07d4a832b4571137da7f81737f70dee7520
 }
 
 .content h3 {
@@ -81,13 +73,8 @@ line-height: 1vh;
 font-size:1.75rem;
 font-weight: bold;
 font-style: italic;
-<<<<<<< HEAD
--webkit-text-stroke: 1px black;
-color:rgba(129,11,219,1);
-=======
 color: rgba(247, 203, 90, 1);
 -webkit-text-stroke: 1px black;
->>>>>>> fc49f07d4a832b4571137da7f81737f70dee7520
 }
 
 
