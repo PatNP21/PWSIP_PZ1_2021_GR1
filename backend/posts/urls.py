@@ -1,6 +1,6 @@
 from django.urls import path
 
-from posts.views import createpost, getpost, getUserPosts, getSelfPosts,deletePost,likePost,getPosts
+from posts.views import getLikes,createpost, getpost, getUserPosts, getSelfPosts,deletePost,likePost,getPosts
 app_name = 'posts'
 urlpatterns = [
     path("createpost/", createpost, name = "createpost"),
@@ -10,5 +10,6 @@ urlpatterns = [
     path("get/myposts/", getSelfPosts, name = 'getSelfPosts'),
     path("delete/<str:idpost>/", deletePost, name = 'deletePost'),
     path("like/<str:idpost>/", likePost, name = "likePost"),
+    path("get/likes/<str:idpost>/", getLikes, name = "getLikes")
     
 ]

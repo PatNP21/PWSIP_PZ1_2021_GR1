@@ -71,5 +71,9 @@ export default class PostHandler{
             'sessionid': sessionid
         })
     }
-
+    getLikes(idpost)
+    {
+        const url = `${API_URL}/posts/get/likes/${idpost}/`
+        return axios.get(url)
+    }
 }

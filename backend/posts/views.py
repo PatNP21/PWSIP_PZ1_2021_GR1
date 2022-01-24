@@ -208,6 +208,10 @@ def likePost(request,idpost):
                     'success' : False,
                     "errors":"User isn't logged in"
                 })
+    else:   return Response({
+                    'success' : False,
+                    "errors":"Serializer error"
+                })
 per_page = 5
 @api_view(['GET'])
 @renderer_classes([JSONRenderer])
@@ -233,4 +237,17 @@ def getPosts(request,page):
             'count' : posts.count(),
             'posts' : serializePosts(posts) 
         })
-        
+@api_view(['GET'])
+@renderer_classes([JSONRenderer])
+def getLikes(request,idpost):
+    try:
+        post = Post.objects.get(id = idpost)
+        return Response({
+            'success' : True,
+            'likecounter' : post.likeCounter
+        })
+    except Post.DoesNotExist:
+        return Response({
+            'success' : False,
+            'errors' : "Post does not exist"
+        })
