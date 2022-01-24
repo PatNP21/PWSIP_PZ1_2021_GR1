@@ -12,12 +12,14 @@ import Postlist from './PostList/PostList'
 import LoginHandler from './LoginHandler'
 import PostHandler from './PostHandler'
 import HomeHandler from './HomeHandler'
+import ProfileHandler from './ProfileHandler'
 import Card from './UI/Card'
 import PostItem from './PostList/PostItem'
 
 const postHandler = new PostHandler()
 const loginHandler = new LoginHandler()
 const homeHandler = new HomeHandler()
+const profileHandler = new ProfileHandler()
 
 function Home() {
 
@@ -30,7 +32,8 @@ function Home() {
     const [comments, setComments] = useState([])
     const [profilesStats, updateProfilesStats] = useState(0)
     const [init,setInit] = useState(false)
-    const user = useParams()
+    const [user, setUser] = useState('')
+    //const user = useParams()
     //getUsersCount()
 
     useEffect(() => {
@@ -64,7 +67,10 @@ function Home() {
             if (loggedas == user.userek || user.userek == undefined)
             {
                 console.log(user.userek)
-                
+                profileHandler.myprofile(c).then(data => {
+                    console.log(data.data.username)
+                    setUser(data.data.username)
+                })
             }
             
         })
@@ -95,7 +101,7 @@ function Home() {
     return (
         <div>
             <header>
-                {c ? <LoggedHeader/> : <DefaultHeader/>}
+                {c ? <LoggedHeader username={user}/> : <DefaultHeader/>}
             </header>
             <aside>
                 <Card>

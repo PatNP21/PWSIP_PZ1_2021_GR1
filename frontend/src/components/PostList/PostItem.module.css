@@ -10,6 +10,19 @@ border: 1px solid black;
 float: left;
 font-family: 'Roboto', sans-serif;
 }
+
+.trush {
+  color: white;
+  font-size: 1.2em;
+  float: left;
+  width: 5%;
+  margin-top: 2vh;
+}
+
+.trushIcon {
+  cursor: pointer;
+}
+
 .postContent{
 
 background: rgba(200, 200, 10, 0.5);
@@ -43,8 +56,10 @@ object-fit: cover;
 
 .content {
 text-align: center;
-padding:1rem;
+padding:1rem 0;
 font-size: 1.5rem;
+width:94%;
+float: left;
 }
 
 .content h3 {

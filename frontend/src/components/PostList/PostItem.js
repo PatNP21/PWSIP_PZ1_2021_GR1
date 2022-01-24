@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { AiFillLike } from "react-icons/ai";
-import classes from "./PostItem.module.css";
-import PostHandler from "./../PostHandler";
-import Cookies from "universal-cookie";
-import Card from "./../UI/Card";
+import { useState ,useEffect} from "react"
+import { AiFillLike } from "react-icons/ai"
+import { RiDeleteBin7Line } from 'react-icons/ri'
+import classes from "./PostItem.module.css"
+import PostHandler from "./../PostHandler"
+import Cookies from "universal-cookie"
+import Card from "./../UI/Card"
 
 const postHandler = new PostHandler();
 function PostItem(props) {
@@ -39,15 +40,22 @@ function PostItem(props) {
       }
     })
   },[likeControl])
-  return (
+  return(
     
     <div className={classes.onePostCard}>   
-      {user == props.address && <button onClick={deletePost}>Delete</button>}
+      
       <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
           <p>{props.description}</p>
       </div>
+      <div className={classes.trush}>
+      {user == props.address && <RiDeleteBin7Line 
+          className={classes.trushIcon}
+          onClick={deletePost}
+        />}
+          
+      </div> 
       <div className={classes.image}>
         <img src={props.image} alt={props.title} />       
       </div>
