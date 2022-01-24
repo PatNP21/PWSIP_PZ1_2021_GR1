@@ -6,10 +6,10 @@ import Cookies from "universal-cookie";
 import Card from "./../UI/Card";
 
 const postHandler = new PostHandler();
-
 function PostItem(props) {
   const cookies = new Cookies();
   const c = cookies.get("sessionId");
+  const user = cookies.get("user");
   const [comment, setComment] = useState("");
   const [likes, setLikes] = useState(0)
   const [likeControl, setLikeControl] = useState(false);
@@ -26,6 +26,9 @@ function PostItem(props) {
       setLikeControl(!likeControl);
     });
   };
+  const deletePost = () => {
+    postHandler.deletePost(c,props.id).then(window.location.reload(true))
+  }
   useEffect(() => {
     postHandler.getLikes(props.id).then((res) => {
       console.log("hmmm")
@@ -38,7 +41,8 @@ function PostItem(props) {
   },[likeControl])
   return (
     
-    <div className={classes.onePostCard}>    
+    <div className={classes.onePostCard}>   
+      {user == props.address && <button onClick={deletePost}>Delete</button>}
       <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
