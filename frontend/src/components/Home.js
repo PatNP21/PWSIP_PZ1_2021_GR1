@@ -12,12 +12,16 @@ import Postlist from './PostList/PostList'
 import LoginHandler from './LoginHandler'
 import PostHandler from './PostHandler'
 import HomeHandler from './HomeHandler'
+import ProfileHandler from './ProfileHandler'
+import AdminHandler from './AdminHandler'
 import Card from './UI/Card'
 import PostItem from './PostList/PostItem'
 
 const postHandler = new PostHandler()
 const loginHandler = new LoginHandler()
 const homeHandler = new HomeHandler()
+const profileHandler = new ProfileHandler()
+const adminHandler = new AdminHandler()
 
 function Home() {
 
@@ -30,7 +34,8 @@ function Home() {
     const [comments, setComments] = useState([])
     const [profilesStats, updateProfilesStats] = useState(0)
     const [init,setInit] = useState(false)
-    const user = useParams()
+    const [user, setUser] = useState('')
+    //const user = useParams()
     //getUsersCount()
 
     useEffect(() => {
@@ -64,7 +69,10 @@ function Home() {
             if (loggedas == user.userek || user.userek == undefined)
             {
                 console.log(user.userek)
-                
+                profileHandler.myprofile(c).then(data => {
+                    console.log(data.data.username)
+                    setUser(data.data.username)
+                })
             }
             
         })
@@ -95,7 +103,7 @@ function Home() {
     return (
         <div>
             <header>
-                {c ? <LoggedHeader/> : <DefaultHeader/>}
+                {c ? <LoggedHeader username={user}/> : <DefaultHeader/>}
             </header>
             <aside>
                 <Card>
@@ -106,24 +114,27 @@ function Home() {
                     <div className="values">
                         <p>Użytkowników zarejestrowanych</p>
                         <h4 className="userscount">{profilesStats}</h4>
+                        
                     </div>
-                    <Link to="/profile">Przejdź do profilu</Link>
+                    <div className="toProfile">
+                        <Link to="/profile">Przejdź do profilu</Link>
+                    </div>
                 </Card>
                 
             </aside>
             <main className="mainHome">
-                <Card>
                     <div className="createAPost">
-                        <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
                         <div className="createPostBtn">
                             <label htmlFor="filetopost" title="Dodaj zdjęcie">
                                 <BsFillPlusCircleFill/>
                             </label>
                         </div>
+                        <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
+                       
                         <input type="file" id="filetopost" accept="['image/jpg', 'image/png']" onChange={e => setImage(e.target.files[0])}/>
                         <button onClick={createAPost}>Dodaj</button>
+                        <div class="clear:both;"></div>
                     </div>
-                </Card>
                 
                 <div className="profilePosts">
                     <Postlist data={postArray}/>

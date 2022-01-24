@@ -1,3 +1,9 @@
+.user{
+    background: rgba(10, 10, 10, 0.5);
+    width:85%;
+    margin:10px 1vw;
+    float: left;
+}
 aside {
     height:83vh;
     width: 22vw;
@@ -45,15 +51,18 @@ section {
 
 .username_for_profile {
     margin: 0 auto;
-    font-size: 1.5em;
-    color: white;
+    font-size: 2rem;
+    color: rgba(247, 203, 90, 1);
+    -webkit-text-stroke: 1px black;
     text-align: center;
+    font-weight: 700;
     width:50%;
 }
 
 .profilePosts {
     width:100%;
     margin: 0 auto;
+    height:75vh;
     min-height: 2vh;
 }
 
@@ -77,4 +86,13 @@ li {
 
 .listFriendsElement {
     cursor: pointer;
+}
+.profileData button{
+    margin-left: 1vw;
+    font-size: 1.5rem;
+    border-radius:1.5rem;
+    background-color: rgba(10, 10, 10, 0.5);
+    color:rgba(247, 203, 90, 1);
+    height: 5vh;
+    width: 10vw;
 }

@@ -17,6 +17,7 @@ const Logout = () => {
         {
             loginHandler.logout(c.toString())
             cookies.remove("sessionId")
+            cookies.remove("user")
         }
         navigate("/home")
 

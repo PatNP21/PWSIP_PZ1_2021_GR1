@@ -42,6 +42,7 @@ const Login = () => {
                     if (status)
                     {
                         cookies.set('sessionId', res.data.sessionid, { path: '/' })
+                        cookies.set('user', res.data.username, {path: "/"})
                         console.log("All good")
                         navigate('/home')
                     }

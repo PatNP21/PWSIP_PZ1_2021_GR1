@@ -1,56 +1,68 @@
-import { useState, useEffect } from "react";
-import { AiFillLike } from "react-icons/ai";
-import { RiDeleteBin6Fill } from "react-icons/ri"
-import classes from "./PostItem.module.css";
-import PostHandler from "./../PostHandler";
-import Cookies from "universal-cookie";
-import Card from "./../UI/Card";
+import { useState ,useEffect} from "react"
+import { AiFillLike } from "react-icons/ai"
+import { RiDeleteBin7Line } from 'react-icons/ri'
+import classes from "./PostItem.module.css"
+import PostHandler from "./../PostHandler"
+import Cookies from "universal-cookie"
+import Comment from "./Comment"
+import Card from "./../UI/Card"
 
 const postHandler = new PostHandler();
-
 function PostItem(props) {
   const cookies = new Cookies();
   const c = cookies.get("sessionId");
+  const user = cookies.get("user");
   const [comment, setComment] = useState("");
+  const [likes, setLikes] = useState(0)
   const [likeControl, setLikeControl] = useState(false);
-  const [myPost, setMyPost] = useState(false)
-
-  useEffect(() => {
-    if(props.address === props.user) {
-      setMyPost(true)
-    }
-  }, [])
 
   const createComment = () => {
     postHandler.createComment(c, props.id, comment).then((data) => {
-      console.log(data)
+      console.log(data);
     });
   };
 
   const likeIt = () => {
     postHandler.likePost(c, props.id).then((data) => {
-      console.log(data)
-      setLikeControl(true)
+      console.log(data);
+      setLikeControl(!likeControl);
     });
   };
-
   const deletePost = () => {
-    postHandler.deletePost(c, props.id).then((data) => {
-      console.log(data)
+    postHandler.deletePost(c,props.id).then(window.location.reload(true))
+  }
+  const deleteComment = id => {
+    postHandler.deleteComment(c,id).then(() => {
+      console.log("????")
+      window.location.reload(true)
     })
   }
-
-  return (
+  useEffect(() => {
+    postHandler.getLikes(props.id).then((res) => {
+      console.log("hmmm")
+      if(res.data.success == true)
+      {
+        console.log("WORKS")
+        setLikes(res.data.likecounter)
+      }
+    })
+  },[likeControl])
+  return(
     
-    <div className={classes.onePostCard}>
-      {setMyPost ? <div className={classes.trush} onClick={deletePost}>
-          <RiDeleteBin6Fill/>
-       </div> : null}
+    <div className={classes.onePostCard}>   
+      
       <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
           <p>{props.description}</p>
       </div>
+      <div className={classes.trush}>
+      {user == props.address && <RiDeleteBin7Line 
+          className={classes.trushIcon}
+          onClick={deletePost}
+        />}
+          
+      </div> 
       <div className={classes.image}>
         <img src={props.image} alt={props.title} />       
       </div>
@@ -61,7 +73,7 @@ function PostItem(props) {
             <AiFillLike onClick={likeIt} />
           </i>
         </div>
-        <div className={classes.likesCount}>10</div>
+        <div className={classes.likesCount}>{likes}</div>
         <div className={classes.writeComment}>
           <input
             type="text"
@@ -79,10 +91,7 @@ function PostItem(props) {
             props.comments.map((item) => {
               return (
                 <li>
-                  <div className={classes.comment}>
-                    <h4>{item.author}</h4>
-                    <p>{item.content}</p>
-                  </div>
+                  <Comment id = {item.id} author = {item.author} content = {item.content}/>
                 </li>
               );
             })
@@ -92,7 +101,6 @@ function PostItem(props) {
         </ul>
       </div>
     </div>
-    
   );
 }
 

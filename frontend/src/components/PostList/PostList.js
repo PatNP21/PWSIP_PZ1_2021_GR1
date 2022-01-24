@@ -18,7 +18,7 @@ function Postlist(props) {
         return (
             <li key={item.id} className={classes.post}>
               
-                <PostItem image={item.image} title={item.title} address={item.author} description={item.content} id={item.id} comments={item.comments}/>
+                <PostItem image={item.image} title={item.title} address={item.author} description={item.content} id={item.id} comments={item.comments} likecounter = {item.likecounter}/>
               
             </li>)
       }): <p>Nic nie ma</p>}

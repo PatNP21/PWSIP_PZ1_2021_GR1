@@ -194,7 +194,7 @@ function Profile() {
                 }
             </aside>
             <section>
-                <Card>
+                <div class="user">
                     {editing 
                         ? <ChangeData email={email} finishEditing={finishEditing}/>
                         : <ProfileData avatar={avatar} 
@@ -208,7 +208,7 @@ function Profile() {
                                     blockedArray={blockedArray}
                                     friends={friendsArray}/>
                     }
-                </Card>
+                </div>
                 
                 <div className="profilePosts">
                     <Postlist data={posts}/>
