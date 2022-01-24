@@ -228,14 +228,18 @@ def getPosts(request,page):
             'success' : False,
             "errors":"Posty sie skonczyly typie"
             })
+    more = True
     if posts.count() > records:
         posts = posts[records- per_page:records]
     else:
         posts = posts[records- per_page:]
+        more = False
     return Response({
             'success' : True,
+            'page' : page,
             'count' : posts.count(),
-            'posts' : serializePosts(posts) 
+            'posts' : serializePosts(posts),
+            'more' : more
         })
 @api_view(['GET'])
 @renderer_classes([JSONRenderer])
