@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillLike } from "react-icons/ai";
 import classes from "./PostItem.module.css";
 import PostHandler from "./../PostHandler";
@@ -11,6 +11,7 @@ function PostItem(props) {
   const cookies = new Cookies();
   const c = cookies.get("sessionId");
   const [comment, setComment] = useState("");
+  const [likes, setLikes] = useState(0)
   const [likeControl, setLikeControl] = useState(false);
 
   const createComment = () => {
@@ -22,10 +23,19 @@ function PostItem(props) {
   const likeIt = () => {
     postHandler.likePost(c, props.id).then((data) => {
       console.log(data);
-      setLikeControl(true);
+      setLikeControl(!likeControl);
     });
   };
-
+  useEffect(() => {
+    postHandler.getLikes(props.id).then((res) => {
+      console.log("hmmm")
+      if(res.data.success == true)
+      {
+        console.log("WORKS")
+        setLikes(res.data.likecounter)
+      }
+    })
+  },[likeControl])
   return (
     
     <div className={classes.onePostCard}>    
@@ -44,7 +54,7 @@ function PostItem(props) {
             <AiFillLike onClick={likeIt} />
           </i>
         </div>
-        <div className={classes.likesCount}>10</div>
+        <div className={classes.likesCount}>{likes}</div>
         <div className={classes.writeComment}>
           <input
             type="text"
