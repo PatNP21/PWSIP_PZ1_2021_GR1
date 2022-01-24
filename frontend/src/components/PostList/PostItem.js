@@ -30,6 +30,12 @@ function PostItem(props) {
   const deletePost = () => {
     postHandler.deletePost(c,props.id).then(window.location.reload(true))
   }
+  const deleteComment = (id) => {
+    postHandler.deleteComment(c,id).then(() => {
+      console.log("????")
+      window.location.reload(true)
+    })
+  }
   useEffect(() => {
     postHandler.getLikes(props.id).then((res) => {
       console.log("hmmm")
@@ -87,6 +93,11 @@ function PostItem(props) {
                   <div className={classes.comment}>
                     <h4>{item.author}</h4>
                     <p>{item.content}</p>
+                    {user == item.author && 
+                    <RiDeleteBin7Line 
+                    className={classes.trushIcon}
+                    onClick={deleteComment(item.id)}
+                  />}
                   </div>
                 </li>
               );
