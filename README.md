@@ -23,6 +23,4 @@ Nastęnie używacie komendy "npm start"<br/>
 # sesja po wygasnieciu na sekcji profile wywala blad
 # przy starcie frontu strona traktuje jako zalogowanego mimo iż taki nie jest
 # potwierdzenie konta FRONTEND
-# min height na elementach
-# poprawic komentarze 
-# poprawic wyglad znajomych
+# Obsluga bledow przy logowaniu i rejestracji
