@@ -6,6 +6,7 @@ import PostHandler from "./../PostHandler"
 import Cookies from "universal-cookie"
 import Comment from "./Comment"
 import Card from "./../UI/Card"
+import { useNavigate } from "react-router-dom"
 
 const postHandler = new PostHandler();
 function PostItem(props) {
@@ -15,7 +16,7 @@ function PostItem(props) {
   const [comment, setComment] = useState("");
   const [likes, setLikes] = useState(0)
   const [likeControl, setLikeControl] = useState(false);
-
+  const navigate = useNavigate()
   const createComment = () => {
     postHandler.createComment(c, props.id, comment).then((data) => {
       console.log(data);
@@ -23,10 +24,15 @@ function PostItem(props) {
   };
 
   const likeIt = () => {
-    postHandler.likePost(c, props.id).then((data) => {
-      console.log(data);
-      setLikeControl(!likeControl);
-    });
+    if (c) {
+      postHandler.likePost(c, props.id).then((data) => {
+        console.log(data);
+        setLikeControl(!likeControl);
+      });
+    } else {
+      navigate('/login')
+    }
+    
   };
   const deletePost = () => {
     postHandler.deletePost(c,props.id).then(window.location.reload(true))
@@ -74,14 +80,14 @@ function PostItem(props) {
           </i>
         </div>
         <div className={classes.likesCount}>{likes}</div>
-        <div className={classes.writeComment}>
+        {c && <div className={classes.writeComment}>
           <input
             type="text"
             placeholder="Write a comment"
             onChange={(e) => setComment(e.target.value)}
           />
           <button onClick={createComment}>Submit</button>
-        </div>
+        </div>}
         <div className={classes.clearBoth}></div>
       </div>
 
