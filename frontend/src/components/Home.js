@@ -117,12 +117,15 @@ function Home() {
                         
                     </div>
                     <div className="toProfile">
-                        <Link to="/profile">Przejdź do profilu</Link>
+                        {c ? <Link to="/profile">Przejdź do profilu</Link> : null}
                     </div>
                 </Card>
                 
             </aside>
             <main className="mainHome">
+                    
+                
+                <div className="profilePosts">
                     <div className="createAPost">
                         <div className="createPostBtn">
                             <label htmlFor="filetopost" title="Dodaj zdjęcie">
@@ -135,8 +138,6 @@ function Home() {
                         <button onClick={createAPost}>Dodaj</button>
                         <div class="clear:both;"></div>
                     </div>
-                
-                <div className="profilePosts">
                     <Postlist data={postArray}/>
                 </div>
             </main>

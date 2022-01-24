@@ -1,7 +1,7 @@
 .user{
     background: rgba(10, 10, 10, 0.5);
     width:85%;
-    margin:10px 1vw;
+    margin:10px 1vw 30px 1vw;
     float: left;
 }
 aside {
@@ -61,8 +61,8 @@ section {
 
 .profilePosts {
     width:100%;
-    margin: 0 auto;
-    height:75vh;
+    margin:2vh auto 0 auto;
+    height:82vh;
     min-height: 2vh;
 }
 
@@ -87,12 +87,12 @@ li {
 .listFriendsElement {
     cursor: pointer;
 }
-.profileData button{
+.profileData button, .edit_profile button{
     margin-left: 1vw;
     font-size: 1.5rem;
     border-radius:1.5rem;
     background-color: rgba(10, 10, 10, 0.5);
     color:rgba(247, 203, 90, 1);
-    height: 5vh;
-    width: 10vw;
+    min-height: 5vh;
+    min-width: 10vw;
 }
