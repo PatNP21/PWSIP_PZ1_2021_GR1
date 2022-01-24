@@ -117,13 +117,16 @@ function Home() {
                         
                     </div>
                     <div className="toProfile">
-                        <Link to="/profile">Przejdź do profilu</Link>
+                        {c ? <Link to="/profile">Przejdź do profilu</Link> : null}
                     </div>
                 </Card>
                 
             </aside>
             <main className="mainHome">
-                    <div className="createAPost">
+                    
+                
+                <div className="profilePosts">
+                    {c && <div className="createAPost">
                         <div className="createPostBtn">
                             <label htmlFor="filetopost" title="Dodaj zdjęcie">
                                 <BsFillPlusCircleFill/>
@@ -134,9 +137,7 @@ function Home() {
                         <input type="file" id="filetopost" accept="['image/jpg', 'image/png']" onChange={e => setImage(e.target.files[0])}/>
                         <button onClick={createAPost}>Dodaj</button>
                         <div class="clear:both;"></div>
-                    </div>
-                
-                <div className="profilePosts">
+                    </div>}
                     <Postlist data={postArray}/>
                 </div>
             </main>
