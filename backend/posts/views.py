@@ -236,6 +236,7 @@ def getPosts(request,page):
         more = False
     return Response({
             'success' : True,
+            'page' : page,
             'count' : posts.count(),
             'posts' : serializePosts(posts),
             'more' : more
