@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AiFillLike } from "react-icons/ai";
-import { RiDeleteBin6Fill } from "react-icons/ri"
 import classes from "./PostItem.module.css";
 import PostHandler from "./../PostHandler";
 import Cookies from "universal-cookie";
@@ -13,39 +12,23 @@ function PostItem(props) {
   const c = cookies.get("sessionId");
   const [comment, setComment] = useState("");
   const [likeControl, setLikeControl] = useState(false);
-  const [myPost, setMyPost] = useState(false)
-
-  useEffect(() => {
-    if(props.address === props.user) {
-      setMyPost(true)
-    }
-  }, [])
 
   const createComment = () => {
     postHandler.createComment(c, props.id, comment).then((data) => {
-      console.log(data)
+      console.log(data);
     });
   };
 
   const likeIt = () => {
     postHandler.likePost(c, props.id).then((data) => {
-      console.log(data)
-      setLikeControl(true)
+      console.log(data);
+      setLikeControl(true);
     });
   };
 
-  const deletePost = () => {
-    postHandler.deletePost(c, props.id).then((data) => {
-      console.log(data)
-    })
-  }
-
   return (
     
-    <div className={classes.onePostCard}>
-      {setMyPost ? <div className={classes.trush} onClick={deletePost}>
-          <RiDeleteBin6Fill/>
-       </div> : null}
+    <div className={classes.onePostCard}>    
       <div className={classes.content}>
           <h3>{props.title}</h3>
           <address>{props.address}</address>
@@ -91,16 +74,7 @@ function PostItem(props) {
           )}
         </ul>
       </div>
-<<<<<<< HEAD
-=======
-    
-
-      <div className={classes.actions}>
-        <button>To Favourites</button>
-      </div>
->>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
     </div>
-    
   );
 }
 

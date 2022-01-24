@@ -106,24 +106,27 @@ function Home() {
                     <div className="values">
                         <p>Użytkowników zarejestrowanych</p>
                         <h4 className="userscount">{profilesStats}</h4>
+                        
                     </div>
-                    <Link to="/profile">Przejdź do profilu</Link>
+                    <div className="toProfile">
+                        <Link to="/profile">Przejdź do profilu</Link>
+                    </div>
                 </Card>
                 
             </aside>
             <main className="mainHome">
-                <Card>
                     <div className="createAPost">
-                        <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
                         <div className="createPostBtn">
                             <label htmlFor="filetopost" title="Dodaj zdjęcie">
                                 <BsFillPlusCircleFill/>
                             </label>
                         </div>
+                        <input type="text" placeholder="Write a post" onChange={e => setContent(e.target.value)}/>
+                       
                         <input type="file" id="filetopost" accept="['image/jpg', 'image/png']" onChange={e => setImage(e.target.files[0])}/>
                         <button onClick={createAPost}>Dodaj</button>
+                        <div class="clear:both;"></div>
                     </div>
-                </Card>
                 
                 <div className="profilePosts">
                     <Postlist data={postArray}/>

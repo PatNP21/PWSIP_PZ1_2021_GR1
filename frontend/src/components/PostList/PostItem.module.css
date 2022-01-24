@@ -10,27 +10,16 @@ border: 1px solid black;
 float: left;
 font-family: 'Roboto', sans-serif;
 }
-
-.trush {
-  color: white;
-  font-size: 1.4em;
-  margin-left: 62vw;
-  cursor: pointer;
-}
-
 .postContent{
 
 background: rgba(200, 200, 10, 0.5);
 }
 .activityContent{
 padding:10px;
-background: rgba(10, 255, 10, 0.5);
-height: 8vh;
-}
-
-.comment{
-
-background: rgba(10, 10, 255, 0.5);
+background: rgba(10, 10, 10, 0.5);
+max-height: 100%;
+margin-top: auto;
+margin-bottom:auto;
 }
 .actions {
 background: rgba(255, 10, 255, 0.5);
@@ -53,43 +42,23 @@ object-fit: cover;
 }
 
 .content {
-<<<<<<< HEAD
-  text-align: center;
-  padding:1rem;
-  font-size: 1.5rem;
-}
-
-.content h3 {
-  font-size: 3rem;
-  color: white;
-  font-weight: bold;
-  line-height: 1vh;
-}
-.content address{
-  font-size:1.75rem;
-  font-weight: bold;
-  font-style: italic;
-  -webkit-text-stroke: 1px black;
-  color:rgba(129,11,219,1);
-=======
 text-align: center;
 padding:1rem;
-font-size: 1rem;
+font-size: 1.5rem;
 }
 
 .content h3 {
-font-size: 1rem;
+font-size: 3rem;
 color: white;
 font-weight: bold;
 line-height: 1vh;
 }
 .content address{
-font-size:1rem;
+font-size:1.75rem;
 font-weight: bold;
 font-style: italic;
--webkit-text-stroke: 3px black;
-color:rgba(129,11,219,1);
->>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
+color: rgba(247, 203, 90, 1);
+-webkit-text-stroke: 1px black;
 }
 
 
@@ -110,23 +79,14 @@ background-color: #ffe2ed;
 }
 
 .likeIt {
-<<<<<<< HEAD
-  margin-top:auto;
-  margin-bottom:auto;
-  color: white;
-  float: left;
-  margin-left: 1vw;
-  font-size:2rem;
-  text-align: center;
-  color:thistle;
-=======
+margin-top:auto;
+margin-bottom:auto;
 color: white;
 float: left;
-margin-left: 2vw;
-margin-right:1vw;
-font-size:1rem;
-width: 10%;
->>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
+margin-left: 1vw;
+font-size:2rem;
+text-align: center;
+color:thistle;
 }
 
 .likeIt i {
@@ -149,75 +109,50 @@ margin-left: 1vw;
 }
 
 .likesCount {
-<<<<<<< HEAD
-  float: left;
-  font-size: 2rem;
-  color:thistle;
-  margin-left:1vw;
-  margin-top:auto;
-  margin-bottom:auto;
-=======
 float: left;
-font-size: 1rem;
+font-size: 2rem;
 color:thistle;
-min-width:10%;
-
->>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
+margin-left:1vw;
+margin-top:auto;
+margin-bottom:auto;
 }
 .writeComment{
-float:left;
-margin:auto;
-width:70%;
+float:right;
 }
 .writeComment input{
-<<<<<<< HEAD
-  width:30vw;
-  font-size:1.5rem;
-  border-radius:10px;
-  background-color: seashell;
-  margin-top:auto;
-  margin-bottom:auto;
-}
-::-webkit-input-placeholder {
-  text-align: center;  
-}
-.writeComment button{
-  font-size: 1.5rem;
-  border-radius:10px;
-  margin-left:1vw;
-  margin-top:auto;
-  margin-bottom:auto;
-  background-color:thistle;
-}
-
-.clearBoth{
-  clear:both;
-}
-
-.comment{
-  background-color: rgba(10, 10, 10, 0.35);
-  padding:0.5vh 1vw;
-  margin-top:1.5vh;
-}
-.comment h4{
-  color:rgba(179, 133, 56, 1);
-  font-size:1.2rem;
-}
-.comment p{
-  color:#9e9e98;
-  font-size: 1.1rem;
-=======
-font-size:1rem;
+width:30vw;
+font-size:1.5rem;
 border-radius:10px;
 background-color: seashell;
+margin-top:auto;
+margin-bottom:auto;
+}
+::-webkit-input-placeholder {
+text-align: center;  
 }
 .writeComment button{
-font-size: 1rem;
+font-size: 1.5rem;
 border-radius:10px;
 margin-left:1vw;
+margin-top:auto;
+margin-bottom:auto;
+background-color:thistle;
 }
 
 .clearBoth{
 clear:both;
->>>>>>> 39ee7f3d0b934543455a38ac12fb333fe3004395
+}
+
+.comment{
+background-color: rgba(10, 10, 10, 0.35);
+padding:0.5vh 1vw;
+margin-top:1.5vh;
+}
+.comment h4{
+color:rgba(179, 133, 56, 1);
+font-size:1.2rem;
+}
+.comment p{
+color:#9e9e98;
+font-size: 1.1rem;
 }

@@ -4,13 +4,14 @@
   height: 100vh;
   background-image: url('toStrony2.png');
   background-size: cover;
+  font-family: 'Roboto', sans-serif;
 }
 
 header {
   padding: 0 2vw 2vh 2vw;
   background: rgba(10, 10, 10, 0.6);
   width: 96vw;
-  height: 9vh;
+  height: 6vh;
 }
 
 header > #logo_of_brand {

@@ -12,13 +12,18 @@
     border:1px solid #efefef;
 }
 
-.homeRegLink {
+.homeRegLink {  
     right:10vw;
+    color:rgba(247, 203, 90, 1);
     position: fixed;
-    line-height: 9vh;
-    color:white;
-    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.5rem;
+    line-height: 8vh;
+    padding:0 10px;
     cursor: pointer;
+    font-weight: 700;
+}
+.homeRegLink:hover{
+    background-color: rgba(10, 10, 10, 0.35);   
 }
 
 a:visited {
@@ -37,57 +42,57 @@ aside {
 
 .createAPost {
     border-radius: 10px;
-    height: 20vh;
-    width:80%;
+    height: 8vh;
+    width:98%;
     margin: 10px auto;
+    background-color: rgba(10, 10, 10, 0.5);
+    padding:10px;
+    color: rgba(247, 203, 90, 1);
 }
 
-.createAPost > input {
-    height: 4vh;
-    width: 70%;
-    margin: 2vh 0 2vh 12vw;
-    border-radius: 10px;
-}
-
-.createAPost > .createPostBtn {
-    color: white;
+.createAPost > .createPostBtn {   
     font-size: 2em;
     float: left;
-    margin-left: 2vw;
+    margin:2vh 10px;
+    padding:5px;
+    height:50%;
+    width:10%;
+}
+.createAPost > input {
+    height: 50%;
+    width: 50%;
+    border-radius: 10px;
+    float:left;
+    margin:2vh 10%;
+}
+.createAPost > button {
+    height:50%;
+    width: 10%;
+    margin:2vh 10px;
+    border-radius: 10px;
+    color: rgba(156, 66, 85);
+    background-color: rgba(247, 203, 90, 1);
+    font-weight: 700;
+    float: left;
+    cursor: pointer;
+    transition: background-color 1s;
 }
 
 #filetopost {
     display: none;
 }
 
-.createAPost > button {
-    height:5vh;
-    width: 7vw;
-    border-radius: 10px;
-    margin-left: 46vw;
-    background-color: #5c5c7a;
-    color:#efefef;
-    opacity: 1;
-    float: left;
-    cursor: pointer;
-    transition: background-color 1.5s;
-}
+
 
 .createAPost > button:hover {
-    background-color: #2222a2;
+    background-color: rgba(156, 66, 85);
+    color:rgba(247, 203, 90, 1);
 }
 
 .profilePosts {
     height: 56vh;
     overflow-y: scroll;
 }
-
-
-
-
-
-
-
 
 
 .post {
@@ -109,11 +114,27 @@ aside {
 .values {
     min-height:33vh;
     width: 22%;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.toProfile{
+    background-color: rgba(10, 10, 10, 0.5);
+    text-align: center;
+    padding: 5px;
+    font-size:1.2rem;
+}
+.toProfile:hover{
+    background-color: rgba(10, 10, 10, 0.7);
 }
 
 .userscount {
     font-size: 1.5em;
-    width:100%;
+    width:20%;
+    border:3px solid rgba(156, 66, 85);
+    border-radius: 50%;
+    background-color: rgba(247, 203, 90, 1);
+    margin:auto;
     text-align: center;
-    color:white;
+    color:rgba(156, 66, 85);
 }
