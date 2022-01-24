@@ -1,3 +1,10 @@
+.loggedUsername {
+    margin-left: 10vw;
+    width: 15vw;
+    float: left;
+    min-height: 3vh;
+}
+
 .header_btn {
     right: 20vw;
     padding:0 1vh;
@@ -113,7 +120,7 @@ aside {
 
 .values {
     min-height:33vh;
-    width: 22%;
+    width: 100%;
     font-weight: 700;
     font-size: 1.5rem;
 }

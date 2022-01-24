@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 import LoginHandler from '../LoginHandler'
 const loginHandler = new LoginHandler()
-function LoggedHeader() {
+
+function LoggedHeader(props) {
 
     const navigate = useNavigate()
     const cookies = new Cookies
@@ -21,6 +22,7 @@ function LoggedHeader() {
 
     return (
         <div>
+            <p className="loggedUsername">{props.username}</p>
             <a className="homeRegLink" onClick={logout}>Wyloguj</a>
         </div>
     )
