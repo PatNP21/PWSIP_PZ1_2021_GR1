@@ -13,6 +13,7 @@ import LoginHandler from './LoginHandler'
 import PostHandler from './PostHandler'
 import HomeHandler from './HomeHandler'
 import ProfileHandler from './ProfileHandler'
+import AdminHandler from './AdminHandler'
 import Card from './UI/Card'
 import PostItem from './PostList/PostItem'
 
@@ -20,6 +21,7 @@ const postHandler = new PostHandler()
 const loginHandler = new LoginHandler()
 const homeHandler = new HomeHandler()
 const profileHandler = new ProfileHandler()
+const adminHandler = new AdminHandler()
 
 function Home() {
 
