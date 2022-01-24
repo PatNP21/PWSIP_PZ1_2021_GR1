@@ -20,10 +20,10 @@
 }
 
 .homeRegLink {  
-    right:10vw;
+    right:5vw;
     color:rgba(247, 203, 90, 1);
     position: fixed;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     line-height: 8vh;
     padding:0 10px;
     cursor: pointer;
