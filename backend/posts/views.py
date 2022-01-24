@@ -212,7 +212,7 @@ def likePost(request,idpost):
                     'success' : False,
                     "errors":"Serializer error"
                 })
-per_page = 5
+per_page = 15
 @api_view(['GET'])
 @renderer_classes([JSONRenderer])
 def getPosts(request,page):
@@ -223,15 +223,15 @@ def getPosts(request,page):
             })
     records =  page * per_page
     posts = Post.objects.filter(visibility = True).order_by('-publicationdate')
-    if posts.count()-(records - 5) <= 0:
+    if posts.count()-(records - per_page) <= 0:
          return Response({
             'success' : False,
             "errors":"Posty sie skonczyly typie"
             })
     if posts.count() > records:
-        posts = posts[records-5:records]
+        posts = posts[records- per_page:records]
     else:
-        posts = posts[records-5:]
+        posts = posts[records- per_page:]
     return Response({
             'success' : True,
             'count' : posts.count(),
