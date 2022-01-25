@@ -21,6 +21,7 @@ function Register() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [type, setType] = useState('password') //setting type for password fields ()
+    const [errors, setErrors] = useState(false)
 
     const [isRegistered, setIsRegistered] = useState(false)
 

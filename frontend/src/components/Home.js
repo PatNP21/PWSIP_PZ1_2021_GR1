@@ -38,6 +38,15 @@ function Home() {
     //const user = useParams()
     //getUsersCount()
 
+    const logout = () => {
+        loginHandler.logout(c).then( () =>
+        {
+            cookies.remove('sessionId')
+            navigate('/login')
+            console.log('Wylogowano')
+        })
+    }
+
     useEffect(() => {
         if(!init)
         {
@@ -77,6 +86,7 @@ function Home() {
             
         })
         console.log(image)
+        setTimeout(logout,600000)
       },[image])
 
 
