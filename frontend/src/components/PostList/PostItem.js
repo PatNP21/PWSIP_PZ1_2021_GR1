@@ -62,7 +62,7 @@ function PostItem(props) {
           <p>{props.description}</p>
       </div>
       <div className={classes.trush}>
-      {user == props.address && <RiDeleteBin7Line 
+      {(user == props.address && c) && <RiDeleteBin7Line 
           className={classes.trushIcon}
           onClick={deletePost}
         />}
