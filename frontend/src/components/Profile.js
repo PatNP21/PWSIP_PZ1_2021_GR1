@@ -194,23 +194,23 @@ function Profile() {
                 }
             </aside>
             <section>
-                <div class="user">
-                    {editing 
-                        ? <ChangeData email={email} finishEditing={finishEditing}/>
-                        : <ProfileData avatar={avatar} 
-                                    username={username} 
-                                    click={edit} 
-                                    myAccount={myAccount} 
-                                    addFriend={addFriend} 
-                                    removeFriend={removeFriend} 
-                                    blockUser={blockUser}
-                                    unblockUser={unblockUser}
-                                    blockedArray={blockedArray}
-                                    friends={friendsArray}/>
-                    }
-                </div>
                 
                 <div className="profilePosts">
+                    <div class="user">
+                        {editing 
+                            ? <ChangeData email={email} finishEditing={finishEditing}/>
+                            : <ProfileData avatar={avatar} 
+                                        username={username} 
+                                        click={edit} 
+                                        myAccount={myAccount} 
+                                        addFriend={addFriend} 
+                                        removeFriend={removeFriend} 
+                                        blockUser={blockUser}
+                                        unblockUser={unblockUser}
+                                        blockedArray={blockedArray}
+                                        friends={friendsArray}/>
+                        }
+                    </div>
                     <Postlist data={posts}/>
                 </div>
             </section>

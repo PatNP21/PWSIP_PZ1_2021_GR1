@@ -28,7 +28,6 @@ section {
     right: 0;
     position: fixed;
     border-right: 2px solid black;
-    overflow-y: scroll;
 }
 
 .profileData {
