@@ -15,8 +15,9 @@
 }
 
 .logFormGroup {
-    width:50%;
-    height:10%;
+    width:40%;
+    height:5%;
+    min-height: 50px;
     margin-top: 7%;
     margin-left: auto;
     margin-right: auto;
@@ -66,10 +67,11 @@
 
 
 .loginPanel > .inputLogSub {
-    width: 30%;
-    height: 10%;
-    margin-left: 35%;
-    margin-right: 35%;
+    width: 20%;
+    height: 5%;
+    min-height: 40px;
+    margin-left: 40%;
+    margin-right: 40%;
     margin-top: 3%;
     border-radius: 2vh;
     border: 1px solid lightgray;

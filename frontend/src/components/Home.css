@@ -1,24 +1,24 @@
 .loggedUsername {
     margin-left: 10vw;
-    width: 15vw;
+    width: 10vw;
     float: left;
     min-height: 3vh;
+    text-align: center;
 }
 
 .header_btn {
-    right: 20vw;
-    padding:0 1vh;
+    right: 15vw;
+    color:rgba(247, 203, 90, 1);
     position: fixed;
-    line-height: 4vh;
-    height: 4vh;
-    margin-top:2.5vh;
-    font-family: 'Titillium Web', sans-serif;
-    border-radius: 5px;
-    background-color: #3a3a58;
-    color:white;
-    border:1px solid #efefef;
+    font-size: 1.5vw;
+    line-height: 8vh;
+    padding:0 10px;
+    cursor: pointer;
+    font-weight: 700;
 }
-
+.header_btn:hover{
+    background-color: rgba(10, 10, 10, 0.35);   
+}
 .homeRegLink {  
     right:5vw;
     color:rgba(247, 203, 90, 1);
@@ -29,13 +29,11 @@
     cursor: pointer;
     font-weight: 700;
 }
+
 .homeRegLink:hover{
     background-color: rgba(10, 10, 10, 0.35);   
 }
 
-a:visited {
-    color:white;
-}
 
 aside {
     float: left;
@@ -144,4 +142,8 @@ aside {
     margin:auto;
     text-align: center;
     color:rgba(156, 66, 85);
+}
+#darkVisual{
+    background-color: rgba(10, 10, 10, 0.5);
+    min-height: 1vh;
 }

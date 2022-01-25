@@ -107,6 +107,7 @@ function Home() {
             </header>
             <aside>
                 <Card>
+                    <div id="darkVisual"></div>
                     <div id="logo_of_brand">
                         <img src={Draw_it}/>
                         
