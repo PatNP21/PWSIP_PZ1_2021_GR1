@@ -20,7 +20,7 @@ Nastęnie używacie komendy "npm start"<br/>
   <li>newPassword ('/newPassword')</li>
  </ul>
 
-# sesja po wygasnieciu na sekcji profile wywala blad
+# sesja po wygasnieciu na sekcji profile wywala blad ktory zmusza do zalogowania jeszcze raz gdy powinna wyrzuic uzytkownika do ekranu logowania  (nieobsluzone)
 # przy starcie frontu strona traktuje jako zalogowanego mimo iż taki nie jest
 # potwierdzenie konta FRONTEND
 # Obsluga bledow przy logowaniu i rejestracji
