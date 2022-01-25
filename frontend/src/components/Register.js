@@ -115,7 +115,6 @@ function Register() {
                     </div>
                     <button className="inputRegSub" onClick={registerToSystem}>Utwórz konto</button>
                 </div>
-                {isRegistered ? <p>OK!</p> : <p>Sth went wrong!</p>}
             </div>
         </div>
         

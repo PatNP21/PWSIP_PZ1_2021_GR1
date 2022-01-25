@@ -38,11 +38,9 @@ function RecoverPassword() {
             <h3 className="sentenceRetrieve">Ustal nowe hasło</h3>
             <div className="newPasswordFormGroup">
                 <input className="retInput" type="password" placeholder="Enter new password" onChange={e => setNewpassword(e.target.value)}/><br/>
-                {validator.message('newPassword', newpassword, 'required')}
             </div>
            <div className="newPasswordFormGroup">
                 <input className="retInput" type="password" placeholder="Repeat new password"/><br/>
-                {validator.message('newPassword', newpassword, 'required')}
            </div>
            
            <button className="inputRetSub" onClick={recover}>OK</button>
