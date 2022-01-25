@@ -12,6 +12,7 @@ header {
   background: rgba(10, 10, 10, 0.6);
   width: 96vw;
   height: 6vh;
+  min-height: 50px;
 }
 
 header > #logo_of_brand {

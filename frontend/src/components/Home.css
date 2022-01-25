@@ -1,9 +1,12 @@
 .loggedUsername {
-    margin-left: 10vw;
-    width: 10vw;
+    width: 20vw;
     float: left;
-    min-height: 3vh;
     text-align: center;
+    font-size:1.5rem;
+    min-height: 10px;
+    padding:1vh 0;
+    margin:1vh auto;
+    color:rgba(247, 203, 90, 1);
 }
 
 .header_btn {
@@ -48,8 +51,10 @@ aside {
 .createAPost {
     border-radius: 10px;
     height: 8vh;
-    width:95%;
+    min-height: 75px;
+    width:98%;
     margin: 10px auto;
+    margin-right: 0;
     background-color: rgba(10, 10, 10, 0.5);
     padding:10px;
     color: rgba(247, 203, 90, 1);
@@ -69,6 +74,7 @@ aside {
     border-radius: 10px;
     float:left;
     margin:2vh 10%;
+    background-color: seashell;
 }
 .createAPost > button {
     height:50%;
@@ -128,6 +134,10 @@ aside {
     text-align: center;
     padding: 5px;
     font-size:1.2rem;
+
+}
+.toProfile a{
+    color:rgba(247, 203, 90, 1);
 }
 .toProfile:hover{
     background-color: rgba(10, 10, 10, 0.7);

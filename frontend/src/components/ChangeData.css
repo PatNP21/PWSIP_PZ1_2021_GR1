@@ -1,12 +1,18 @@
 .edit_profile {
-    width:50vw;
+    width:100%;
     height:30vh;
 }
 
 .edit_profile > input {
-    width:70%;
+    width:30%;
     height:4vh;
+    min-height:30px;
     border-radius:5px;
-    margin-top: 1vh;
-    margin-left: 3vw;
+    margin-top:2vh;
+    margin-bottom:1vh;
+    margin-right: 35%;
+    margin-left:35%;
+    font-size:1.3rem;
+    color:rgba(156, 66, 85);
+    background-color: rgba(247, 203, 90, 1);
 }

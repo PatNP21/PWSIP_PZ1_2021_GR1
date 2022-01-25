@@ -22,7 +22,7 @@ function LoggedHeader(props) {
 
     return (
         <div>
-            <p className="loggedUsername">{props.username}</p>
+            <p className="loggedUsername">Witaj {props.username}</p>
             <a className="homeRegLink" onClick={logout}>Wyloguj</a>
         </div>
     )
