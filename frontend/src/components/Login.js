@@ -16,6 +16,7 @@ const Login = () => {
     const [usedLogin, setUsedLogin] = useState('')
     const [usedPassword, setUsedPassword] = useState('')
     const [errors, setErrors] = useState(false)
+    const [errorContent, setErrorContent] = useState('')
     //const [sessionId, setSessionId] = useState()
     const navigate = useNavigate()
     const c = cookies.get("sessionId")
@@ -39,6 +40,7 @@ const Login = () => {
                 (res) => {
                     let status = res.data.login
                     console.log(res.data)
+                    setErrorContent(res.data.errors)
                     if (status)
                     {
                         if(errors) {
@@ -92,7 +94,7 @@ const Login = () => {
                 <button className="inputLogSub" onClick = {handleLogin}>Zaloguj się</button><br/>
                 <p>lub</p>
                 <Link to="/register"><p>Załóż nowe konto</p></Link>
-                {errors ? <p>Błąd wystąpił</p> : null}
+                {errors ? <p>{errorContent}</p> : null}
             </div>
             
         </div>
