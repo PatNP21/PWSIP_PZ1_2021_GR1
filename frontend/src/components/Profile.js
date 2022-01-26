@@ -36,6 +36,7 @@ function Profile() {
     const [editing, setEditing] = useState(false)
     const friendName = useRef('')
     const user = useParams()
+    const refs = useRef([])
 
     const edit = () => {
         setEditing(true)
@@ -186,10 +187,13 @@ function Profile() {
                     <div className="values">
                         <ul className="list_of_friends">
                             {friendsArray !== null ? friendsArray.map((item) => 
-                                <li className="listFriendsElement" key={item.id} ref={friendName} onClick={() => {
-                                    console.log(friendName.current.children)
-                                    user.userek = friendName.current.children.innerHTML
-                                }}><FriendName>{item}</FriendName></li>
+                                <li className="listFriendsElement" key={item.id} ref={profileHandler} onClick={() => {
+                                    //console.log(refs[item.id])
+                                    //user.userek = friendName.current.children.innerHTML
+                                    /*profileHandler.getprofilebyusername().then(res => {
+                                        console.log(res.data)
+                                        setUsername(res.data.username)
+                                })*/}}><FriendName>{item}</FriendName></li>
                             ) : <p>Brak przyjaciół</p>}
                         </ul>
                     </div>
