@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SimpleReactValidator from 'simple-react-validator'
-import Axios from 'axios'
 import './Register.css'
 import Cookies from 'universal-cookie'
 import RegisterHandler from './RegisterHandler'
@@ -43,34 +42,12 @@ function Register() {
         }
     })
     const registerToSystem = () => {
-        const checkValidation = () => {
-            if(validator.allValid()) {
-                alert("All fields filled properly! It's OK :)")
-                return true
-            }
-            else {
-                validator.showMessages()
-                validator.forceUpdate()
-                return false
-            }
-        }
-
-        if (checkValidation) {
-            registerHandler.register(username, password, email, firstName, lastName, DOB).then((res) =>
-            {
-                let errors = res.data.errors
-                if (errors == "Brak")
-                {
-                   // navigate("/home")
-                   setIsRegistered(true)
-                }
-                else
-                {
-                    console.log(errors)
-                }
-            })
-        }
-
+        registerHandler.register(username, password, email, firstName, lastName, DOB).then((res) =>
+        {
+            console.log(res)
+            navigate("/home")
+            setIsRegistered(true)
+        }).catch(err => console.log(err))
     }
 
     const changeTypeOfInput = () => {
