@@ -45,6 +45,15 @@ function Profile() {
         setEditing(false)
     }
 
+    const logout = () => {
+        loginHandler.logout(c).then( () =>
+        {
+            cookies.remove('sessionId')
+            navigate('/login')
+            console.log('Wylogowano')
+        })
+    }
+
 
     useEffect((data) => {
         let loggedas = null;
@@ -112,6 +121,7 @@ function Profile() {
                 console.log(`Error: ${err}`)
             })
         })
+        setTimeout(logout,600000)
     }, [])
 
     const addFriend = () => {
