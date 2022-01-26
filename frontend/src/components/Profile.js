@@ -109,6 +109,10 @@ function Profile() {
                 profileHandler.getprofilebyusername(user.userek).then(res => {
                     console.log(res.data)
                     setUsername(res.data.username)
+                    
+                })
+                postHandler.getuserPosts(user.userek).then(res => {
+                    setPosts(res.data.posts)
                 })
             }
             profileHandler.list_of_friends(c).then(

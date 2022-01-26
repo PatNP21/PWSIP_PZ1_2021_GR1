@@ -7,7 +7,7 @@ import Cookies from "universal-cookie"
 import Comment from "./Comment"
 import Draw_it from './../../Draw_it.png'
 import Card from "./../UI/Card"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const postHandler = new PostHandler();
 function PostItem(props) {
@@ -59,7 +59,7 @@ function PostItem(props) {
     <div className={classes.onePostCard}>   
       
       <div className={classes.content}>
-          <address>{props.address}</address>
+          <Link to = {"../profile/"+props.address}><address>{props.address}</address></Link>
           <p>{props.description}</p>
       </div>
       <div className={classes.trush}>

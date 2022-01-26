@@ -5,6 +5,7 @@ import classes from "./PostItem.module.css"
 import PostHandler from "./../PostHandler"
 import Cookies from "universal-cookie"
 import Card from "./../UI/Card"
+import { Link } from "react-router-dom"
 
 const postHandler = new PostHandler();
 function Comment(props) {
@@ -19,7 +20,7 @@ function Comment(props) {
   }
   return(
     <div className={classes.comment}>
-    <h4>{props.author}</h4>
+    <Link to = {"../profile/"+props.author}><h4>{props.author}</h4></Link>
     <p>{props.content}</p>
     {user == props.author && 
         <RiDeleteBin7Line className={classes.trushIcon} 
