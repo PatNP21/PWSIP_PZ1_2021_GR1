@@ -214,7 +214,7 @@ def likePost(request,idpost):
                     'success' : False,
                     "errors":"Serializer error"
                 })
-per_page = 15
+per_page = 10
 @api_view(['GET'])
 @renderer_classes([JSONRenderer])
 def getPosts(request,page):
