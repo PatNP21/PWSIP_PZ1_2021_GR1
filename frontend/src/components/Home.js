@@ -35,6 +35,8 @@ function Home() {
     const [profilesStats, updateProfilesStats] = useState(0)
     const [init,setInit] = useState(false)
     const [user, setUser] = useState('')
+    const [page,setPage] = useState(1)
+    const [more,setMore] = useState(false)
     //const user = useParams()
     //getUsersCount()
 
@@ -50,12 +52,12 @@ function Home() {
     useEffect(() => {
         if(!init)
         {
-            postHandler.getPosts(1).then(
+            postHandler.getPosts(page).then(
                 (data) => {
                     console.log(data)
                     setInit(true)
                     setPostArray(data.data.posts)
-                    
+                    setMore(data.data.more)
                 }
             )
             homeHandler.countUsers().then(data => {
@@ -95,11 +97,12 @@ function Home() {
             console.log(res)
             
         })
-        postHandler.getPosts(1).then(
+        postHandler.getPosts(page).then(
             (data) => {
                 console.log(data)
                 setInit(true)
                 setPostArray(data.data.posts)
+                setMore(data.data.more)
                 for (let i=0; i<data.data.posts.length; i++) {
                     postArray.push(data.data.posts[i])
                     setComments(postArray.comments)
@@ -110,6 +113,16 @@ function Home() {
         )
     }
 
+    const requestNextPage = () => {
+        postHandler.getPosts(page+1).then(
+            (data) => {
+                console.log(data)
+                setInit(true)
+                setPostArray(data.data.posts)
+                setPage(data.data.page)
+                setMore(data.data.more)
+            })
+    }
     return (
         <div>
             <header>
@@ -150,6 +163,7 @@ function Home() {
                         <div class="clear:both;"></div>
                     </div>}
                     <Postlist data={postArray}/>
+                    {more && <button onClick={requestNextPage}>Następna</button>}
                 </div>
             </main>
             
