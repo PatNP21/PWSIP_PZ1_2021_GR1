@@ -5,6 +5,7 @@ import classes from "./PostItem.module.css"
 import PostHandler from "./../PostHandler"
 import Cookies from "universal-cookie"
 import Comment from "./Comment"
+import Draw_it from './../../Draw_it.png'
 import Card from "./../UI/Card"
 import { useNavigate } from "react-router-dom"
 
@@ -69,7 +70,7 @@ function PostItem(props) {
           
       </div> 
       <div className={classes.image}>
-        <img src={props.image} alt={props.title} />       
+        <img src={props.image} alt={props.title} onError={e => {e.target.src = Draw_it}}/>       
       </div>
 
       <div className={classes.activityContent}>
