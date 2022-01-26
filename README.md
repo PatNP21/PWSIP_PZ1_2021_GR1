@@ -20,5 +20,3 @@ Nastęnie używacie komendy "npm start"<br/>
   <li>newPassword ('/newPassword')</li>
  </ul>
 
-# przy starcie frontu strona traktuje jako zalogowanego mimo iż taki nie jest
-# potwierdzenie konta FRONTEND
