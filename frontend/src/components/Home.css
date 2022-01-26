@@ -174,11 +174,12 @@ aside {
 
 .postListOption {
     width:49%;
-    margin-left: 1%;
+    margin-left: 50%;
     height:4vh;
     float: left;
     background: rgba(10, 10, 10, 0.7);
     text-align: center;
     line-height: 4vh;
     color: rgba(247, 203, 90, 1);
+    border-radius: 5px;
 }

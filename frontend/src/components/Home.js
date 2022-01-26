@@ -163,9 +163,7 @@ function Home() {
                         <div class="clear:both;"></div>
                     </div>}
                     <Postlist data={postArray}/>
-                    {more && <button onClick={requestNextPage}>Następna</button>}
-                    <div className="postListOption">Poprzednia strona</div>
-                    <div className="postListOption">Następna strona</div>
+                    {more && <div className="postListOption" onClick={requestNextPage}>Następna strona</div>}
                 </div>
             </main>
             
