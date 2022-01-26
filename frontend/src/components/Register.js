@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import SimpleReactValidator from 'simple-react-validator'
 import './Register.css'
 import Cookies from 'universal-cookie'
@@ -60,6 +60,11 @@ function Register() {
 
     return (
         <div className="allPage">
+            <header>
+                <div id="logo_of_brand">
+                    <Link to="/home" className="preturn">Wróc do strony głównej</Link>
+                </div>
+            </header>
             <div className="plot">
                 <div className="registerPanel">
                     <div className="regFormGroup">

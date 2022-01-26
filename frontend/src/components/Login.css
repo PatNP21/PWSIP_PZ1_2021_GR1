@@ -1,7 +1,6 @@
 .plot {
     width:50%;
     height: 70%;
-    padding-top: 5vh;
     margin-left: auto;
     margin-right: auto;
 }
@@ -28,7 +27,8 @@
 }
 
 .logFormGroup > .login {
-    width: 98%;
+    width: 96%;
+    margin-top: 2vh;
     height: 90%;
     border:none;
     font-size: 1.1em;
@@ -36,11 +36,13 @@
     color:rgba(156, 66, 85);
     font-weight: 700;
     text-align: center;
+    line-height: 5vh;
 }
 
 .logFormGroup > .password {
-    height: 90%;
-    width: 94%;
+    height: 96%;
+    width: 92%;
+    margin-top: 2vh;
     border-bottom: 2px solid lightgray;
     border:none;
     border-radius: 5px;
@@ -50,6 +52,7 @@
     color:rgba(156, 66, 85);
     font-weight: 700;
     text-align: center;
+    line-height: 5vh;
 }
 ::-webkit-input-placeholder {
     color: rgba(156, 66, 85);
@@ -59,7 +62,7 @@
 
 .logFormGroup >.eyeIcon {
     font-size: 1em;
-    line-height: 3vh;
+    line-height: 1vh;
     float: right;
     width:5%;
     height:3vh;

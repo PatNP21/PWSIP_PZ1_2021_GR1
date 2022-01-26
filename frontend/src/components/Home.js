@@ -123,6 +123,19 @@ function Home() {
                 setMore(data.data.more)
             })
     }
+
+    const requestPreviousPage = () => {
+        postHandler.getPosts(page-1).then(
+            data => {
+                console.log(data)
+                setInit(true)
+                setPostArray(data.data.posts)
+                setPage(data.data.page)
+                setMore(data.data.more)
+            }
+        )
+    }
+
     return (
         <div>
             <header>
@@ -163,7 +176,8 @@ function Home() {
                         <div class="clear:both;"></div>
                     </div>}
                     <Postlist data={postArray}/>
-                    {more && <div className="postListOption" onClick={requestNextPage}>Następna strona</div>}
+                    {page > 1 && <div className="postListOption previousPage" onClick={requestPreviousPage}>Poprzednia strona</div>}
+                    {more && <div className="postListOption nextPage" onClick={requestNextPage}>Następna strona</div>}
                 </div>
             </main>
             

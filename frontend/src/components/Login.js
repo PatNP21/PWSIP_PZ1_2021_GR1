@@ -79,26 +79,33 @@ const Login = () => {
     }
 
     return(
-        
-        <div className="plot">
-            <div className="loginPanel">
-                <div className="logFormGroup">
-                    <input className="inputLog login" type="text" placeholder="Login" onChange={(e) => setUsedLogin(e.target.value)}/><br/>
+        <div>
+            <header>
+                <div id="logo_of_brand">
+                    <Link to="/home" className="preturn">Wróc do strony głównej</Link>
                 </div>
-                <div className="logFormGroup">
-                    <input className="inputLog password" type={type} placeholder="Hasło" onChange={(e) => setUsedPassword(e.target.value)}/>
-                    <FaRegEye onClick={changeTypeOfInput} className="eyeIcon"/>
+            </header>
+            <div className="plot">
+                <div className="loginPanel">
+                    <div className="logFormGroup">
+                        <input className="inputLog login" type="text" placeholder="Login" onChange={(e) => setUsedLogin(e.target.value)}/><br/>
+                    </div>
+                    <div className="logFormGroup">
+                        <input className="inputLog password" type={type} placeholder="Hasło" onChange={(e) => setUsedPassword(e.target.value)}/>
+                        <FaRegEye onClick={changeTypeOfInput} className="eyeIcon"/>
+                    </div>
+                    
+                    <Link to = "/retrievePassword" className="forgottenPasswordLink"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>
+                    <button className="inputLogSub" onClick = {handleLogin}>Zaloguj się</button><br/>
+                    <p>lub</p>
+                    <Link to="/register"><p>Załóż nowe konto</p></Link>
+                    {errors ? <p>{errorContent}</p> : null}
                 </div>
-                
-                <Link to = "/retrievePassword" className="forgottenPasswordLink"><p className="forgottenPasswordLink">Nie pamiętasz hasła?</p></Link>
-                <button className="inputLogSub" onClick = {handleLogin}>Zaloguj się</button><br/>
-                <p>lub</p>
-                <Link to="/register"><p>Załóż nowe konto</p></Link>
-                {errors ? <p>{errorContent}</p> : null}
             </div>
-            
         </div>
     )
+        
+        
 }
 
 export default Login
