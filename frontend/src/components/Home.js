@@ -150,6 +150,8 @@ function Home() {
                         <div class="clear:both;"></div>
                     </div>}
                     <Postlist data={postArray}/>
+                    <div className="postListOption">Poprzednia strona</div>
+                    <div className="postListOption">Następna strona</div>
                 </div>
             </main>
             
