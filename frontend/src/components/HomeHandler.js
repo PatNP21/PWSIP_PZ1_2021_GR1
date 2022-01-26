@@ -9,5 +9,9 @@ export default class HomeHandler{
         const url = `${API_URL}/home/userscount/`;
         return axios.get(url)
     }
+    countPosts(){
+        const url = `${API_URL}/home/postcount/`;
+        return axios.get(url)
+    }
 
  }
