@@ -33,6 +33,7 @@ function Home() {
     const [postArray, setPostArray] = useState([])
     const [comments, setComments] = useState([])
     const [profilesStats, updateProfilesStats] = useState(0)
+    const [postsStats, setpostStats] = useState(0)
     const [init,setInit] = useState(false)
     const [user, setUser] = useState('')
     const [page,setPage] = useState(1)
@@ -64,6 +65,10 @@ function Home() {
                 updateProfilesStats(data.data.count)
 
             })
+            homeHandler.countPosts().then(res =>
+                {
+                    setpostStats(res.data.count)
+                })
         }
         
         let loggedas = null
@@ -151,6 +156,11 @@ function Home() {
                     <div className="values">
                         <p>Użytkowników zarejestrowanych</p>
                         <h4 className="userscount">{profilesStats}</h4>
+                        
+                    </div>
+                    <div className="values">
+                        <p>Utworzonych postów</p>
+                        <h4 className="userscount">{postsStats}</h4>
                         
                     </div>
                     <div className="toProfile">
