@@ -1,12 +1,11 @@
 from django.urls import path
-from django.urls.conf import include
-from adminpanel.views import BlockUser, UnblockUser, DeletePost, DeleteComment
+from adminpanel.views import blockUser, unblockUser, deletePost, deleteComment
 app_name = 'admin'
 
 urlpatterns = [
-   path('blockuser/<str:username>/', BlockUser, name = 'blockuser'),
-   path('unblockuser/<str:username>/', UnblockUser, name = 'unblockuser'),
-   path('deletepost/<str:idpost>/', DeletePost, name = 'deletepost'),
-   path('deletecomment/<str:idcomment>/', DeleteComment, name = 'deletecomment'),
+   path('blockuser/<str:username>/', blockUser, name = 'blockuser'),
+   path('unblockuser/<str:username>/', unblockUser, name = 'unblockuser'),
+   path('deletepost/<str:idpost>/', deletePost, name = 'deletepost'),
+   path('deletecomment/<str:idcomment>/', deleteComment, name = 'deletecomment'),
 ]
 

@@ -37,12 +37,13 @@ def createComment(request,idpost):
             post = post
         )
         return Response({
-            'success': True
+            'success': True,
+            'errors' : "Brak"
         })
     else:
         return Response({
             'success': False,
-            'errors' : 'Zjebałeś wysyłkę znowu'
+            'errors' : 'serializer'
         })
 
 @api_view(['POST'])
@@ -79,6 +80,6 @@ def deleteComment(request, idcomment):
     else:
         return Response({
             'success': False,
-            'errors' : 'Zjebałeś wysyłkę znowu'
+            'errors' : 'serializer'
         })
 

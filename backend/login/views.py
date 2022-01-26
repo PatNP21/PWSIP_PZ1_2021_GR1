@@ -39,7 +39,6 @@ def loginPage(request):
                 'username' : user.username
             })
         except User.DoesNotExist:
-            print("Avutalllsa")
             return Response({
                 'success' : False,
                 'errors': 'Nieprawidłowy login i/lub hasło',
@@ -75,7 +74,7 @@ def isloggedin(request):
             })
     else:
         return Response({
-            "errors" : "DAAA"
+            'loggedin': False
         })
 
 @api_view(["POST"])
@@ -94,7 +93,6 @@ def logout(request):
         })
     else:
         return Response({
-            'success' : False,
-            "errors" : "DAAA"
+            'success' : False
         })
 

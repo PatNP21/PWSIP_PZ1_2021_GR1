@@ -12,7 +12,7 @@ from comments.models import Comment
 
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
-def BlockUser(request,username): 
+def blockUser(request,username): 
     serializer = BlockUserSerializer(data = request.data) 
     if serializer.is_valid():
         try:
@@ -30,7 +30,7 @@ def BlockUser(request,username):
                 return Response({
                     'success': True,
                     'errors':'Brak',
-                    'Info':'Uzytkownik: ' + username +' otrzymał banicję do ' + serializer.data['expires'] +', powod: '+ serializer.data['reason']
+                    'info':'Uzytkownik: ' + username +' otrzymał banicję do ' + serializer.data['expires'] +', powod: '+ serializer.data['reason']
                 })
             else:
                 return Response({
@@ -43,12 +43,13 @@ def BlockUser(request,username):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        "success" : False,
+        "errors":"serializer"
     })
     
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
-def UnblockUser(request,username):
+def unblockUser(request,username):
     serializer = IsLoggedInSerializer(data = request.data) 
     if serializer.is_valid():
         try:
@@ -86,13 +87,14 @@ def UnblockUser(request,username):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        "success" : False,
+        "errors":"serializer"
     })
 
         
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
-def DeletePost(request,idpost):
+def deletePost(request,idpost):
     serializer = IsLoggedInSerializer(data = request.data) 
     if serializer.is_valid():
         try:
@@ -130,12 +132,13 @@ def DeletePost(request,idpost):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        "success" : False,
+        "errors":"serializer"
     })
 
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
-def DeleteComment(request,idcomment):
+def deleteComment(request,idcomment):
     serializer = IsLoggedInSerializer(data = request.data) 
     if serializer.is_valid():
         try:
@@ -173,6 +176,7 @@ def DeleteComment(request,idcomment):
                     'errors' : 'User does not exist'
                 })        
     return Response({
-        "errors":"brak"
+        "success" : False,
+        "errors":"serializer"
     })
 

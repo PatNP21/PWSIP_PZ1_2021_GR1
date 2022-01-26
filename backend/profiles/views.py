@@ -15,7 +15,7 @@ def myprofile(request):
             if session.isexpired():
                 return Response({
                 'success' : False,
-                'loggedin': False
+                'errors': "Not logged in"
                 })
             user = User.objects.get(username__iexact = session.username)
             return Response({
@@ -45,6 +45,7 @@ def profile(request,username):
         user = User.objects.get(username__iexact = username)
         return Response({
             'success' : True,
+            'errors': "Brak",
             'username' : user.username,
             'firstname' : user.firstname,
             'lastname' : user.lastname
@@ -66,7 +67,7 @@ def changeprofile(request):
             if session.isexpired():
                 return Response({
                     'success' : False,
-                    'loggedin': False
+                    'errors': "Not logged in"
                 })
             user = User.objects.get(username__iexact = session.username)
             email = serializer.data["email"]
@@ -76,7 +77,8 @@ def changeprofile(request):
             user.changeprofiledata(email,firstname,lastname,dateofbirth)
             ## OUT OF DATE OF BIRTH YET
             return Response({
-                'success' : True
+                'success' : True,
+                'errors': "Brak"
             })       
             
 

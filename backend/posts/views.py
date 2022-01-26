@@ -26,7 +26,7 @@ def createpost(request):
             if session.isexpired():
                 return Response({
                     'success' : False,
-                    'loggedin':False
+                    'errors': "Not logged in"
                 })
             author = session.username    
             title = serializer.data["title"]
@@ -74,6 +74,7 @@ def getpost(request,idpost):
         post = Post.objects.get(id = idpost)
         return Response({
             'success' : True,
+            'errors' : "Brak",
             'author' : post.author,
             'title' : post.title,
             'content': post.content,
@@ -118,7 +119,7 @@ def getSelfPosts(request):
             if session.isexpired():
                 return Response({
                     'success' : False,
-                    'loggedin':False
+                    'errors': "Not logged in"
                 })
             author = session.username
             queryposts = Post.objects.filter(author = author)
@@ -155,7 +156,7 @@ def deletePost(request,idpost):
             if session.isexpired():
                 return Response({
                     'success' : False,
-                    'loggedin':False
+                    'errors': "Not logged in"
                 })
             user = session.username
             post = Post.objects.get(id = idpost)
@@ -188,7 +189,7 @@ def likePost(request,idpost):
             if session.isexpired():
                 return Response({
                     'success' : False,
-                    'loggedin':False
+                    'errors': "Not logged in"
                 })
             
             post = Post.objects.get(id = idpost)
@@ -200,7 +201,8 @@ def likePost(request,idpost):
                 post.addLike(username)
             
             return Response({
-                "success": True
+                "success": True,
+                'errors': "Brak"
             })
 
         except Session.DoesNotExist:
@@ -248,6 +250,7 @@ def getLikes(request,idpost):
         post = Post.objects.get(id = idpost)
         return Response({
             'success' : True,
+            'errors': "Brak",
             'likecounter' : post.likeCounter
         })
     except Post.DoesNotExist:

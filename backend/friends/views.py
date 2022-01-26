@@ -68,7 +68,8 @@ def createFriendRequest(request,tousername):
                 })
             FriendRequest.objects.create(fromusername = fromusername, tousername = tousername)
             return Response({
-                    'success' : True
+                    'success' : True,
+                    'errors' : "Brak"
                 })
 
         except Session.DoesNotExist:
@@ -79,7 +80,7 @@ def createFriendRequest(request,tousername):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 
 @api_view(['POST'])
@@ -106,7 +107,8 @@ def acceptFriendRequest(request,fromusername):
                 fromuser.addFriend(tousername)
                 obj.delete()
                 return Response({
-                    'success' : True
+                    'success' : True,
+                    'errors' : "Brak"
                 })
             except FriendRequest.DoesNotExist:
                 return Response({
@@ -122,7 +124,7 @@ def acceptFriendRequest(request,fromusername):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 
 @api_view(['POST'])
@@ -143,7 +145,8 @@ def denyFriendRequest(request,fromusername):
                 obj = FriendRequest.objects.get(fromusername = fromusername, tousername = tousername)
                 obj.delete()
                 return Response({
-                    'success' : True
+                    'success' : True,
+                    'errors' : "Brak"
                 })
             except FriendRequest.DoesNotExist:
                 return Response({
@@ -159,7 +162,7 @@ def denyFriendRequest(request,fromusername):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 
 @api_view(['POST'])
@@ -182,7 +185,8 @@ def removeFriend(request,username):
                 friendlist1.removeFriend(username)
                 friendlist2.removeFriend(fromusername)
                 return Response({
-                    'success' : True
+                    'success' : True,
+                    'errors' : "Brak"
                 })
             else:
                 return Response({
@@ -197,7 +201,7 @@ def removeFriend(request,username):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 
 @api_view(['POST'])
@@ -231,7 +235,8 @@ def blockUser(request,username):
             if not friendlist1.isBlocked(username):
                 friendlist1.blockUser(username)
                 return Response({
-                    'success' : True
+                    'success' : True,
+                    'errors' : "Brak"
                 })
             else:
                 return Response({
@@ -246,7 +251,7 @@ def blockUser(request,username):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 
 @api_view(['POST'])
@@ -267,7 +272,8 @@ def unblockUser(request,username):
             if friendlist1.isBlocked(username):
                 friendlist1.unblockUser(username)
                 return Response({
-                    'success' : True
+                    'success' : True,
+                    'errors' : "Brak"
                 })
             else:
                 return Response({
@@ -282,7 +288,7 @@ def unblockUser(request,username):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 @api_view(['POST'])
 @renderer_classes([JSONRenderer])
@@ -302,6 +308,7 @@ def getFriends(request):
             friendlist = friendlist1.list()
             return Response({
                 'success' : True,
+                'errors' : "Brak",
                 'friends' : friendlist
             })
         except Session.DoesNotExist:
@@ -312,7 +319,7 @@ def getFriends(request):
     else:
         return Response({
             'success' : False,
-            "errors" : 'Zjebałeś wysłanie popraw siebie kmiotku'
+            "errors" : 'serializer'
         })
 
 @api_view(['POST'])
@@ -332,6 +339,7 @@ def getpendingReq(request):
             requests = FriendRequest.objects.filter(tousername = username)
             return Response({
                 "success" : True,
+                'errors' : "Brak",
                 "requests" : serializeFriendRequest(requests)
             })
         except Session.DoesNotExist:
@@ -339,3 +347,7 @@ def getpendingReq(request):
                     'success' : False,
                     'errors' : 'Niezalogowany'
                 })
+    return Response({
+            'success' : False,
+            "errors" : 'serializer'
+        })

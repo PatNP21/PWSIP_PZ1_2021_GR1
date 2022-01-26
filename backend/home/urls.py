@@ -1,7 +1,6 @@
-from django.shortcuts import redirect
 from django.urls import path
-from home.views import RegisteredUserCount
+from home.views import registeredUserCount
 app_name = 'home'
 urlpatterns = [
-    path('userscount/', RegisteredUserCount, name = 'RegisteredUserCount'),
+    path('userscount/', registeredUserCount, name = 'RegisteredUserCount'),
 ]

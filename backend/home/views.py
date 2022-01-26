@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view, renderer_classes
 
 @api_view(['GET'])
 @renderer_classes([JSONRenderer])
-def RegisteredUserCount(request):
+def registeredUserCount(request):
     users = User.objects.all().count()
     return Response({
         "count": users
