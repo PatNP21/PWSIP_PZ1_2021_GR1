@@ -98,6 +98,7 @@ function Register() {
                     </div>
                     <button className="inputRegSub" onClick={registerToSystem}>Utwórz konto</button>
                 </div>
+                {isRegistered && <p>Aktywuj swoje konto poprzez link w email</p>}
             </div>
         </div>
         

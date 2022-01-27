@@ -43,7 +43,7 @@ def registerPage(request):
             subject = "Witaj na drawit"
             message = "Witaj %s na Draw.it Link do aktywacji %s" % (serializer.data['username'],domain)
             print(message)
-            #send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
+            send_mail(subject= subject, message= message, recipient_list= [serializer.data['email']], from_email= None), 
             return Response({
                 'success' : True,
                 'errors': "Brak"
