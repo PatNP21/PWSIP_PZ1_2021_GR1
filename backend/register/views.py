@@ -75,7 +75,7 @@ def changePassword(request):
                 UserPasswordChange.objects.create(username = user.username, code = code, newpass = newpass)
                 subject = "Zmiana hasłą"
                 message = "Kod do zmiany hasła %s" % code
-                #send_mail(subject= subject, message= message, recipient_list= [user.email], from_email= None), 
+                send_mail(subject= subject, message= message, recipient_list= [user.email], from_email= None), 
                 return Response({
                     'success': True,
                     'errors' : "Brak"
@@ -159,7 +159,7 @@ def recoverPassword(request):
             subject = "Odzyskiwanie hasła"
             message = "Link do odzyskania hasła %s/%s" % (domain,code)
             print(message)
-            #send_mail(subject= subject, message= message, recipient_list= [email], from_email= None),
+            send_mail(subject= subject, message= message, recipient_list= [email], from_email= None),
             return Response({
                 'success': True,
                 'errors' : "Brak"
