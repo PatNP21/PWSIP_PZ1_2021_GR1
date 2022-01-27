@@ -81,7 +81,7 @@ function Home() {
                     
             }
         ).then(() => {
-            if (loggedas == user.userek || user.userek == undefined)
+            if (loggedas === user.userek || user.userek === undefined)
             {
                 console.log(user.userek)
                 profileHandler.myprofile(c).then(data => {
