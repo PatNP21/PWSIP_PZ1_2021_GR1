@@ -1,11 +1,11 @@
 import React from 'react'
 import './FriendName.css'
-
+import {Link} from 'react-router-dom'
 function FriendName(props) {
     return (
-        <div className="dispFriendName">
+        <Link to = {"../profile/"+props.children}><div className="dispFriendName">
             {props.children}
-        </div>
+        </div></Link>
     )
 }
 

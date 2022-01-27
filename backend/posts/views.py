@@ -94,6 +94,7 @@ def getUserPosts(request,author):
     posts = []
     for post in queryposts:
         p = {
+        'id' : post.id,
         'author' : post.author,
         'title' : post.title,
         'content': post.content,

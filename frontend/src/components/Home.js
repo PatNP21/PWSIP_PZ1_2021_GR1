@@ -182,7 +182,7 @@ function Home() {
                         <button onClick={createAPost}>Dodaj</button>
                         <div class="clear:both;"></div>
                     </div>}
-                    <Postlist data={postArray}/>
+                    {postArray ? <Postlist data={postArray}/> : <p>Nie znaleziono postów</p>}
                     {page > 1 && <div className="postListOption previousPage" onClick={requestPreviousPage}>Poprzednia strona</div>}
                     {more && <div className="postListOption nextPage" onClick={requestNextPage}>Następna strona</div>}
                 </div>
